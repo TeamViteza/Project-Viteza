@@ -10,6 +10,9 @@ public class MenuController : MonoBehaviour
     Transform[] buttonPositions = new Transform[7];
     Button[] mainButtons = new Button[4];
 
+    int firstButtonPositionIndex, mainButtonCounter;
+    int downCounter = 0;
+
     void Awake()
     {
         mainCanvas = GameObject.Find("canvas_main").GetComponent<Canvas>(); // Get access to the main menu's canvas.
@@ -24,22 +27,51 @@ public class MenuController : MonoBehaviour
         #endregion
 
         #region Now get a reference to each button on the main menu.       
-        for (int i = 0; i < mainButtons.Length; i++) 
+        for (int i = 0; i < mainButtons.Length; i++)
         {
             mainButtons[i] = mainButtonsParent.transform.GetChild(i).GetComponent<Button>();
+        }
+        #endregion
+
+        firstButtonPositionIndex = buttonPositions.Length - mainButtons.Length; // Should be 3.
+
+        #region Set the starting position of each button.       
+        int buttonCounter = 0;
+
+        for (int i = firstButtonPositionIndex; i < buttonPositions.Length; i++)
+        {
+            mainButtons[buttonCounter].transform.position = buttonPositions[i].transform.position; // Set each of our buttons to their appropriate starting positions.
+            buttonCounter++;
         }
         #endregion
     }
 
     void Start()
-    {       
+    {
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
+        if (Input.GetKeyUp(KeyCode.DownArrow))
+        {            
+            firstButtonPositionIndex = buttonPositions.Length - mainButtons.Length; // Should be 3.
 
+            mainButtonCounter = 0;
+            for (int i = 0; i < buttonPositions.Length; i++)
+            {
+                if (i >= firstButtonPositionIndex - downCounter)
+                {
+                    Debug.Log(firstButtonPositionIndex - downCounter);
+                    mainButtons[mainButtonCounter].transform.position = buttonPositions[i - 1].transform.position; // This'll soon be replaced with a lerp function.
+                    mainButtonCounter++;
+                }               
+            }
+            downCounter++;
+        }
+
+        if (Input.GetKeyUp(KeyCode.UpArrow))
+        {
+            Debug.Log("Up");
         }
     }
 }
