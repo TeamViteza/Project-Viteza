@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Hearths : MonoBehaviour {
+public class Hearts : MonoBehaviour {
 
     public int health;
     public int numberOfHearts;
