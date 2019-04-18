@@ -123,7 +123,9 @@ GameObject:
   - component: {fileID: 32561632}
   - component: {fileID: 32561631}
   - component: {fileID: 32561634}
+  - component: {fileID: 32561637}
   - component: {fileID: 32561633}
+  - component: {fileID: 32561635}
   m_Layer: 0
   m_Name: Katt
   m_TagString: Untagged
@@ -184,7 +186,7 @@ Transform:
   m_GameObject: {fileID: 32561630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.3, y: 3.89, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -221,7 +223,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.2, y: -1.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -232,8 +234,109 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3, y: 4}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &32561635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 32561630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 867186953cc2d594fb203ecbd2eb4f8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  body: {fileID: 32561633}
+  feetPos: {fileID: 0}
+  jumpForce: 4
+  walkSpeed: 0.2
+  runSpeed: 0.4
+  sprintSpeed: 1
+--- !u!60 &32561637
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 32561630}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3, y: 4}
+    newSize: {x: 3, y: 4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.28, y: -1.39}
+      - {x: 0.39, y: -1.4499999}
+      - {x: 0.47, y: -1.61}
+      - {x: 0.53999996, y: -1.67}
+      - {x: 0.55, y: -2}
+      - {x: 1, y: -2}
+      - {x: 1, y: -1.87}
+      - {x: 0.79999995, y: -1.74}
+      - {x: 0.77, y: -1.5899999}
+      - {x: 0.77, y: -1.35}
+      - {x: 0.69, y: -1.3199999}
+      - {x: 0.78999996, y: -1.05}
+      - {x: 0.77, y: -0.75}
+      - {x: 0.63, y: -0.68}
+      - {x: 0.68, y: -0.32}
+      - {x: 0.69, y: -0.14999999}
+      - {x: 0.61, y: -0.12}
+      - {x: 0.84999996, y: 0.14999999}
+      - {x: 0.96, y: 0.42}
+      - {x: 0.85999995, y: 0.48999998}
+      - {x: 0.84999996, y: 0.81}
+      - {x: 0.77, y: 0.96999997}
+      - {x: 0.7, y: 1.06}
+      - {x: 0.51, y: 1.16}
+      - {x: 0.32, y: 1.14}
+      - {x: 0.32999998, y: 1.37}
+      - {x: 0.28, y: 1.4499999}
+      - {x: 0.16, y: 1.48}
+      - {x: 0.089999996, y: 1.37}
+      - {x: 0.049999997, y: 1.4499999}
+      - {x: -0.03, y: 1.54}
+      - {x: -0.17, y: 1.54}
+      - {x: -0.25, y: 1.48}
+      - {x: -0.42, y: 1.2099999}
+      - {x: -0.5, y: 0.91999996}
+      - {x: -0.56, y: 0.89}
+      - {x: -0.56, y: 0.47}
+      - {x: -0.48999998, y: 0.45}
+      - {x: -0.48999998, y: 0.31}
+      - {x: -0.41, y: 0.14999999}
+      - {x: -0.26, y: -0.02}
+      - {x: -0.26, y: -0.14999999}
+      - {x: -0.39999998, y: -0.48}
+      - {x: -0.39999998, y: -0.56}
+      - {x: -0.32999998, y: -0.65999997}
+      - {x: -0.25, y: -0.68}
+      - {x: -0.25, y: -0.89}
+      - {x: -0.17999999, y: -0.97999996}
+      - {x: -0.17, y: -1.11}
+      - {x: -0.26999998, y: -1.4599999}
+      - {x: -0.25, y: -1.5899999}
+      - {x: -0.25, y: -2}
+      - {x: 0.28, y: -2}
+      - {x: 0.28, y: -1.91}
+      - {x: 0.19, y: -1.8199999}
+      - {x: 0.049999997, y: -1.77}
+    - - {x: -0.11, y: -0.51}
+      - {x: -0.089999996, y: -0.51}
+      - {x: -0.089999996, y: -0.53}
+      - {x: -0.11, y: -0.53}
 --- !u!1 &36911345
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,7 +350,7 @@ GameObject:
   - component: {fileID: 36911349}
   m_Layer: 0
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11136,6 +11239,7 @@ GameObject:
   - component: {fileID: 881460426}
   - component: {fileID: 881460425}
   - component: {fileID: 881460424}
+  - component: {fileID: 881460428}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -11206,6 +11310,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &881460428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 881460423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ce10e9e8805f2a41957e4c3bb5aacac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 32561630}
 --- !u!1 &939817356
 GameObject:
   m_ObjectHideFlags: 0
@@ -11262,7 +11378,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1157720737
 SpriteRenderer:
   m_ObjectHideFlags: 0
