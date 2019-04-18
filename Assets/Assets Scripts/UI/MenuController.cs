@@ -52,26 +52,46 @@ public class MenuController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.DownArrow))
-        {            
-            firstButtonPositionIndex = buttonPositions.Length - mainButtons.Length; // Should be 3.
+        if (Input.GetKeyUp(KeyCode.DownArrow)) NavigateDownMain();
 
+        if (Input.GetKeyUp(KeyCode.UpArrow)) NavigateUpMain();       
+    }
+
+    private void NavigateDownMain()
+    {
+        firstButtonPositionIndex = buttonPositions.Length - mainButtons.Length; // Should be 3.
+
+        if (downCounter < firstButtonPositionIndex)
+        {
             mainButtonCounter = 0;
             for (int i = 0; i < buttonPositions.Length; i++)
-            {
-                if (i >= firstButtonPositionIndex - downCounter)
+            {                
+                if (i >= firstButtonPositionIndex - downCounter && mainButtonCounter < mainButtons.Length)
                 {
-                    Debug.Log(firstButtonPositionIndex - downCounter);
                     mainButtons[mainButtonCounter].transform.position = buttonPositions[i - 1].transform.position; // This'll soon be replaced with a lerp function.
                     mainButtonCounter++;
-                }               
+                }
             }
             downCounter++;
         }
+    }
 
-        if (Input.GetKeyUp(KeyCode.UpArrow))
+    private void NavigateUpMain()
+    {
+        firstButtonPositionIndex = buttonPositions.Length - mainButtons.Length; // Should be 3.
+
+        if (downCounter > 0)
         {
-            Debug.Log("Up");
+            mainButtonCounter = 0;
+            for (int i = 0; i < buttonPositions.Length; i++)
+            {                
+                if (i >= firstButtonPositionIndex + downCounter && mainButtonCounter < mainButtons.Length)
+                {
+                    mainButtons[mainButtonCounter].transform.position = buttonPositions[i + 1].transform.position; // This'll soon be replaced with a lerp function.
+                    mainButtonCounter++;
+                }
+            }
+            downCounter--;
         }
     }
 }
