@@ -83,11 +83,12 @@ public class MenuController : MonoBehaviour
         if (downCounter > 0)
         {
             mainButtonCounter = 0;
-            for (int i = 0; i < buttonPositions.Length; i++)
+            for (int i = 0; i < buttonPositions.Length + 1; i++)
             {                
                 if (i >= firstButtonPositionIndex + downCounter && mainButtonCounter < mainButtons.Length)
                 {
-                    mainButtons[mainButtonCounter].transform.position = buttonPositions[i + 1].transform.position; // This'll soon be replaced with a lerp function.
+                    Debug.Log("Button Index: " + mainButtonCounter + " position(i - 1): " + (i - 1));
+                    mainButtons[mainButtonCounter].transform.position = buttonPositions[i - 1].transform.position; // This'll soon be replaced with a lerp function.
                     mainButtonCounter++;
                 }
             }
