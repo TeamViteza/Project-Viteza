@@ -54,7 +54,7 @@ public class MenuController : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.DownArrow)) NavigateDownMain();
 
-        if (Input.GetKeyUp(KeyCode.UpArrow)) NavigateUpMain();       
+        if (Input.GetKeyUp(KeyCode.UpArrow)) NavigateUpMain();
     }
 
     private void NavigateDownMain()
@@ -65,7 +65,7 @@ public class MenuController : MonoBehaviour
         {
             mainButtonCounter = 0;
             for (int i = 0; i < buttonPositions.Length; i++)
-            {                
+            {
                 if (i >= firstButtonPositionIndex - downCounter && mainButtonCounter < mainButtons.Length)
                 {
                     mainButtons[mainButtonCounter].transform.position = buttonPositions[i - 1].transform.position; // This'll soon be replaced with a lerp function.
@@ -73,6 +73,7 @@ public class MenuController : MonoBehaviour
                 }
             }
             downCounter++;
+            Debug.Log("Down Counter: " + downCounter);
         }
     }
 
@@ -82,14 +83,14 @@ public class MenuController : MonoBehaviour
 
         if (downCounter > 0)
         {
-            mainButtonCounter = 0;
-            for (int i = 0; i < buttonPositions.Length + 1; i++)
-            {                
-                if (i >= firstButtonPositionIndex + downCounter && mainButtonCounter < mainButtons.Length)
+            mainButtonCounter = mainButtons.Length - 1;
+            for (int i = buttonPositions.Length - 1; i >= 0; i--)
+            {
+                if (i <= (buttonPositions.Length - 1) - downCounter && mainButtonCounter >= 0)
                 {
-                    Debug.Log("Button Index: " + mainButtonCounter + " position(i - 1): " + (i - 1));
-                    mainButtons[mainButtonCounter].transform.position = buttonPositions[i - 1].transform.position; // This'll soon be replaced with a lerp function.
-                    mainButtonCounter++;
+                    Debug.Log("Button Index: " + mainButtonCounter + " position(i + 1): " + (i + 1));
+                    mainButtons[mainButtonCounter].transform.position = buttonPositions[i + 1].transform.position; // This'll soon be replaced with a lerp function.
+                    mainButtonCounter--;
                 }
             }
             downCounter--;
