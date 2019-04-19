@@ -28,8 +28,8 @@ public class MenuController : MonoBehaviour
         #region MAIN MENU Initialisation Operations.
         #region Get access to required game object parents.
         mainCanvas = GameObject.Find("canvas_main").GetComponent<Canvas>(); // Get access to the main menu's canvas.
-        buttonPositionParent = mainCanvas.transform.Find("button_positions_main").GetComponent<Transform>(); // Get access to the parent of the main menu's potential button positions.
-        mainButtonsParent = mainCanvas.transform.Find("buttons_main").GetComponent<Transform>(); // Get access to the parent of the main menu's buttons.
+        buttonPositionParent = mainCanvas.transform.Find("pnl_main/0_button_positions_main").GetComponent<Transform>(); // Get access to the parent of the main menu's potential button positions.
+        mainButtonsParent = mainCanvas.transform.Find("pnl_main/1_buttons_main").GetComponent<Transform>(); // Get access to the parent of the main menu's buttons.
         #endregion
         #region Gain access to each of the main menu's potential button positions.
         for (int i = 0; i < buttonPositions.Length; i++)
