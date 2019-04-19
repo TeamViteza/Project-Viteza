@@ -11,6 +11,7 @@ public class MenuController : MonoBehaviour
 
     Transform[] buttonPositions = new Transform[7]; // Seven potential positions.
     Button[] mainButtons = new Button[4];
+    Button highlightedButton;   
 
     int firstButtonPositionIndex, buttonIndex;
     int downwardCount = 0; // This will keep track of how far the menu options have been shifted upward. (Due to the user pressing DOWN at the main menu.)
@@ -56,6 +57,8 @@ public class MenuController : MonoBehaviour
             buttonIndex++; // Increase the index so we can set the position of buttons 1, 2 and 3 in the next three loops.
         }
         #endregion
+
+        highlightedButton = mainButtons[0]; // "New Game" will be highlighted by default.
         #endregion
     }
 
@@ -70,6 +73,7 @@ public class MenuController : MonoBehaviour
             case MenuType.MAIN:
                 if (Input.GetKeyUp(KeyCode.DownArrow)) NavigateDownMain();
                 if (Input.GetKeyUp(KeyCode.UpArrow)) NavigateUpMain();
+                if (Input.GetKeyUp(KeyCode.Return)) highlightedButton.onClick.Invoke();
                 break;
         }
     }
@@ -84,7 +88,7 @@ public class MenuController : MonoBehaviour
             {
                 if (i >= firstButtonPositionIndex - downwardCount && buttonIndex < mainButtons.Length) // Once we've reached the first position that holds a button... 
                 {   // ...and assuming we haven't yet set a new position for each button...                                   
-                    StartCoroutine(ShiftButtonPosition(buttonIndex, buttonPositions[i - 1].transform.position, 0.2f)); // Shift this button to the position directly above its current position.
+                    StartCoroutine(ShiftButtonPosition(activeMenu, buttonIndex, i - 1, 0.2f)); // ...Shift this button to the position directly above its current position.
                     buttonIndex++; // Increase the button index so that we can shift the positions of buttons 1, 2 and 3 in the next three iterations.
                 }
             }
@@ -102,7 +106,7 @@ public class MenuController : MonoBehaviour
                 // ...Shifting each button to the position directly below it, instead of above.
                 if (i <= (buttonPositions.Length - 1) - downwardCount && buttonIndex >= 0)
                 {
-                    StartCoroutine(ShiftButtonPosition(buttonIndex, buttonPositions[i + 1].transform.position, 0.2f));
+                    StartCoroutine(ShiftButtonPosition(activeMenu, buttonIndex, i + 1, 0.2f));
                     buttonIndex--;
                 }
             }
@@ -110,20 +114,33 @@ public class MenuController : MonoBehaviour
         }
     }
 
-    private IEnumerator ShiftButtonPosition(int buttonIndex, Vector3 newPosition, float transitionDuration)
+    private IEnumerator ShiftButtonPosition(MenuType currentMenu, int buttonIndex, int positionIndex, float transitionDuration) // May look into making this more of a universal coroutine. (Not just for main menu.)             
     {   // https://answers.unity.com/questions/63060/vector3lerp-works-outside-of-update.html Coroutine derived from top answer here.
-        float startTime = Time.time; // Get the time this coroutine started.
 
-        Vector3 currentPosition = mainButtons[buttonIndex].transform.position; // Determine which button must be moved according to the index parameter.
+        Button buttonToMove;
+        Vector3 currentPosition, newPosition;
+
+        switch(currentMenu)
+        {
+             default: // If we are currently in the main menu.
+                buttonToMove = mainButtons[buttonIndex];
+                currentPosition = buttonToMove.transform.position; // Determine which button must be moved according to the index parameter.
+                newPosition = buttonPositions[positionIndex].transform.position; // Determine which position the button must be moved to.
+                break;
+        }                    
+
+        float startTime = Time.time; // Get the time this coroutine started.
 
         while (Time.time < startTime + transitionDuration) // While the transition duration hasn't passed...
         {
             // ...Move the menu button to its new position, lerping is used to achieve a "smoother" effect.
-            mainButtons[buttonIndex].transform.position = Vector3.Lerp(currentPosition, newPosition, (Time.time - startTime) / transitionDuration);
+            buttonToMove.transform.position = Vector3.Lerp(currentPosition, newPosition, (Time.time - startTime) / transitionDuration);
             yield return null;
         }
 
-        mainButtons[buttonIndex].transform.position = newPosition; // Ensure the button is at the exact position it should be by the end.
+        if (positionIndex == firstButtonPositionIndex) highlightedButton = buttonToMove; // Confirmed to work.
+
+        buttonToMove.transform.position = newPosition; // Ensure the button is at the exact position it should be by the end.
     }
-    #endregion
+    #endregion       
 }
