@@ -8,13 +8,11 @@ public class scr_PlayerMovement : MonoBehaviour
     // Properties
     // public
     public Rigidbody2D body;
-    public CapsuleCollider2D feetPos;
 
     public float jumpForce = 2f;
 
-    public float walkSpeed = 0.01f;
-    public float runSpeed = 0.05f;
-    public float sprintSpeed = 1f;
+    public float walkSpeed;
+    public float runSpeed;
 
     // private
     private bool jumbAbility;
@@ -23,7 +21,6 @@ public class scr_PlayerMovement : MonoBehaviour
 
     private float maxWalk;
     private float maxRun;
-    private float maxSprint;
 
     private float moveSpeed;
     private float maxSpeed;
@@ -31,12 +28,8 @@ public class scr_PlayerMovement : MonoBehaviour
     // Methods
     void Start()
     {
-        maxWalk = 5f;
-        maxRun = 15f;
-        maxSprint = 30f;
-
-        //body = GetComponent<Rigidbody2D>();
-        //feetPos = GetComponent<CapsuleCollider2D>();
+        maxWalk = 2f;
+        maxRun = 6;
     }
 
 
@@ -69,15 +62,10 @@ public class scr_PlayerMovement : MonoBehaviour
             moveSpeed = runSpeed;
             maxSpeed = maxRun;
         }
-        //else if (body.velocity.x < maxSprint && body.velocity.x > -maxSprint)
-        //{
-        //    moveSpeed = sprintSpeed;
-        //    maxSpeed = maxSprint;
-        //}
         else if (body.velocity.x > maxSpeed && body.velocity.x < -maxRun)
         {
             moveSpeed = 0;
-            body.velocity = new Vector2(maxSpeed, 0);
+            body.velocity = new Vector2(maxSpeed, body.velocity.y);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
