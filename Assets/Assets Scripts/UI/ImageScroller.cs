@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class ImageScroller : MonoBehaviour {
 
-    Renderer sRenderer;
-    Image image;
+    Renderer sRenderer;  
     public float scrollSpeed = 0.5f;
 	
 	void Start () {
