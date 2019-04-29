@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class MenuController : MonoBehaviour
 {
     #region MAIN MENU variables.
+    public float ButtonMotionCooldown;
+
     Canvas mainCanvas;
     Transform buttonPositionParent, mainButtonsParent;
 
@@ -15,6 +17,7 @@ public class MenuController : MonoBehaviour
 
     int firstButtonPositionIndex, buttonIndex;
     int downwardCount = 0; // This will keep track of how far the menu options have been shifted upward. (Due to the user pressing DOWN at the main menu.)
+    bool buttonsInMotion;
     #endregion
 
     private enum MenuType // This system's subject to change, right now I'd like to experiment with keeping all menu-related functions within this script.
@@ -81,8 +84,10 @@ public class MenuController : MonoBehaviour
     #region MAIN MENU METHODS & COROUTINES.
     private void NavigateDownMain()
     {
-        if (downwardCount < firstButtonPositionIndex) // The menu buttons can only shift as far as the difference in number between button positions and the buttons themselves.
-        {   // Since the difference is 3, we have three extra positions to move to, and no more. We use "downwardCount" to determine how far we have moved.
+        if (downwardCount < firstButtonPositionIndex && !buttonsInMotion) // The menu buttons can only shift as far as the difference in number between button positions and the buttons themselves.            
+        {
+            buttonsInMotion = true;
+            // Since the difference is 3, we have three extra positions to move to, and no more. We use "downwardCount" to determine how far we have moved.
             buttonIndex = 0;
             for (int i = 0; i < buttonPositions.Length; i++) // Iterate through each potential position.
             {
@@ -92,13 +97,15 @@ public class MenuController : MonoBehaviour
                     buttonIndex++; // Increase the button index so that we can shift the positions of buttons 1, 2 and 3 in the next three iterations.
                 }
             }
+            StartCoroutine("FalsifyButtonMotionBool");
             downwardCount++; // Increase the count so that we know how far "down" the player is in the main menu.
         }
     }
     private void NavigateUpMain()
     {
-        if (downwardCount > 0) // If this count is at 0 it means the user is at the "top" of the menu, and therefore can move no further upwards.
+        if (downwardCount > 0 && !buttonsInMotion) // If this count is at 0 it means the user is at the "top" of the menu, and therefore can move no further upwards.
         {
+            buttonsInMotion = true;
             buttonIndex = mainButtons.Length - 1; // Start our button index at 3, "Quit Game", the button at the bottom of the list.
             for (int i = buttonPositions.Length - 1; i >= 0; i--) // Iterate through each position, starting from the bottom (position 6) and moving upwards.
             {
@@ -110,6 +117,7 @@ public class MenuController : MonoBehaviour
                     buttonIndex--;
                 }
             }
+            StartCoroutine("FalsifyButtonMotionBool");
             downwardCount--; // Decrease the count so that we know how far "up" the player is in the main menu.
         }
     }
@@ -142,5 +150,11 @@ public class MenuController : MonoBehaviour
 
         buttonToMove.transform.position = newPosition; // Ensure the button is at the exact position it should be by the end.
     }
-    #endregion       
+
+    private IEnumerator FalsifyButtonMotionBool()           
+    {
+        yield return new WaitForSeconds(ButtonMotionCooldown);
+        buttonsInMotion = false;   
+    }
+    #endregion
 }
