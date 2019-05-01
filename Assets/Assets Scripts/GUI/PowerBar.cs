@@ -8,7 +8,7 @@ public class PowerBar : MonoBehaviour {
     public float CurrentProg { get; set; }
     public float MaxProg { get; set; }
 
-    public Image powerMeter;
+    public Slider powerMeter;
 
     // Use this for initialization
     void Start () {
@@ -16,21 +16,21 @@ public class PowerBar : MonoBehaviour {
 
         CurrentProg = MaxProg;
 
-        powerMeter.fillAmount = CalulatePower();
+        powerMeter.value = CalulatePower();
 	}
 
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(KeyCode.X))
         {
-            ProgGet(0);
+            ProgGet(0.8f);
         }
 	}
 
     void ProgGet(float progValue)
     {
         CurrentProg += progValue;
-        powerMeter.fillAmount = CalulatePower();
+        powerMeter.value = CalulatePower();
     }
 
     float CalulatePower()
