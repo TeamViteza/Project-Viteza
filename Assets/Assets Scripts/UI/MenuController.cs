@@ -9,11 +9,13 @@ public class MenuController : MonoBehaviour
     public float ButtonMotionCooldown;
 
     Canvas mainCanvas;
+    GameObject mainPanel, filePanel, optionsPanel, quitPanel;
+    List<GameObject> mainMenuPanels = new List<GameObject>();
     Transform buttonPositionParent, mainButtonsParent;
 
     Transform[] buttonPositions = new Transform[7]; // Seven potential positions.
     Button[] mainButtons = new Button[4];
-    Button highlightedButton;   
+    Button highlightedButton;
 
     int firstButtonPositionIndex, buttonIndex;
     int downwardCount = 0; // This will keep track of how far the menu options have been shifted upward. (Due to the user pressing DOWN at the main menu.)
@@ -22,17 +24,30 @@ public class MenuController : MonoBehaviour
 
     private enum MenuType // This system's subject to change, right now I'd like to experiment with keeping all menu-related functions within this script.
     {
-        MAIN, NEWGAME, LOADGAME, OPTIONS, PAUSE
+        MAIN, FILE, OPTIONS, QUIT, PAUSE
     }
-    private MenuType activeMenu = MenuType.MAIN; // May have to make this public in future, we'll see.   
+    private MenuType activeMenu; // May have to make this public in future, we'll see.   
 
     void Awake()
     {
         #region MAIN MENU Initialisation Operations.
         #region Get access to required game object parents.
         mainCanvas = GameObject.Find("canvas_main").GetComponent<Canvas>(); // Get access to the main menu's canvas.
-        buttonPositionParent = mainCanvas.transform.Find("pnl0_main/0_button_positions_main").GetComponent<Transform>(); // Get access to the parent of the main menu's potential button positions.
-        mainButtonsParent = mainCanvas.transform.Find("pnl0_main/1_buttons_main").GetComponent<Transform>(); // Get access to the parent of the main menu's buttons.
+
+        #region Get access to each of the main menu's panels.
+        mainPanel = mainCanvas.transform.Find("pnl0_main").gameObject;
+        filePanel = mainCanvas.transform.Find("pnl1_file").gameObject;
+        optionsPanel = mainCanvas.transform.Find("pnl2_options").gameObject;
+        quitPanel = mainCanvas.transform.Find("pnl3_quit").gameObject;
+
+        mainMenuPanels.Add(mainPanel);
+        mainMenuPanels.Add(filePanel);
+        mainMenuPanels.Add(optionsPanel);
+        mainMenuPanels.Add(quitPanel);
+        #endregion
+
+        buttonPositionParent = mainPanel.transform.Find("0_button_positions_main"); // Get access to main panel's potential button positions.
+        mainButtonsParent = mainPanel.transform.Find("1_buttons_main"); // Get access to the main panel's buttons.
         #endregion
         #region Gain access to each of the main menu's potential button positions.
         for (int i = 0; i < buttonPositions.Length; i++)
@@ -63,10 +78,13 @@ public class MenuController : MonoBehaviour
 
         highlightedButton = mainButtons[0]; // "New Game" will be highlighted by default.
         #endregion
+
+        SetAsActiveMenu(MenuType.MAIN);
     }
 
     void Start()
     {
+        //Debug.Log(activeMenu.ToString());
     }
 
     void Update()
@@ -76,10 +94,39 @@ public class MenuController : MonoBehaviour
             case MenuType.MAIN:
                 if (Input.GetKeyUp(KeyCode.DownArrow)) NavigateDownMain();
                 if (Input.GetKeyUp(KeyCode.UpArrow)) NavigateUpMain();
-                if (Input.GetKeyUp(KeyCode.Return)) highlightedButton.onClick.Invoke();
+                CheckButtonSelection();
+                break;
+
+            case MenuType.QUIT:
+                if (Input.GetKeyUp(KeyCode.DownArrow)) NavigateDownMain();
+                if (Input.GetKeyUp(KeyCode.UpArrow)) NavigateUpMain();
+                CheckButtonSelection();
                 break;
         }
     }
+
+    #region COMMON MENU METHODS & COROUTINES.
+    private void SetAsActiveMenu(MenuType menuToActivate)
+    {
+        activeMenu = menuToActivate;
+
+        UpdateMenuPanels();
+    }
+
+    private void UpdateMenuPanels()
+    {
+        foreach (GameObject menuPanel in mainMenuPanels)
+        {
+            if (menuPanel.name.ToUpper().Contains(activeMenu.ToString())) menuPanel.SetActive(true);
+            else menuPanel.SetActive(false);
+        }
+    }
+
+    private void CheckButtonSelection()
+    {
+        if (Input.GetKeyUp(KeyCode.Return)) highlightedButton.onClick.Invoke();
+    }
+    #endregion 
 
     #region MAIN MENU METHODS & COROUTINES.
     private void NavigateDownMain()
@@ -128,14 +175,14 @@ public class MenuController : MonoBehaviour
         Button buttonToMove;
         Vector3 currentPosition, newPosition;
 
-        switch(currentMenu)
+        switch (currentMenu)
         {
-             default: // If we are currently in the main menu.
+            default: // If we are currently in the main menu.
                 buttonToMove = mainButtons[buttonIndex];
                 currentPosition = buttonToMove.transform.position; // Determine which button must be moved according to the index parameter.
                 newPosition = buttonPositions[positionIndex].transform.position; // Determine which position the button must be moved to.
                 break;
-        }                    
+        }
 
         float startTime = Time.time; // Get the time this coroutine started.
 
@@ -151,10 +198,10 @@ public class MenuController : MonoBehaviour
         buttonToMove.transform.position = newPosition; // Ensure the button is at the exact position it should be by the end.
     }
 
-    private IEnumerator FalsifyButtonMotionBool()           
+    private IEnumerator FalsifyButtonMotionBool()
     {
         yield return new WaitForSeconds(ButtonMotionCooldown);
-        buttonsInMotion = false;   
+        buttonsInMotion = false;
     }
-    #endregion
+    #endregion   
 }
