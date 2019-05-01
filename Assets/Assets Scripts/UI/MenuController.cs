@@ -26,7 +26,7 @@ public class MenuController : MonoBehaviour
     {
         MAIN, FILE, OPTIONS, QUIT, PAUSE
     }
-    private MenuType activeMenu; // May have to make this public in future, we'll see.   
+    private MenuType activeMenu;
 
     void Awake()
     {
@@ -79,7 +79,7 @@ public class MenuController : MonoBehaviour
         highlightedButton = mainButtons[0]; // "New Game" will be highlighted by default.
         #endregion
 
-        SetAsActiveMenu(MenuType.MAIN);
+        SetAsActiveMenu("Main");
     }
 
     void Start()
@@ -98,19 +98,31 @@ public class MenuController : MonoBehaviour
                 break;
 
             case MenuType.QUIT:
-                if (Input.GetKeyUp(KeyCode.DownArrow)) NavigateDownMain();
-                if (Input.GetKeyUp(KeyCode.UpArrow)) NavigateUpMain();
-                CheckButtonSelection();
+                
                 break;
         }
     }
 
     #region COMMON MENU METHODS & COROUTINES.
-    private void SetAsActiveMenu(MenuType menuToActivate)
+    private void CheckButtonSelection()
     {
-        activeMenu = menuToActivate;
+        if (Input.GetKeyUp(KeyCode.Return)) highlightedButton.onClick.Invoke();
+    }
 
-        UpdateMenuPanels();
+    public void SetAsActiveMenu(string menuName)
+    {
+        bool menuValid = true;
+
+        if (menuName.ToUpper() == "MAIN") activeMenu = MenuType.MAIN;
+        else if (menuName.ToUpper() == "FILE") activeMenu = MenuType.FILE;
+        else if (menuName.ToUpper() == "OPTIONS") activeMenu = MenuType.OPTIONS;
+        else if (menuName.ToUpper() == "QUIT") activeMenu = MenuType.QUIT;
+        else
+        {
+            Debug.Log(string.Format("The '{0}' menu does not exist. Please check the on-click event for this button.", menuName));
+            menuValid = false;
+        }
+        if(menuValid) UpdateMenuPanels();
     }
 
     private void UpdateMenuPanels()
@@ -120,11 +132,6 @@ public class MenuController : MonoBehaviour
             if (menuPanel.name.ToUpper().Contains(activeMenu.ToString())) menuPanel.SetActive(true);
             else menuPanel.SetActive(false);
         }
-    }
-
-    private void CheckButtonSelection()
-    {
-        if (Input.GetKeyUp(KeyCode.Return)) highlightedButton.onClick.Invoke();
     }
     #endregion 
 
