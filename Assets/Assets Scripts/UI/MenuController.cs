@@ -17,7 +17,7 @@ public class MenuController : MonoBehaviour
     Transform[] buttonPositions = new Transform[7]; // Seven potential positions.
     Button[] mainButtons = new Button[4];
     Button[] quitButtons = new Button[2];
-    Button highlightedButton;
+    GameObject highlightedObject;
 
     int firstButtonPositionIndex, buttonIndex;
     int downwardCount = 0; // This will keep track of how far the menu options have been shifted upward. (Due to the user pressing DOWN at the main menu.)
@@ -115,7 +115,7 @@ public class MenuController : MonoBehaviour
     #region COMMON MENU METHODS & COROUTINES.
     private void CheckButtonSelection()
     {
-        if (Input.GetKeyUp(KeyCode.Return)) highlightedButton.onClick.Invoke();
+        if (Input.GetKeyUp(KeyCode.Return)) highlightedObject.GetComponent<Button>().onClick.Invoke();
     }
 
     public void SetAsActiveMenu(string menuName)
@@ -161,7 +161,7 @@ public class MenuController : MonoBehaviour
                 {
                     if (mainButtons[i].transform.position == newHighlightPosition)
                     {
-                        highlightedButton = mainButtons[i];
+                        highlightedObject = mainButtons[i].gameObject;
                         break;
                     }
                 }
@@ -169,7 +169,7 @@ public class MenuController : MonoBehaviour
 
             case MenuType.QUIT: // If we're moving to the quit prompt.                
                 newHighlightPosition = quitButtons[0].transform.position;
-                highlightedButton = quitButtons[0];
+                highlightedObject = quitButtons[0].gameObject;
                 break;
         }
 
@@ -263,7 +263,7 @@ public class MenuController : MonoBehaviour
             yield return null;
         }
 
-        if (positionIndex == firstButtonPositionIndex) highlightedButton = buttonToMove; // Confirmed to work.
+        if (positionIndex == firstButtonPositionIndex) highlightedObject = buttonToMove.gameObject; // Confirmed to work.
 
         buttonToMove.transform.position = newPosition; // Ensure the button is at the exact position it should be by the end.
     }
@@ -280,18 +280,18 @@ public class MenuController : MonoBehaviour
     {        
         if(Input.GetKeyUp(KeyCode.UpArrow))
         {
-            if(highlightedButton == quitButtons[0]) highlightedButton = quitButtons[1];
-            else highlightedButton = quitButtons[0];
+            if(highlightedObject == quitButtons[0]) highlightedObject = quitButtons[1].gameObject;
+            else highlightedObject = quitButtons[0].gameObject;
 
-            StartCoroutine(ShiftHighlightPosition(highlightedButton.transform.position, highlightPositionMoveSpeed));
+            StartCoroutine(ShiftHighlightPosition(highlightedObject.transform.position, highlightPositionMoveSpeed));
         }
 
         else if (Input.GetKeyUp(KeyCode.DownArrow))
         {
-            if (highlightedButton == quitButtons[1]) highlightedButton = quitButtons[0];
-            else highlightedButton = quitButtons[1];
+            if (highlightedObject == quitButtons[1]) highlightedObject = quitButtons[0].gameObject;
+            else highlightedObject = quitButtons[1].gameObject;
 
-            StartCoroutine(ShiftHighlightPosition(highlightedButton.transform.position, highlightPositionMoveSpeed));
+            StartCoroutine(ShiftHighlightPosition(highlightedObject.transform.position, highlightPositionMoveSpeed));
         }
     }
 
