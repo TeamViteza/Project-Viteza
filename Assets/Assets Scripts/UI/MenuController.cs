@@ -21,9 +21,7 @@ public class MenuController : MonoBehaviour
     GameObject[] optionsSettings = new GameObject[5];
     GameObject highlightedObject;
 
-    int firstButtonPositionIndex, buttonIndex;
-    int downwardCountMain = 0; // This will keep track of how far the menu options have been shifted upward. (Due to the user pressing DOWN at the main menu.)
-    int downwardCountOptions = 0; // This will keep track of how far the menu options have been shifted upward. (Due to the user pressing DOWN at the main menu.)
+    int firstButtonPositionIndex, buttonIndex, downwardCountMain, downwardCountOptions;
     bool buttonsInMotion;
     #endregion
 
@@ -35,66 +33,9 @@ public class MenuController : MonoBehaviour
 
     void Awake()
     {
-        #region MAIN MENU Initialisation Operations.
-        #region Get access to required game object parents.
-        mainCanvas = GameObject.Find("canvas_main").GetComponent<Canvas>(); // Get access to the main menu's canvas.
-        highlightedPosition = mainCanvas.transform.Find("position_highlight"); // Find our menu option highlighter.
-
-        #region Get access to each of the main menu's panels.
-        mainPanel = mainCanvas.transform.Find("pnl0_main").gameObject;
-        filePanel = mainCanvas.transform.Find("pnl1_file").gameObject;
-        optionsPanel = mainCanvas.transform.Find("pnl2_options").gameObject;
-        quitPanel = mainCanvas.transform.Find("pnl3_quit").gameObject;
-
-        mainMenuPanels.Add(mainPanel);
-        mainMenuPanels.Add(filePanel);
-        mainMenuPanels.Add(optionsPanel);
-        mainMenuPanels.Add(quitPanel);
-        #endregion
-
-        buttonPositionParent = mainPanel.transform.Find("0_button_positions_main"); // Get access to main panel's potential button positions.
-        mainButtonsParent = mainPanel.transform.Find("1_buttons_main"); // Get access to the main panel's buttons.
-        #endregion
-        #region Gain access to each of the main menu's potential button positions.
-        for (int i = 0; i < buttonPositions.Length; i++)
-        {   // We'll have 7 potential button positions on our main menu. (Index ranges from 0 to 6.)
-            buttonPositions[i] = buttonPositionParent.transform.GetChild(i);
-        }
-        #endregion
-        #region Now get a reference to each button on the main menu.       
-        for (int i = 0; i < mainButtons.Length; i++)
-        {   // We'll have four Main menu buttons, corresponding to their index as follows: 0 - New Game, 1 - Load Game, 2 - Options, 3 - Quit
-            mainButtons[i] = mainButtonsParent.transform.GetChild(i).GetComponent<Button>();
-        }
-        #endregion
-
-        // Get the difference between the number of potential button positions (7) and the number of buttons (4)...
-        // ...In order to determine the position index of the first button (New Game).
-        firstButtonPositionIndex = buttonPositions.Length - mainButtons.Length; // Should be 3, since we've got 7 potential positions and 4 buttons.
-
-        #region Set the starting position of each button.       
-        buttonIndex = 0; // Start at 0 so we can set the position of button 0 (New Game) first.
-
-        for (int i = firstButtonPositionIndex; i < buttonPositions.Length; i++) // Start our iteration at the position we determined the first button would appear at. (Position 3, the first button position index).
-        {
-            mainButtons[buttonIndex].transform.position = buttonPositions[i].transform.position; // Set each of our buttons to their appropriate starting positions.
-            buttonIndex++; // Increase the index so we can set the position of buttons 1, 2 and 3 in the next three loops.
-        }
-        #endregion        
-        #endregion
-
-        #region OPTIONS MENU Initialisation Operations
-        optionsSettings[0] = optionsPanel.transform.Find("1_settings_options/0_stg_tgl_fullscreen").gameObject;
-        optionsSettings[1] = optionsPanel.transform.Find("1_settings_options/1_stg_sdr_volume_master").gameObject;
-        optionsSettings[2] = optionsPanel.transform.Find("1_settings_options/2_stg_sdr_volume_bgm").gameObject;
-        optionsSettings[3] = optionsPanel.transform.Find("1_settings_options/3_stg_sdr_volume_sfx").gameObject;
-        optionsSettings[4] = optionsPanel.transform.Find("1_settings_options/4_btn_return").gameObject;
-        #endregion
-
-        #region QUIT MENU Initialisation Operations
-        quitButtons[0] = quitPanel.transform.Find("1_buttons_quit/btn_0_no").GetComponent<Button>();
-        quitButtons[1] = quitPanel.transform.Find("1_buttons_quit/btn_1_yes").GetComponent<Button>();
-        #endregion
+        MainPanelInitialisation();
+        OptionsPanelInitialisation();
+        QuitPanelInitialisation();
 
         SetAsActiveMenu("Main");
     }
@@ -357,6 +298,72 @@ public class MenuController : MonoBehaviour
     {
         Debug.Log("Game Quit.");
         Application.Quit();
+    }
+    #endregion
+
+    #region INITIALISATION METHODS
+    private void MainPanelInitialisation() 
+    {       
+        #region Get access to required game object parents.
+        mainCanvas = GameObject.Find("canvas_main").GetComponent<Canvas>(); // Get access to the main menu's canvas.
+        highlightedPosition = mainCanvas.transform.Find("position_highlight"); // Find our menu option highlighter.
+
+        #region Get access to each of the main menu's panels.
+        mainPanel = mainCanvas.transform.Find("pnl0_main").gameObject;
+        filePanel = mainCanvas.transform.Find("pnl1_file").gameObject;
+        optionsPanel = mainCanvas.transform.Find("pnl2_options").gameObject;
+        quitPanel = mainCanvas.transform.Find("pnl3_quit").gameObject;
+
+        mainMenuPanels.Add(mainPanel);
+        mainMenuPanels.Add(filePanel);
+        mainMenuPanels.Add(optionsPanel);
+        mainMenuPanels.Add(quitPanel);
+        #endregion
+
+        buttonPositionParent = mainPanel.transform.Find("0_button_positions_main"); // Get access to main panel's potential button positions.
+        mainButtonsParent = mainPanel.transform.Find("1_buttons_main"); // Get access to the main panel's buttons.
+        #endregion
+        #region Gain access to each of the main menu's potential button positions.
+        for (int i = 0; i < buttonPositions.Length; i++)
+        {   // We'll have 7 potential button positions on our main menu. (Index ranges from 0 to 6.)
+            buttonPositions[i] = buttonPositionParent.transform.GetChild(i);
+        }
+        #endregion
+        #region Now get a reference to each button on the main menu.       
+        for (int i = 0; i < mainButtons.Length; i++)
+        {   // We'll have four Main menu buttons, corresponding to their index as follows: 0 - New Game, 1 - Load Game, 2 - Options, 3 - Quit
+            mainButtons[i] = mainButtonsParent.transform.GetChild(i).GetComponent<Button>();
+        }
+        #endregion
+
+        // Get the difference between the number of potential button positions (7) and the number of buttons (4)...
+        // ...In order to determine the position index of the first button (New Game).
+        firstButtonPositionIndex = buttonPositions.Length - mainButtons.Length; // Should be 3, since we've got 7 potential positions and 4 buttons.
+
+        #region Set the starting position of each button.       
+        buttonIndex = 0; // Start at 0 so we can set the position of button 0 (New Game) first.
+
+        for (int i = firstButtonPositionIndex; i < buttonPositions.Length; i++) // Start our iteration at the position we determined the first button would appear at. (Position 3, the first button position index).
+        {
+            mainButtons[buttonIndex].transform.position = buttonPositions[i].transform.position; // Set each of our buttons to their appropriate starting positions.
+            buttonIndex++; // Increase the index so we can set the position of buttons 1, 2 and 3 in the next three loops.
+        }
+        #endregion                
+    }
+
+    private void OptionsPanelInitialisation() 
+    {   // Get access to each setting in the options menu.
+        optionsSettings[0] = optionsPanel.transform.Find("1_settings_options/0_stg_tgl_fullscreen").gameObject;
+        optionsSettings[1] = optionsPanel.transform.Find("1_settings_options/1_stg_sdr_volume_master").gameObject;
+        optionsSettings[2] = optionsPanel.transform.Find("1_settings_options/2_stg_sdr_volume_bgm").gameObject;
+        optionsSettings[3] = optionsPanel.transform.Find("1_settings_options/3_stg_sdr_volume_sfx").gameObject;
+        optionsSettings[4] = optionsPanel.transform.Find("1_settings_options/4_btn_return").gameObject;      
+    }
+
+    private void QuitPanelInitialisation()
+    {   // Get access to options "yes" and "no" in the quit prompt.       
+        quitButtons[0] = quitPanel.transform.Find("1_buttons_quit/btn_0_no").GetComponent<Button>();
+        quitButtons[1] = quitPanel.transform.Find("1_buttons_quit/btn_1_yes").GetComponent<Button>();        
     }
     #endregion
 }
