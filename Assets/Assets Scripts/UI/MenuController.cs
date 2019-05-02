@@ -50,8 +50,8 @@ public class MenuController : MonoBehaviour
         switch (activeMenu)
         {
             case MenuType.MAIN:
-                if (Input.GetKeyUp(KeyCode.DownArrow)) NavigateDownMain();
-                if (Input.GetKeyUp(KeyCode.UpArrow)) NavigateUpMain();
+                if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetAxisRaw("D-PadV") == -1) NavigateDownMain();
+                if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetAxisRaw("D-PadV") == 1) NavigateUpMain();
                 CheckButtonSelection();
                 break;
 
@@ -70,7 +70,7 @@ public class MenuController : MonoBehaviour
     #region COMMON MENU METHODS & COROUTINES.
     private void CheckButtonSelection()
     {
-        if (Input.GetKeyUp(KeyCode.Return))
+        if (Input.GetKeyUp(KeyCode.Return) || Input.GetButtonUp("A"))
         {
             if(highlightedObject.GetComponent<Button>() != null) highlightedObject.GetComponent<Button>().onClick.Invoke();
             else if (highlightedObject.GetComponent<Toggle>() != null) highlightedObject.GetComponent<Toggle>().isOn = !highlightedObject.GetComponent<Toggle>().isOn;
@@ -252,7 +252,7 @@ public class MenuController : MonoBehaviour
     #region OPTIONS MENU METHODS & COROUTINES.
     private void NavigateOptions()
     {
-        if (Input.GetKeyUp(KeyCode.DownArrow))
+        if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetAxisRaw("D-PadV") == -1)
         {
             downwardCountOptions++;
 
@@ -262,7 +262,7 @@ public class MenuController : MonoBehaviour
             StartCoroutine(ShiftHighlightPosition(highlightedObject.transform.position, highlightPositionMoveSpeed));
         }
 
-        else if (Input.GetKeyUp(KeyCode.UpArrow))
+        else if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetAxisRaw("D-PadV") == 1)
         {
             downwardCountOptions--;
 
