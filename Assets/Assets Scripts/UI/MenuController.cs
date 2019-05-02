@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class MenuController : MonoBehaviour
 {
     #region MAIN MENU variables.
-    public float ButtonMotionCooldown;
+    public float ButtonMotionCooldown = 0.1f;
     public float highlightPositionMoveSpeed = 0.2f;
+    public float sliderAdjustmentPrecision = 0.05f;
 
     Canvas mainCanvas;
     GameObject mainPanel, filePanel, optionsPanel, quitPanel;
@@ -17,10 +18,12 @@ public class MenuController : MonoBehaviour
     Transform[] buttonPositions = new Transform[7]; // Seven potential positions.
     Button[] mainButtons = new Button[4];
     Button[] quitButtons = new Button[2];
+    GameObject[] optionsSettings = new GameObject[5];
     GameObject highlightedObject;
 
     int firstButtonPositionIndex, buttonIndex;
-    int downwardCount = 0; // This will keep track of how far the menu options have been shifted upward. (Due to the user pressing DOWN at the main menu.)
+    int downwardCountMain = 0; // This will keep track of how far the menu options have been shifted upward. (Due to the user pressing DOWN at the main menu.)
+    int downwardCountOptions = 0; // This will keep track of how far the menu options have been shifted upward. (Due to the user pressing DOWN at the main menu.)
     bool buttonsInMotion;
     #endregion
 
@@ -77,9 +80,15 @@ public class MenuController : MonoBehaviour
             mainButtons[buttonIndex].transform.position = buttonPositions[i].transform.position; // Set each of our buttons to their appropriate starting positions.
             buttonIndex++; // Increase the index so we can set the position of buttons 1, 2 and 3 in the next three loops.
         }
+        #endregion        
         #endregion
 
-        //highlightedButton = mainButtons[0]; // "New Game" will be highlighted by default.
+        #region OPTIONS MENU Initialisation Operations
+        optionsSettings[0] = optionsPanel.transform.Find("1_settings_options/0_stg_tgl_fullscreen").gameObject;
+        optionsSettings[1] = optionsPanel.transform.Find("1_settings_options/1_stg_sdr_volume_master").gameObject;
+        optionsSettings[2] = optionsPanel.transform.Find("1_settings_options/2_stg_sdr_volume_bgm").gameObject;
+        optionsSettings[3] = optionsPanel.transform.Find("1_settings_options/3_stg_sdr_volume_sfx").gameObject;
+        optionsSettings[4] = optionsPanel.transform.Find("1_settings_options/4_btn_return").gameObject;
         #endregion
 
         #region QUIT MENU Initialisation Operations
@@ -92,7 +101,7 @@ public class MenuController : MonoBehaviour
 
     void Start()
     {
-        //Debug.Log(activeMenu.ToString());
+        //Debug.Log(optionsSettings[4].name);
     }
 
     void Update()
@@ -102,6 +111,11 @@ public class MenuController : MonoBehaviour
             case MenuType.MAIN:
                 if (Input.GetKeyUp(KeyCode.DownArrow)) NavigateDownMain();
                 if (Input.GetKeyUp(KeyCode.UpArrow)) NavigateUpMain();
+                CheckButtonSelection();
+                break;
+
+            case MenuType.OPTIONS:
+                NavigateOptions();
                 CheckButtonSelection();
                 break;
 
@@ -115,7 +129,21 @@ public class MenuController : MonoBehaviour
     #region COMMON MENU METHODS & COROUTINES.
     private void CheckButtonSelection()
     {
-        if (Input.GetKeyUp(KeyCode.Return)) highlightedObject.GetComponent<Button>().onClick.Invoke();
+        if (Input.GetKeyUp(KeyCode.Return))
+        {
+            if(highlightedObject.GetComponent<Button>() != null) highlightedObject.GetComponent<Button>().onClick.Invoke();
+            else if (highlightedObject.GetComponent<Toggle>() != null) highlightedObject.GetComponent<Toggle>().isOn = !highlightedObject.GetComponent<Toggle>().isOn;
+        }
+
+        if (Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            if (highlightedObject.GetComponent<Slider>() != null) highlightedObject.GetComponent<Slider>().value += sliderAdjustmentPrecision;
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftArrow))
+        {
+            if (highlightedObject.GetComponent<Slider>() != null) highlightedObject.GetComponent<Slider>().value -= sliderAdjustmentPrecision;
+        }
     }
 
     public void SetAsActiveMenu(string menuName)
@@ -147,7 +175,7 @@ public class MenuController : MonoBehaviour
         }
     }
 
-    private IEnumerator TransferHighlightPosition(MenuType activatedMenu, float transitionDuration)            
+    private IEnumerator TransferHighlightPosition(MenuType activatedMenu, float transitionDuration)
     {   // https://answers.unity.com/questions/63060/vector3lerp-works-outside-of-update.html Coroutine derived from top answer here.
 
         Vector3 newHighlightPosition;
@@ -165,6 +193,11 @@ public class MenuController : MonoBehaviour
                         break;
                     }
                 }
+                break;
+
+            case MenuType.OPTIONS: // If we're moving to the options menu.                
+                newHighlightPosition = optionsSettings[0].transform.position;
+                highlightedObject = optionsSettings[0].gameObject;
                 break;
 
             case MenuType.QUIT: // If we're moving to the quit prompt.                
@@ -185,7 +218,7 @@ public class MenuController : MonoBehaviour
     }
 
     private IEnumerator ShiftHighlightPosition(Vector3 highlightDestinationPosition, float transitionDuration)
-    {           
+    {
         float startTime = Time.time; // Get the time this coroutine started.
 
         while (Time.time < startTime + transitionDuration) // While the transition duration hasn't passed...
@@ -201,26 +234,26 @@ public class MenuController : MonoBehaviour
     #region MAIN MENU METHODS & COROUTINES.
     private void NavigateDownMain()
     {
-        if (downwardCount < firstButtonPositionIndex && !buttonsInMotion) // The menu buttons can only shift as far as the difference in number between button positions and the buttons themselves.            
+        if (downwardCountMain < firstButtonPositionIndex && !buttonsInMotion) // The menu buttons can only shift as far as the difference in number between button positions and the buttons themselves.            
         {
             buttonsInMotion = true;
             // Since the difference is 3, we have three extra positions to move to, and no more. We use "downwardCount" to determine how far we have moved.
             buttonIndex = 0;
             for (int i = 0; i < buttonPositions.Length; i++) // Iterate through each potential position.
             {
-                if (i >= firstButtonPositionIndex - downwardCount && buttonIndex < mainButtons.Length) // Once we've reached the first position that holds a button... 
+                if (i >= firstButtonPositionIndex - downwardCountMain && buttonIndex < mainButtons.Length) // Once we've reached the first position that holds a button... 
                 {   // ...and assuming we haven't yet set a new position for each button...                                   
                     StartCoroutine(ShiftButtonPosition(activeMenu, buttonIndex, i - 1, highlightPositionMoveSpeed)); // ...Shift this button to the position directly above its current position.
                     buttonIndex++; // Increase the button index so that we can shift the positions of buttons 1, 2 and 3 in the next three iterations.
                 }
             }
             StartCoroutine("FalsifyButtonMotionBool");
-            downwardCount++; // Increase the count so that we know how far "down" the player is in the main menu.
+            downwardCountMain++; // Increase the count so that we know how far "down" the player is in the main menu.
         }
     }
     private void NavigateUpMain()
     {
-        if (downwardCount > 0 && !buttonsInMotion) // If this count is at 0 it means the user is at the "top" of the menu, and therefore can move no further upwards.
+        if (downwardCountMain > 0 && !buttonsInMotion) // If this count is at 0 it means the user is at the "top" of the menu, and therefore can move no further upwards.
         {
             buttonsInMotion = true;
             buttonIndex = mainButtons.Length - 1; // Start our button index at 3, "Quit Game", the button at the bottom of the list.
@@ -228,14 +261,14 @@ public class MenuController : MonoBehaviour
             {
                 // What follows is the same as what is occuring in the "NavigateDownMain" method, the only difference is that we are moving through the positions in reverse...
                 // ...Shifting each button to the position directly below it, instead of above.
-                if (i <= (buttonPositions.Length - 1) - downwardCount && buttonIndex >= 0)
+                if (i <= (buttonPositions.Length - 1) - downwardCountMain && buttonIndex >= 0)
                 {
                     StartCoroutine(ShiftButtonPosition(activeMenu, buttonIndex, i + 1, highlightPositionMoveSpeed));
                     buttonIndex--;
                 }
             }
             StartCoroutine("FalsifyButtonMotionBool");
-            downwardCount--; // Decrease the count so that we know how far "up" the player is in the main menu.
+            downwardCountMain--; // Decrease the count so that we know how far "up" the player is in the main menu.
         }
     }
 
@@ -273,14 +306,39 @@ public class MenuController : MonoBehaviour
         yield return new WaitForSeconds(ButtonMotionCooldown);
         buttonsInMotion = false;
     }
+    #endregion   
+
+    #region OPTIONS MENU METHODS & COROUTINES.
+    private void NavigateOptions()
+    {
+        if (Input.GetKeyUp(KeyCode.DownArrow))
+        {
+            downwardCountOptions++;
+
+            if(downwardCountOptions >= optionsSettings.Length) downwardCountOptions = 0;
+
+            highlightedObject = optionsSettings[downwardCountOptions];
+            StartCoroutine(ShiftHighlightPosition(highlightedObject.transform.position, highlightPositionMoveSpeed));
+        }
+
+        else if (Input.GetKeyUp(KeyCode.UpArrow))
+        {
+            downwardCountOptions--;
+
+            if (downwardCountOptions < 0) downwardCountOptions = optionsSettings.Length - 1;
+
+            highlightedObject = optionsSettings[downwardCountOptions];
+            StartCoroutine(ShiftHighlightPosition(highlightedObject.transform.position, highlightPositionMoveSpeed));
+        }       
+    }   
     #endregion
 
     #region QUIT MENU METHODS & COROUTINES.
     private void NavigateQuit()
-    {        
-        if(Input.GetKeyUp(KeyCode.UpArrow))
+    {
+        if (Input.GetKeyUp(KeyCode.UpArrow))
         {
-            if(highlightedObject == quitButtons[0]) highlightedObject = quitButtons[1].gameObject;
+            if (highlightedObject == quitButtons[0]) highlightedObject = quitButtons[1].gameObject;
             else highlightedObject = quitButtons[0].gameObject;
 
             StartCoroutine(ShiftHighlightPosition(highlightedObject.transform.position, highlightPositionMoveSpeed));
