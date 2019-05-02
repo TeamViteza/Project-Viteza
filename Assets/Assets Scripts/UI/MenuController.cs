@@ -7,6 +7,7 @@ public class MenuController : MonoBehaviour
 {
     #region MAIN MENU variables.
     public float ButtonMotionCooldown;
+    public float highlightPositionMoveSpeed = 0.2f;
 
     Canvas mainCanvas;
     GameObject mainPanel, filePanel, optionsPanel, quitPanel;
@@ -209,7 +210,7 @@ public class MenuController : MonoBehaviour
             {
                 if (i >= firstButtonPositionIndex - downwardCount && buttonIndex < mainButtons.Length) // Once we've reached the first position that holds a button... 
                 {   // ...and assuming we haven't yet set a new position for each button...                                   
-                    StartCoroutine(ShiftButtonPosition(activeMenu, buttonIndex, i - 1, 0.2f)); // ...Shift this button to the position directly above its current position.
+                    StartCoroutine(ShiftButtonPosition(activeMenu, buttonIndex, i - 1, highlightPositionMoveSpeed)); // ...Shift this button to the position directly above its current position.
                     buttonIndex++; // Increase the button index so that we can shift the positions of buttons 1, 2 and 3 in the next three iterations.
                 }
             }
@@ -229,7 +230,7 @@ public class MenuController : MonoBehaviour
                 // ...Shifting each button to the position directly below it, instead of above.
                 if (i <= (buttonPositions.Length - 1) - downwardCount && buttonIndex >= 0)
                 {
-                    StartCoroutine(ShiftButtonPosition(activeMenu, buttonIndex, i + 1, 0.2f));
+                    StartCoroutine(ShiftButtonPosition(activeMenu, buttonIndex, i + 1, highlightPositionMoveSpeed));
                     buttonIndex--;
                 }
             }
@@ -282,7 +283,7 @@ public class MenuController : MonoBehaviour
             if(highlightedButton == quitButtons[0]) highlightedButton = quitButtons[1];
             else highlightedButton = quitButtons[0];
 
-            StartCoroutine(ShiftHighlightPosition(highlightedButton.transform.position, 0.2f));
+            StartCoroutine(ShiftHighlightPosition(highlightedButton.transform.position, highlightPositionMoveSpeed));
         }
 
         else if (Input.GetKeyUp(KeyCode.DownArrow))
@@ -290,7 +291,7 @@ public class MenuController : MonoBehaviour
             if (highlightedButton == quitButtons[1]) highlightedButton = quitButtons[0];
             else highlightedButton = quitButtons[1];
 
-            StartCoroutine(ShiftHighlightPosition(highlightedButton.transform.position, 0.2f));
+            StartCoroutine(ShiftHighlightPosition(highlightedButton.transform.position, highlightPositionMoveSpeed));
         }
     }
 
