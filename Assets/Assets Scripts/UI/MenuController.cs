@@ -11,10 +11,11 @@ public class MenuController : MonoBehaviour
     Canvas mainCanvas;
     GameObject mainPanel, filePanel, optionsPanel, quitPanel;
     List<GameObject> mainMenuPanels = new List<GameObject>();
-    Transform buttonPositionParent, mainButtonsParent;
+    Transform buttonPositionParent, mainButtonsParent, highlightedPosition;
 
     Transform[] buttonPositions = new Transform[7]; // Seven potential positions.
     Button[] mainButtons = new Button[4];
+    Button[] quitButtons = new Button[2];
     Button highlightedButton;
 
     int firstButtonPositionIndex, buttonIndex;
@@ -33,6 +34,7 @@ public class MenuController : MonoBehaviour
         #region MAIN MENU Initialisation Operations.
         #region Get access to required game object parents.
         mainCanvas = GameObject.Find("canvas_main").GetComponent<Canvas>(); // Get access to the main menu's canvas.
+        highlightedPosition = mainCanvas.transform.Find("position_highlight"); // Find our menu option highlighter.
 
         #region Get access to each of the main menu's panels.
         mainPanel = mainCanvas.transform.Find("pnl0_main").gameObject;
@@ -76,7 +78,12 @@ public class MenuController : MonoBehaviour
         }
         #endregion
 
-        highlightedButton = mainButtons[0]; // "New Game" will be highlighted by default.
+        //highlightedButton = mainButtons[0]; // "New Game" will be highlighted by default.
+        #endregion
+
+        #region QUIT MENU Initialisation Operations
+        quitButtons[0] = quitPanel.transform.Find("1_buttons_quit/btn_0_no").GetComponent<Button>();
+        quitButtons[1] = quitPanel.transform.Find("1_buttons_quit/btn_1_yes").GetComponent<Button>();
         #endregion
 
         SetAsActiveMenu("Main");
@@ -98,7 +105,8 @@ public class MenuController : MonoBehaviour
                 break;
 
             case MenuType.QUIT:
-                
+                NavigateQuit();
+                CheckButtonSelection();
                 break;
         }
     }
@@ -122,7 +130,11 @@ public class MenuController : MonoBehaviour
             Debug.Log(string.Format("The '{0}' menu does not exist. Please check the on-click event for this button.", menuName));
             menuValid = false;
         }
-        if(menuValid) UpdateMenuPanels();
+        if (menuValid)
+        {
+            StartCoroutine(TransferHighlightPosition(activeMenu, 0.2f));
+            UpdateMenuPanels();
+        }
     }
 
     private void UpdateMenuPanels()
@@ -133,7 +145,57 @@ public class MenuController : MonoBehaviour
             else menuPanel.SetActive(false);
         }
     }
-    #endregion 
+
+    private IEnumerator TransferHighlightPosition(MenuType activatedMenu, float transitionDuration)            
+    {   // https://answers.unity.com/questions/63060/vector3lerp-works-outside-of-update.html Coroutine derived from top answer here.
+
+        Vector3 newHighlightPosition;
+
+        switch (activatedMenu)
+        {
+            default: // If we are returning to the main menu.                
+                newHighlightPosition = buttonPositions[firstButtonPositionIndex].transform.position; // Move the highlight back to its main menu position. 
+
+                for (int i = 0; i <= mainButtons.Length; i++)
+                {
+                    if (mainButtons[i].transform.position == newHighlightPosition)
+                    {
+                        highlightedButton = mainButtons[i];
+                        break;
+                    }
+                }
+                break;
+
+            case MenuType.QUIT: // If we're moving to the quit prompt.                
+                newHighlightPosition = quitButtons[0].transform.position;
+                highlightedButton = quitButtons[0];
+                break;
+        }
+
+        float startTime = Time.time; // Get the time this coroutine started.
+
+        while (Time.time < startTime + transitionDuration) // While the transition duration hasn't passed...
+        {
+            // ...Move the menu button to its new position, lerping is used to achieve a "smoother" effect.
+            highlightedPosition.position = Vector3.Lerp(highlightedPosition.transform.position, newHighlightPosition, (Time.time - startTime) / transitionDuration);
+            yield return null;
+        }
+        highlightedPosition.position = newHighlightPosition; // Ensure the button is at the exact position it should be by the end.
+    }
+
+    private IEnumerator ShiftHighlightPosition(Vector3 highlightDestinationPosition, float transitionDuration)
+    {           
+        float startTime = Time.time; // Get the time this coroutine started.
+
+        while (Time.time < startTime + transitionDuration) // While the transition duration hasn't passed...
+        {
+            // ...Move the menu button to its new position, lerping is used to achieve a "smoother" effect.
+            highlightedPosition.position = Vector3.Lerp(highlightedPosition.transform.position, highlightDestinationPosition, (Time.time - startTime) / transitionDuration);
+            yield return null;
+        }
+        highlightedPosition.position = highlightDestinationPosition; // Ensure the button is at the exact position it should be by the end.
+    }
+    #endregion
 
     #region MAIN MENU METHODS & COROUTINES.
     private void NavigateDownMain()
@@ -210,5 +272,32 @@ public class MenuController : MonoBehaviour
         yield return new WaitForSeconds(ButtonMotionCooldown);
         buttonsInMotion = false;
     }
-    #endregion   
+    #endregion
+
+    #region QUIT MENU METHODS & COROUTINES.
+    private void NavigateQuit()
+    {        
+        if(Input.GetKeyUp(KeyCode.UpArrow))
+        {
+            if(highlightedButton == quitButtons[0]) highlightedButton = quitButtons[1];
+            else highlightedButton = quitButtons[0];
+
+            StartCoroutine(ShiftHighlightPosition(highlightedButton.transform.position, 0.2f));
+        }
+
+        else if (Input.GetKeyUp(KeyCode.DownArrow))
+        {
+            if (highlightedButton == quitButtons[1]) highlightedButton = quitButtons[0];
+            else highlightedButton = quitButtons[1];
+
+            StartCoroutine(ShiftHighlightPosition(highlightedButton.transform.position, 0.2f));
+        }
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("Game Quit.");
+        Application.Quit();
+    }
+    #endregion
 }
