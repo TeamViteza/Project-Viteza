@@ -24,7 +24,7 @@ public class MenuController : MonoBehaviour
     GameObject[] optionsSettings = new GameObject[5];
     GameObject highlightedObject, fileCursor;
 
-    int firstButtonPositionIndex, firstFilePositionIndex, buttonIndex, fileIndex, downwardCountMain, leftCountFile, downwardCountOptions;
+    int firstButtonPositionIndex, firstFilePositionIndex, buttonIndex, fileIndex, downwardCountMain, rightCountFile, downwardCountOptions;
     bool buttonsInMotion;
     #endregion
 
@@ -46,11 +46,13 @@ public class MenuController : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(highlightedObject == fileCursor);
+
     }
 
     void Update()
     {
+        Debug.Log("Cursor highlighted: " + (highlightedObject == fileCursor));
+
         switch (activeMenu)
         {
             case MenuType.MAIN:
@@ -85,14 +87,17 @@ public class MenuController : MonoBehaviour
             else if (highlightedObject.GetComponent<Toggle>() != null) highlightedObject.GetComponent<Toggle>().isOn = !highlightedObject.GetComponent<Toggle>().isOn;
         }
 
-        if (Input.GetKeyUp(KeyCode.RightArrow))
+        if (activeMenu == MenuType.OPTIONS) // Will likely move this somewhere else later on.
         {
-            if (highlightedObject.GetComponent<Slider>() != null) highlightedObject.GetComponent<Slider>().value += sliderAdjustmentPrecision;
-        }
+            if (Input.GetKeyUp(KeyCode.RightArrow))
+            {
+                if (highlightedObject.GetComponent<Slider>() != null) highlightedObject.GetComponent<Slider>().value += sliderAdjustmentPrecision;
+            }
 
-        if (Input.GetKeyUp(KeyCode.LeftArrow))
-        {
-            if (highlightedObject.GetComponent<Slider>() != null) highlightedObject.GetComponent<Slider>().value -= sliderAdjustmentPrecision;
+            if (Input.GetKeyUp(KeyCode.LeftArrow))
+            {
+                if (highlightedObject.GetComponent<Slider>() != null) highlightedObject.GetComponent<Slider>().value -= sliderAdjustmentPrecision;
+            }
         }
     }
 
@@ -192,7 +197,7 @@ public class MenuController : MonoBehaviour
         if (downwardCountMain < firstButtonPositionIndex && !buttonsInMotion) // The menu buttons can only shift as far as the difference in number between button positions and the buttons themselves.            
         {
             buttonsInMotion = true;
-            // Since the difference is 3, we have three extra positions to move to, and no more. We use "downwardCount" to determine how far we have moved.
+            // Since the difference is 3, we have three extra positions to move to, and no more. We use "downwardCountMain" to determine how far we have moved.
             buttonIndex = 0;
             for (int i = 0; i < buttonPositions.Length; i++) // Iterate through each potential position.
             {
@@ -227,7 +232,7 @@ public class MenuController : MonoBehaviour
         }
     }
 
-    private IEnumerator ShiftButtonPosition(MenuType currentMenu, int buttonIndex, int positionIndex, float transitionDuration)         
+    private IEnumerator ShiftButtonPosition(MenuType currentMenu, int buttonIndex, int positionIndex, float transitionDuration)
     {   // https://answers.unity.com/questions/63060/vector3lerp-works-outside-of-update.html Coroutine derived from top answer here.
 
         GameObject objectToMove;
@@ -257,7 +262,7 @@ public class MenuController : MonoBehaviour
             yield return null;
         }
 
-        if (positionIndex == firstButtonPositionIndex) highlightedObject = objectToMove.gameObject; // Confirmed to work.
+        if (currentMenu == MenuType.MAIN && positionIndex == firstButtonPositionIndex) highlightedObject = objectToMove.gameObject; // Confirmed to work.        
 
         objectToMove.transform.position = newPosition; // Ensure the object is at the exact position it should be by the end.
     }
@@ -288,25 +293,45 @@ public class MenuController : MonoBehaviour
             StartCoroutine(ShiftHighlightPosition(highlightedObject.transform.position, highlightPositionMoveSpeed));
         }
 
-        else if (Input.GetKeyUp(KeyCode.LeftArrow)) NavigateLeftFile();                         
+        else if (Input.GetKeyUp(KeyCode.LeftArrow) && highlightedObject == fileCursor) NavigateLeftFile();
+        else if (Input.GetKeyUp(KeyCode.RightArrow) && highlightedObject == fileCursor) NavigateRightFile();
     }
 
-    private void NavigateLeftFile()
+    private void NavigateLeftFile() // Not working as intended yet.
     {
-        if (leftCountFile < firstFilePositionIndex && !buttonsInMotion)         
-        {   // Handled in a similar fashion to how the menu buttons are navigated.
-            buttonsInMotion = true;            
-            fileIndex = 0;
-            for (int i = 0; i < saveFilePositions.Length - firstFilePositionIndex; i++)
+        if (rightCountFile > 0 && !buttonsInMotion)
+        {   // Handled in a similar fashion to how the menu buttons are navigated.           
+            buttonsInMotion = true;
+            fileIndex = saveFiles.Length - 1;
+            for (int i = saveFilePositions.Length - 1; i >= 0; i--)
             {
-                if (i >= firstFilePositionIndex - leftCountFile && buttonIndex < saveFiles.Length) 
-                {                               
-                    StartCoroutine(ShiftButtonPosition(activeMenu, buttonIndex, i - 1, highlightPositionMoveSpeed)); 
-                    buttonIndex++; 
+                if (i <= (saveFilePositions.Length - 1) - rightCountFile && fileIndex >= 0)
+                {
+                    StartCoroutine(ShiftButtonPosition(activeMenu, fileIndex, i + 1, highlightPositionMoveSpeed));
+                    fileIndex--;
                 }
             }
             StartCoroutine("FalsifyButtonMotionBool");
-            leftCountFile++; 
+            rightCountFile--;
+        }
+    }
+
+    private void NavigateRightFile()
+    {
+        if (rightCountFile < firstFilePositionIndex && !buttonsInMotion)
+        {
+            buttonsInMotion = true;
+            fileIndex = 0;
+            for (int i = 0; i < saveFilePositions.Length - firstFilePositionIndex; i++)
+            {
+                if (i >= firstFilePositionIndex - rightCountFile && fileIndex < saveFiles.Length)
+                {
+                    StartCoroutine(ShiftButtonPosition(activeMenu, fileIndex, i - 1, highlightPositionMoveSpeed));
+                    fileIndex++;
+                }
+            }
+            StartCoroutine("FalsifyButtonMotionBool");
+            rightCountFile++;
         }
     }
     #endregion
