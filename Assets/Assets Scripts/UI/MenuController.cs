@@ -13,15 +13,17 @@ public class MenuController : MonoBehaviour
     Canvas mainCanvas;
     GameObject mainPanel, filePanel, optionsPanel, quitPanel;
     List<GameObject> mainMenuPanels = new List<GameObject>();
-    Transform buttonPositionParent, mainButtonsParent, highlightedPosition;
+    Transform buttonPositionParent, mainButtonsParent, saveFilePositionParent, saveFileParent, highlightedPosition;
 
     Transform[] buttonPositions = new Transform[7]; // Seven potential positions.
     Button[] mainButtons = new Button[4];
     Button[] quitButtons = new Button[2];
+    GameObject[] saveFilePositions = new GameObject[17];
+    GameObject[] saveFiles = new GameObject[9];
     GameObject[] optionsSettings = new GameObject[5];
     GameObject highlightedObject;
 
-    int firstButtonPositionIndex, buttonIndex, downwardCountMain, downwardCountOptions;
+    int firstButtonPositionIndex, firstFilePositionIndex, buttonIndex, fileIndex, downwardCountMain, LeftCountFile, downwardCountOptions;
     bool buttonsInMotion;
     #endregion
 
@@ -34,6 +36,7 @@ public class MenuController : MonoBehaviour
     void Awake()
     {
         MainPanelInitialisation();
+        FilePanelInitialisation();
         OptionsPanelInitialisation();
         QuitPanelInitialisation();
 
@@ -42,7 +45,7 @@ public class MenuController : MonoBehaviour
 
     void Start()
     {
-        //Debug.Log(optionsSettings[4].name);
+        Debug.Log(firstFilePositionIndex);
     }
 
     void Update()
@@ -72,7 +75,7 @@ public class MenuController : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Return) || Input.GetButtonUp("A"))
         {
-            if(highlightedObject.GetComponent<Button>() != null) highlightedObject.GetComponent<Button>().onClick.Invoke();
+            if (highlightedObject.GetComponent<Button>() != null) highlightedObject.GetComponent<Button>().onClick.Invoke();
             else if (highlightedObject.GetComponent<Toggle>() != null) highlightedObject.GetComponent<Toggle>().isOn = !highlightedObject.GetComponent<Toggle>().isOn;
         }
 
@@ -247,7 +250,11 @@ public class MenuController : MonoBehaviour
         yield return new WaitForSeconds(ButtonMotionCooldown);
         buttonsInMotion = false;
     }
-    #endregion   
+    #endregion
+
+    #region FILE MENU METHODS & COROUTINES
+
+    #endregion
 
     #region OPTIONS MENU METHODS & COROUTINES.
     private void NavigateOptions()
@@ -256,7 +263,7 @@ public class MenuController : MonoBehaviour
         {
             downwardCountOptions++;
 
-            if(downwardCountOptions >= optionsSettings.Length) downwardCountOptions = 0;
+            if (downwardCountOptions >= optionsSettings.Length) downwardCountOptions = 0;
 
             highlightedObject = optionsSettings[downwardCountOptions];
             StartCoroutine(ShiftHighlightPosition(highlightedObject.transform.position, highlightPositionMoveSpeed));
@@ -270,8 +277,8 @@ public class MenuController : MonoBehaviour
 
             highlightedObject = optionsSettings[downwardCountOptions];
             StartCoroutine(ShiftHighlightPosition(highlightedObject.transform.position, highlightPositionMoveSpeed));
-        }       
-    }   
+        }
+    }
     #endregion
 
     #region QUIT MENU METHODS & COROUTINES.
@@ -302,8 +309,8 @@ public class MenuController : MonoBehaviour
     #endregion
 
     #region INITIALISATION METHODS
-    private void MainPanelInitialisation() 
-    {       
+    private void MainPanelInitialisation()
+    {
         #region Get access to required game object parents.
         mainCanvas = GameObject.Find("canvas_main").GetComponent<Canvas>(); // Get access to the main menu's canvas.
         highlightedPosition = mainCanvas.transform.Find("position_highlight"); // Find our menu option highlighter.
@@ -351,19 +358,50 @@ public class MenuController : MonoBehaviour
         #endregion                
     }
 
-    private void OptionsPanelInitialisation() 
+    private void FilePanelInitialisation()
+    {
+        saveFilePositionParent = filePanel.transform.Find("0_slot_positions"); // Get access to the file panel's potential file positions.
+        saveFileParent = filePanel.transform.Find("1_slots"); // Get access to the file panel's files.
+
+        #region Gain access to each of the file menu's potential file positions.
+        for (int i = 0; i < saveFilePositions.Length; i++)
+        {   // We'll have 17 potential file positions on our file menu. (Index ranges from 0 to 16.)
+            saveFilePositions[i] = saveFilePositionParent.transform.GetChild(i).gameObject;
+        }
+        #endregion
+        #region Now get a reference to each file on the file menu.       
+        for (int i = 0; i < saveFiles.Length; i++)
+        {   // We'll have 9 save slots/files.
+            saveFiles[i] = saveFileParent.transform.GetChild(i).gameObject;
+        }
+        #endregion
+
+        firstFilePositionIndex = (saveFilePositions.Length - saveFiles.Length) / 2; // Should be 4.
+
+        #region Set the starting position of each save file.       
+        fileIndex = 0; 
+
+        for (int i = firstFilePositionIndex; i < saveFilePositions.Length - firstFilePositionIndex; i++) // Start our iteration at the position we determined the first file would appear at. (Position 4, the first file position index).
+        {
+            saveFiles[fileIndex].transform.position = saveFilePositions[i].transform.position; // Set each of our buttons to their appropriate starting positions.
+            fileIndex++; // Increase the index so we can set the position of buttons 1, 2 and 3 in the next three loops.
+        }
+        #endregion       
+    }
+
+    private void OptionsPanelInitialisation()
     {   // Get access to each setting in the options menu.
         optionsSettings[0] = optionsPanel.transform.Find("1_settings_options/0_stg_tgl_fullscreen").gameObject;
         optionsSettings[1] = optionsPanel.transform.Find("1_settings_options/1_stg_sdr_volume_master").gameObject;
         optionsSettings[2] = optionsPanel.transform.Find("1_settings_options/2_stg_sdr_volume_bgm").gameObject;
         optionsSettings[3] = optionsPanel.transform.Find("1_settings_options/3_stg_sdr_volume_sfx").gameObject;
-        optionsSettings[4] = optionsPanel.transform.Find("1_settings_options/4_btn_return").gameObject;      
+        optionsSettings[4] = optionsPanel.transform.Find("1_settings_options/4_btn_return").gameObject;
     }
 
     private void QuitPanelInitialisation()
     {   // Get access to options "yes" and "no" in the quit prompt.       
         quitButtons[0] = quitPanel.transform.Find("1_buttons_quit/btn_0_no").GetComponent<Button>();
-        quitButtons[1] = quitPanel.transform.Find("1_buttons_quit/btn_1_yes").GetComponent<Button>();        
+        quitButtons[1] = quitPanel.transform.Find("1_buttons_quit/btn_1_yes").GetComponent<Button>();
     }
     #endregion
 }
