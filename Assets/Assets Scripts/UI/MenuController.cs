@@ -17,13 +17,14 @@ public class MenuController : MonoBehaviour
 
     Transform[] buttonPositions = new Transform[7]; // Seven potential positions.
     Button[] mainButtons = new Button[4];
+    Button btnReturnFile;
     Button[] quitButtons = new Button[2];
     GameObject[] saveFilePositions = new GameObject[17];
     GameObject[] saveFiles = new GameObject[9];
     GameObject[] optionsSettings = new GameObject[5];
-    GameObject highlightedObject;
+    GameObject highlightedObject, fileCursor;
 
-    int firstButtonPositionIndex, firstFilePositionIndex, buttonIndex, fileIndex, downwardCountMain, LeftCountFile, downwardCountOptions;
+    int firstButtonPositionIndex, firstFilePositionIndex, buttonIndex, fileIndex, downwardCountMain, leftCountFile, downwardCountOptions;
     bool buttonsInMotion;
     #endregion
 
@@ -45,7 +46,7 @@ public class MenuController : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(firstFilePositionIndex);
+        Debug.Log(highlightedObject == fileCursor);
     }
 
     void Update()
@@ -55,6 +56,11 @@ public class MenuController : MonoBehaviour
             case MenuType.MAIN:
                 if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetAxisRaw("D-PadV") == -1) NavigateDownMain();
                 if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetAxisRaw("D-PadV") == 1) NavigateUpMain();
+                CheckButtonSelection();
+                break;
+
+            case MenuType.FILE:
+                NavigateFile();
                 CheckButtonSelection();
                 break;
 
@@ -139,6 +145,11 @@ public class MenuController : MonoBehaviour
                 }
                 break;
 
+            case MenuType.FILE: // If we're moving to the file menu.                
+                newHighlightPosition = btnReturnFile.transform.position;
+                highlightedObject = btnReturnFile.gameObject;
+                break;
+
             case MenuType.OPTIONS: // If we're moving to the options menu.                
                 newHighlightPosition = optionsSettings[0].transform.position;
                 highlightedObject = optionsSettings[0].gameObject;
@@ -216,18 +227,24 @@ public class MenuController : MonoBehaviour
         }
     }
 
-    private IEnumerator ShiftButtonPosition(MenuType currentMenu, int buttonIndex, int positionIndex, float transitionDuration) // May look into making this more of a universal coroutine. (Not just for main menu.)             
+    private IEnumerator ShiftButtonPosition(MenuType currentMenu, int buttonIndex, int positionIndex, float transitionDuration)         
     {   // https://answers.unity.com/questions/63060/vector3lerp-works-outside-of-update.html Coroutine derived from top answer here.
 
-        Button buttonToMove;
+        GameObject objectToMove;
         Vector3 currentPosition, newPosition;
 
         switch (currentMenu)
         {
             default: // If we are currently in the main menu.
-                buttonToMove = mainButtons[buttonIndex];
-                currentPosition = buttonToMove.transform.position; // Determine which button must be moved according to the index parameter.
+                objectToMove = mainButtons[buttonIndex].gameObject;
+                currentPosition = objectToMove.transform.position; // Determine which button must be moved according to the index parameter.
                 newPosition = buttonPositions[positionIndex].transform.position; // Determine which position the button must be moved to.
+                break;
+
+            case MenuType.FILE: // If we are currently in the file menu.
+                objectToMove = saveFiles[fileIndex];
+                currentPosition = objectToMove.transform.position; // Determine which object must be moved according to the index parameter.
+                newPosition = saveFilePositions[positionIndex].transform.position; // Determine which position the object must be moved to.
                 break;
         }
 
@@ -236,13 +253,13 @@ public class MenuController : MonoBehaviour
         while (Time.time < startTime + transitionDuration) // While the transition duration hasn't passed...
         {
             // ...Move the menu button to its new position, lerping is used to achieve a "smoother" effect.
-            buttonToMove.transform.position = Vector3.Lerp(currentPosition, newPosition, (Time.time - startTime) / transitionDuration);
+            objectToMove.transform.position = Vector3.Lerp(currentPosition, newPosition, (Time.time - startTime) / transitionDuration);
             yield return null;
         }
 
-        if (positionIndex == firstButtonPositionIndex) highlightedObject = buttonToMove.gameObject; // Confirmed to work.
+        if (positionIndex == firstButtonPositionIndex) highlightedObject = objectToMove.gameObject; // Confirmed to work.
 
-        buttonToMove.transform.position = newPosition; // Ensure the button is at the exact position it should be by the end.
+        objectToMove.transform.position = newPosition; // Ensure the object is at the exact position it should be by the end.
     }
 
     private IEnumerator FalsifyButtonMotionBool()
@@ -253,7 +270,45 @@ public class MenuController : MonoBehaviour
     #endregion
 
     #region FILE MENU METHODS & COROUTINES
+    private void NavigateFile()
+    {
+        if (Input.GetKeyUp(KeyCode.UpArrow))
+        {
+            if (highlightedObject == fileCursor) highlightedObject = btnReturnFile.gameObject;
+            else highlightedObject = fileCursor;
 
+            StartCoroutine(ShiftHighlightPosition(highlightedObject.transform.position, highlightPositionMoveSpeed));
+        }
+
+        else if (Input.GetKeyUp(KeyCode.DownArrow))
+        {
+            if (highlightedObject == btnReturnFile.gameObject) highlightedObject = fileCursor;
+            else highlightedObject = btnReturnFile.gameObject;
+
+            StartCoroutine(ShiftHighlightPosition(highlightedObject.transform.position, highlightPositionMoveSpeed));
+        }
+
+        else if (Input.GetKeyUp(KeyCode.LeftArrow)) NavigateLeftFile();                         
+    }
+
+    private void NavigateLeftFile()
+    {
+        if (leftCountFile < firstFilePositionIndex && !buttonsInMotion)         
+        {   // Handled in a similar fashion to how the menu buttons are navigated.
+            buttonsInMotion = true;            
+            fileIndex = 0;
+            for (int i = 0; i < saveFilePositions.Length - firstFilePositionIndex; i++)
+            {
+                if (i >= firstFilePositionIndex - leftCountFile && buttonIndex < saveFiles.Length) 
+                {                               
+                    StartCoroutine(ShiftButtonPosition(activeMenu, buttonIndex, i - 1, highlightPositionMoveSpeed)); 
+                    buttonIndex++; 
+                }
+            }
+            StartCoroutine("FalsifyButtonMotionBool");
+            leftCountFile++; 
+        }
+    }
     #endregion
 
     #region OPTIONS MENU METHODS & COROUTINES.
@@ -355,7 +410,10 @@ public class MenuController : MonoBehaviour
             mainButtons[buttonIndex].transform.position = buttonPositions[i].transform.position; // Set each of our buttons to their appropriate starting positions.
             buttonIndex++; // Increase the index so we can set the position of buttons 1, 2 and 3 in the next three loops.
         }
-        #endregion                
+        #endregion
+
+        fileCursor = filePanel.transform.Find("3_file_cursor").gameObject; // Get access to the file cursor.       
+        btnReturnFile = filePanel.transform.Find("4_btn_return").GetComponent<Button>(); // Get the file panel's return button.       
     }
 
     private void FilePanelInitialisation()
@@ -379,7 +437,7 @@ public class MenuController : MonoBehaviour
         firstFilePositionIndex = (saveFilePositions.Length - saveFiles.Length) / 2; // Should be 4.
 
         #region Set the starting position of each save file.       
-        fileIndex = 0; 
+        fileIndex = 0;
 
         for (int i = firstFilePositionIndex; i < saveFilePositions.Length - firstFilePositionIndex; i++) // Start our iteration at the position we determined the first file would appear at. (Position 4, the first file position index).
         {
