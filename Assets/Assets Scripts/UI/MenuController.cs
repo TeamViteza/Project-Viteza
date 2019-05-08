@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MenuController : MonoBehaviour
 {
     #region MAIN MENU variables.
-    public float ButtonMotionCooldown = 0.1f;
+    public float uiElementMotionCooldown = 0.1f;
     public float highlightPositionMoveSpeed = 0.2f;
     public float sliderAdjustmentPrecision = 0.05f;
 
@@ -22,10 +22,10 @@ public class MenuController : MonoBehaviour
     GameObject[] saveFilePositions = new GameObject[17];
     GameObject[] saveFiles = new GameObject[9];
     GameObject[] optionsSettings = new GameObject[5];
-    GameObject highlightedObject, fileCursor;
+    GameObject highlightedObject, highlightedSaveFile, fileCursor;
 
     int firstButtonPositionIndex, firstFilePositionIndex, buttonIndex, fileIndex, downwardCountMain, rightCountFile, downwardCountOptions;
-    bool buttonsInMotion;
+    bool uiElementsInMotion;
     #endregion
 
     private enum MenuType // This system's subject to change, right now I'd like to experiment with keeping all menu-related functions within this script.
@@ -46,7 +46,6 @@ public class MenuController : MonoBehaviour
 
     void Start()
     {
-
     }
 
     void Update()
@@ -54,8 +53,7 @@ public class MenuController : MonoBehaviour
         switch (activeMenu)
         {
             case MenuType.MAIN:
-                if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetAxisRaw("D-PadV") == -1) NavigateDownMain();
-                if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetAxisRaw("D-PadV") == 1) NavigateUpMain();
+                NavigateMain();
                 CheckButtonSelection();
                 break;
 
@@ -67,6 +65,7 @@ public class MenuController : MonoBehaviour
             case MenuType.OPTIONS:
                 NavigateOptions();
                 CheckButtonSelection();
+                HandleSliderAdjustment();
                 break;
 
             case MenuType.QUIT:
@@ -83,19 +82,6 @@ public class MenuController : MonoBehaviour
         {
             if (highlightedObject.GetComponent<Button>() != null) highlightedObject.GetComponent<Button>().onClick.Invoke();
             else if (highlightedObject.GetComponent<Toggle>() != null) highlightedObject.GetComponent<Toggle>().isOn = !highlightedObject.GetComponent<Toggle>().isOn;
-        }
-
-        if (activeMenu == MenuType.OPTIONS) // Will likely move this somewhere else later on.
-        {
-            if (Input.GetKeyUp(KeyCode.RightArrow))
-            {
-                if (highlightedObject.GetComponent<Slider>() != null) highlightedObject.GetComponent<Slider>().value += sliderAdjustmentPrecision;
-            }
-
-            if (Input.GetKeyUp(KeyCode.LeftArrow))
-            {
-                if (highlightedObject.GetComponent<Slider>() != null) highlightedObject.GetComponent<Slider>().value -= sliderAdjustmentPrecision;
-            }
         }
     }
 
@@ -187,14 +173,25 @@ public class MenuController : MonoBehaviour
         }
         highlightedPosition.position = highlightDestinationPosition; // Ensure the button is at the exact position it should be by the end.
     }
+
+    private IEnumerator FalsifyElementMotionBool()
+    {
+        yield return new WaitForSeconds(uiElementMotionCooldown);
+        uiElementsInMotion = false;
+    }
     #endregion
 
     #region MAIN MENU METHODS & COROUTINES.
+    private void NavigateMain()
+    {
+        if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetAxisRaw("D-PadV") == -1) NavigateDownMain();
+        else if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetAxisRaw("D-PadV") == 1) NavigateUpMain();
+    }
     private void NavigateDownMain()
     {
-        if (downwardCountMain < firstButtonPositionIndex && !buttonsInMotion) // The menu buttons can only shift as far as the difference in number between button positions and the buttons themselves.            
+        if (downwardCountMain < firstButtonPositionIndex && !uiElementsInMotion) // The menu buttons can only shift as far as the difference in number between button positions and the buttons themselves.            
         {
-            buttonsInMotion = true;
+            uiElementsInMotion = true;
             // Since the difference is 3, we have three extra positions to move to, and no more. We use "downwardCountMain" to determine how far we have moved.
             buttonIndex = 0;
             for (int i = 0; i < buttonPositions.Length; i++) // Iterate through each potential position.
@@ -205,15 +202,15 @@ public class MenuController : MonoBehaviour
                     buttonIndex++; // Increase the button index so that we can shift the positions of buttons 1, 2 and 3 in the next three iterations.
                 }
             }
-            StartCoroutine("FalsifyButtonMotionBool");
+            StartCoroutine("FalsifyElementMotionBool");
             downwardCountMain++; // Increase the count so that we know how far "down" the player is in the main menu.
         }
     }
     private void NavigateUpMain()
     {
-        if (downwardCountMain > 0 && !buttonsInMotion) // If this count is at 0 it means the user is at the "top" of the menu, and therefore can move no further upwards.
+        if (downwardCountMain > 0 && !uiElementsInMotion) // If this count is at 0 it means the user is at the "top" of the menu, and therefore can move no further upwards.
         {
-            buttonsInMotion = true;
+            uiElementsInMotion = true;
             buttonIndex = mainButtons.Length - 1; // Start our button index at 3, "Quit Game", the button at the bottom of the list.
             for (int i = buttonPositions.Length - 1; i >= 0; i--) // Iterate through each position, starting from the bottom (position 6) and moving upwards.
             {
@@ -225,7 +222,7 @@ public class MenuController : MonoBehaviour
                     buttonIndex--;
                 }
             }
-            StartCoroutine("FalsifyButtonMotionBool");
+            StartCoroutine("FalsifyElementMotionBool");
             downwardCountMain--; // Decrease the count so that we know how far "up" the player is in the main menu.
         }
     }
@@ -263,13 +260,7 @@ public class MenuController : MonoBehaviour
         if (currentMenu == MenuType.MAIN && positionIndex == firstButtonPositionIndex) highlightedObject = objectToMove.gameObject; // Confirmed to work.        
 
         objectToMove.transform.position = newPosition; // Ensure the object is at the exact position it should be by the end.
-    }
-
-    private IEnumerator FalsifyButtonMotionBool()
-    {
-        yield return new WaitForSeconds(ButtonMotionCooldown);
-        buttonsInMotion = false;
-    }
+    }   
     #endregion
 
     #region FILE MENU METHODS & COROUTINES
@@ -295,42 +286,49 @@ public class MenuController : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.RightArrow) && highlightedObject == fileCursor) NavigateRightFile();
     }
 
-    private void NavigateLeftFile() // Not working as intended yet.
+    private void NavigateLeftFile()
     {
-        if (rightCountFile < firstFilePositionIndex && !buttonsInMotion)
+        if (rightCountFile < firstFilePositionIndex && !uiElementsInMotion)
         {
-            buttonsInMotion = true;
+            uiElementsInMotion = true;
             fileIndex = 0;
             for (int i = 0; i < saveFilePositions.Length; i++)
             {
                 if (i >= firstFilePositionIndex + rightCountFile && fileIndex < saveFiles.Length)
                 {
                     StartCoroutine(ShiftButtonPosition(activeMenu, fileIndex, i + 1, highlightPositionMoveSpeed));
-                    fileIndex++;
+                    HighlightFile(i, fileIndex - 1);
+                    fileIndex++;                    
                 }
             }
-            StartCoroutine("FalsifyButtonMotionBool");
-            rightCountFile++;           
+            StartCoroutine("FalsifyElementMotionBool");
+            rightCountFile++;            
         }
     }
 
     private void NavigateRightFile()
     {
-        if (rightCountFile > -firstFilePositionIndex && !buttonsInMotion)
+        if (rightCountFile > -firstFilePositionIndex && !uiElementsInMotion)
         {
-            buttonsInMotion = true;
+            uiElementsInMotion = true;
             fileIndex = 0;
             for (int i = 0; i < saveFilePositions.Length; i++)
             {
                 if (i >= firstFilePositionIndex + rightCountFile && fileIndex < saveFiles.Length)
                 {
-                    StartCoroutine(ShiftButtonPosition(activeMenu, fileIndex, i - 1, highlightPositionMoveSpeed));
+                    StartCoroutine(ShiftButtonPosition(activeMenu, fileIndex, i - 1, highlightPositionMoveSpeed));                   
                     fileIndex++;
+                    HighlightFile(i, fileIndex);
                 }
             }
-            StartCoroutine("FalsifyButtonMotionBool");
-            rightCountFile--;         
+            StartCoroutine("FalsifyElementMotionBool");
+            rightCountFile--;            
         }
+    }
+
+    private void HighlightFile(int positionIndex, int fileIndex)
+    {
+        if (positionIndex == firstFilePositionIndex * 2) highlightedSaveFile = saveFiles[fileIndex]; // Ensure that whichever file lands in the center is designated the highlighted file.
     }
     #endregion
 
@@ -355,6 +353,19 @@ public class MenuController : MonoBehaviour
 
             highlightedObject = optionsSettings[downwardCountOptions];
             StartCoroutine(ShiftHighlightPosition(highlightedObject.transform.position, highlightPositionMoveSpeed));
+        }
+    }
+
+    private void HandleSliderAdjustment()
+    {
+        if (Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            if (highlightedObject.GetComponent<Slider>() != null) highlightedObject.GetComponent<Slider>().value += sliderAdjustmentPrecision;
+        }
+
+        else if (Input.GetKeyUp(KeyCode.LeftArrow))
+        {
+            if (highlightedObject.GetComponent<Slider>() != null) highlightedObject.GetComponent<Slider>().value -= sliderAdjustmentPrecision;
         }
     }
     #endregion
@@ -438,7 +449,6 @@ public class MenuController : MonoBehaviour
         fileCursor = filePanel.transform.Find("3_file_cursor").gameObject; // Get access to the file cursor.       
         btnReturnFile = filePanel.transform.Find("4_btn_return").GetComponent<Button>(); // Get the file panel's return button.       
     }
-
     private void FilePanelInitialisation()
     {
         saveFilePositionParent = filePanel.transform.Find("0_slot_positions"); // Get access to the file panel's potential file positions.
@@ -465,11 +475,11 @@ public class MenuController : MonoBehaviour
         for (int i = firstFilePositionIndex; i < saveFilePositions.Length - firstFilePositionIndex; i++) // Start our iteration at the position we determined the first file would appear at. (Position 4, the first file position index).
         {
             saveFiles[fileIndex].transform.position = saveFilePositions[i].transform.position; // Set each of our buttons to their appropriate starting positions.
+            if (i == firstFilePositionIndex * 2) highlightedSaveFile = saveFiles[fileIndex]; // The highlighted slot will always be the file in the center (position 8).
             fileIndex++; // Increase the index so we can set the position of buttons 1, 2 and 3 in the next three loops.
         }
         #endregion       
     }
-
     private void OptionsPanelInitialisation()
     {   // Get access to each setting in the options menu.
         optionsSettings[0] = optionsPanel.transform.Find("1_settings_options/0_stg_tgl_fullscreen").gameObject;
@@ -478,7 +488,6 @@ public class MenuController : MonoBehaviour
         optionsSettings[3] = optionsPanel.transform.Find("1_settings_options/3_stg_sdr_volume_sfx").gameObject;
         optionsSettings[4] = optionsPanel.transform.Find("1_settings_options/4_btn_return").gameObject;
     }
-
     private void QuitPanelInitialisation()
     {   // Get access to options "yes" and "no" in the quit prompt.       
         quitButtons[0] = quitPanel.transform.Find("1_buttons_quit/btn_0_no").GetComponent<Button>();
