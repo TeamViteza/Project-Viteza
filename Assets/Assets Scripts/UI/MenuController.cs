@@ -50,9 +50,7 @@ public class MenuController : MonoBehaviour
     }
 
     void Update()
-    {
-        Debug.Log("Cursor highlighted: " + (highlightedObject == fileCursor));
-
+    {        
         switch (activeMenu)
         {
             case MenuType.MAIN:
@@ -299,39 +297,39 @@ public class MenuController : MonoBehaviour
 
     private void NavigateLeftFile() // Not working as intended yet.
     {
-        if (rightCountFile > 0 && !buttonsInMotion)
-        {   // Handled in a similar fashion to how the menu buttons are navigated.           
+        if (rightCountFile < firstFilePositionIndex && !buttonsInMotion)
+        {
             buttonsInMotion = true;
-            fileIndex = saveFiles.Length - 1;
-            for (int i = saveFilePositions.Length - 1; i >= 0; i--)
+            fileIndex = 0;
+            for (int i = 0; i < saveFilePositions.Length; i++)
             {
-                if (i <= (saveFilePositions.Length - 1) - rightCountFile && fileIndex >= 0)
+                if (i >= firstFilePositionIndex + rightCountFile && fileIndex < saveFiles.Length)
                 {
                     StartCoroutine(ShiftButtonPosition(activeMenu, fileIndex, i + 1, highlightPositionMoveSpeed));
-                    fileIndex--;
+                    fileIndex++;
                 }
             }
             StartCoroutine("FalsifyButtonMotionBool");
-            rightCountFile--;
+            rightCountFile++;           
         }
     }
 
     private void NavigateRightFile()
     {
-        if (rightCountFile < firstFilePositionIndex && !buttonsInMotion)
+        if (rightCountFile > -firstFilePositionIndex && !buttonsInMotion)
         {
             buttonsInMotion = true;
             fileIndex = 0;
-            for (int i = 0; i < saveFilePositions.Length - firstFilePositionIndex; i++)
+            for (int i = 0; i < saveFilePositions.Length; i++)
             {
-                if (i >= firstFilePositionIndex - rightCountFile && fileIndex < saveFiles.Length)
+                if (i >= firstFilePositionIndex + rightCountFile && fileIndex < saveFiles.Length)
                 {
                     StartCoroutine(ShiftButtonPosition(activeMenu, fileIndex, i - 1, highlightPositionMoveSpeed));
                     fileIndex++;
                 }
             }
             StartCoroutine("FalsifyButtonMotionBool");
-            rightCountFile++;
+            rightCountFile--;         
         }
     }
     #endregion
