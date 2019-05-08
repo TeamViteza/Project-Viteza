@@ -23,6 +23,7 @@ public class MenuController : MonoBehaviour
     GameObject[] saveFiles = new GameObject[9];
     GameObject[] optionsSettings = new GameObject[5];
     GameObject highlightedObject, highlightedSaveFile, fileCursor;
+    SaveFile fileToLoad;
 
     int firstButtonPositionIndex, firstFilePositionIndex, buttonIndex, fileIndex, downwardCountMain, rightCountFile, downwardCountOptions;
     bool uiElementsInMotion;
@@ -329,6 +330,13 @@ public class MenuController : MonoBehaviour
     private void HighlightFile(int positionIndex, int fileIndex)
     {
         if (positionIndex == firstFilePositionIndex * 2) highlightedSaveFile = saveFiles[fileIndex]; // Ensure that whichever file lands in the center is designated the highlighted file.
+    }
+    
+    public void LoadSaveFile()
+    {
+        fileToLoad = highlightedSaveFile.GetComponent<SaveFile>();
+
+        if (fileToLoad != null) fileToLoad.LoadData();
     }
     #endregion
 
