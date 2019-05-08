@@ -11,18 +11,18 @@ public class MenuController : MonoBehaviour
     public float sliderAdjustmentPrecision = 0.05f;
 
     Canvas mainCanvas;
-    GameObject mainPanel, filePanel, optionsPanel, quitPanel;
+    GameObject mainPanel, filePanel, infoPanel, optionsPanel, quitPanel;
     List<GameObject> mainMenuPanels = new List<GameObject>();
     Transform buttonPositionParent, mainButtonsParent, saveFilePositionParent, saveFileParent, highlightedPosition;
 
     Transform[] buttonPositions = new Transform[7]; // Seven potential positions.
     Button[] mainButtons = new Button[4];
-    Button btnReturnFile;
+    Button btnReturnFile, btnReturnInfo;
     Button[] quitButtons = new Button[2];
     GameObject[] saveFilePositions = new GameObject[17];
     GameObject[] saveFiles = new GameObject[9];
     GameObject[] optionsSettings = new GameObject[5];
-    GameObject highlightedObject, highlightedSaveFile, fileCursor;
+    GameObject highlightedObject, highlightedSaveFile, fileCursor;    
     SaveFile fileToLoad;
 
     int firstButtonPositionIndex, firstFilePositionIndex, buttonIndex, fileIndex, downwardCountMain, rightCountFile, downwardCountOptions;
@@ -31,7 +31,7 @@ public class MenuController : MonoBehaviour
 
     private enum MenuType // This system's subject to change, right now I'd like to experiment with keeping all menu-related functions within this script.
     {
-        MAIN, FILE, OPTIONS, QUIT, PAUSE
+        MAIN, FILE, INFO, OPTIONS, QUIT, PAUSE
     }
     private MenuType activeMenu;
 
@@ -39,6 +39,7 @@ public class MenuController : MonoBehaviour
     {
         MainPanelInitialisation();
         FilePanelInitialisation();
+        InfoPanelInitialisation();
         OptionsPanelInitialisation();
         QuitPanelInitialisation();
 
@@ -60,6 +61,10 @@ public class MenuController : MonoBehaviour
 
             case MenuType.FILE:
                 NavigateFile();
+                CheckButtonSelection();
+                break;
+
+            case MenuType.INFO:               
                 CheckButtonSelection();
                 break;
 
@@ -85,13 +90,13 @@ public class MenuController : MonoBehaviour
             else if (highlightedObject.GetComponent<Toggle>() != null) highlightedObject.GetComponent<Toggle>().isOn = !highlightedObject.GetComponent<Toggle>().isOn;
         }
     }
-
     public void SetAsActiveMenu(string menuName)
-    {
+    {        
         bool menuValid = true;
 
         if (menuName.ToUpper() == "MAIN") activeMenu = MenuType.MAIN;
         else if (menuName.ToUpper() == "FILE") activeMenu = MenuType.FILE;
+        else if (menuName.ToUpper() == "INFO") activeMenu = MenuType.INFO;
         else if (menuName.ToUpper() == "OPTIONS") activeMenu = MenuType.OPTIONS;
         else if (menuName.ToUpper() == "QUIT") activeMenu = MenuType.QUIT;
         else
@@ -105,7 +110,6 @@ public class MenuController : MonoBehaviour
             UpdateMenuPanels();
         }
     }
-
     private void UpdateMenuPanels()
     {
         foreach (GameObject menuPanel in mainMenuPanels)
@@ -113,13 +117,13 @@ public class MenuController : MonoBehaviour
             if (menuPanel.name.ToUpper().Contains(activeMenu.ToString())) menuPanel.SetActive(true);
             else menuPanel.SetActive(false);
         }
-    }
+    }   
 
     private IEnumerator TransferHighlightPosition(MenuType activatedMenu, float transitionDuration)
     {   // https://answers.unity.com/questions/63060/vector3lerp-works-outside-of-update.html Coroutine derived from top answer here.
 
         Vector3 newHighlightPosition;
-
+        
         switch (activatedMenu)
         {
             default: // If we are returning to the main menu.                
@@ -138,6 +142,11 @@ public class MenuController : MonoBehaviour
             case MenuType.FILE: // If we're moving to the file menu.                
                 newHighlightPosition = btnReturnFile.transform.position;
                 highlightedObject = btnReturnFile.gameObject;
+                break;
+
+            case MenuType.INFO: // If we're moving to the Info menu.                
+                newHighlightPosition = btnReturnInfo.transform.position;
+                highlightedObject = btnReturnInfo.gameObject;
                 break;
 
             case MenuType.OPTIONS: // If we're moving to the options menu.                
@@ -161,7 +170,6 @@ public class MenuController : MonoBehaviour
         }
         highlightedPosition.position = newHighlightPosition; // Ensure the button is at the exact position it should be by the end.
     }
-
     private IEnumerator ShiftHighlightPosition(Vector3 highlightDestinationPosition, float transitionDuration)
     {
         float startTime = Time.time; // Get the time this coroutine started.
@@ -174,7 +182,6 @@ public class MenuController : MonoBehaviour
         }
         highlightedPosition.position = highlightDestinationPosition; // Ensure the button is at the exact position it should be by the end.
     }
-
     private IEnumerator FalsifyElementMotionBool()
     {
         yield return new WaitForSeconds(uiElementMotionCooldown);
@@ -286,7 +293,6 @@ public class MenuController : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.LeftArrow) && highlightedObject == fileCursor) NavigateLeftFile();
         else if (Input.GetKeyUp(KeyCode.RightArrow) && highlightedObject == fileCursor) NavigateRightFile();
     }
-
     private void NavigateLeftFile()
     {
         if (rightCountFile < firstFilePositionIndex && !uiElementsInMotion)
@@ -306,7 +312,6 @@ public class MenuController : MonoBehaviour
             rightCountFile++;            
         }
     }
-
     private void NavigateRightFile()
     {
         if (rightCountFile > -firstFilePositionIndex && !uiElementsInMotion)
@@ -326,12 +331,10 @@ public class MenuController : MonoBehaviour
             rightCountFile--;            
         }
     }
-
     private void HighlightFile(int positionIndex, int fileIndex)
     {
         if (positionIndex == firstFilePositionIndex * 2) highlightedSaveFile = saveFiles[fileIndex]; // Ensure that whichever file lands in the center is designated the highlighted file.
-    }
-    
+    }   
     public void LoadSaveFile()
     {
         fileToLoad = highlightedSaveFile.GetComponent<SaveFile>();
@@ -363,7 +366,6 @@ public class MenuController : MonoBehaviour
             StartCoroutine(ShiftHighlightPosition(highlightedObject.transform.position, highlightPositionMoveSpeed));
         }
     }
-
     private void HandleSliderAdjustment()
     {
         if (Input.GetKeyUp(KeyCode.RightArrow))
@@ -397,7 +399,6 @@ public class MenuController : MonoBehaviour
             StartCoroutine(ShiftHighlightPosition(highlightedObject.transform.position, highlightPositionMoveSpeed));
         }
     }
-
     public void QuitGame()
     {
         Debug.Log("Game Quit.");
@@ -415,11 +416,13 @@ public class MenuController : MonoBehaviour
         #region Get access to each of the main menu's panels.
         mainPanel = mainCanvas.transform.Find("pnl0_main").gameObject;
         filePanel = mainCanvas.transform.Find("pnl1_file").gameObject;
-        optionsPanel = mainCanvas.transform.Find("pnl2_options").gameObject;
-        quitPanel = mainCanvas.transform.Find("pnl3_quit").gameObject;
+        infoPanel = mainCanvas.transform.Find("pnl2_info").gameObject;
+        optionsPanel = mainCanvas.transform.Find("pnl3_options").gameObject;
+        quitPanel = mainCanvas.transform.Find("pnl4_quit").gameObject;
 
         mainMenuPanels.Add(mainPanel);
         mainMenuPanels.Add(filePanel);
+        mainMenuPanels.Add(infoPanel);
         mainMenuPanels.Add(optionsPanel);
         mainMenuPanels.Add(quitPanel);
         #endregion
@@ -483,10 +486,14 @@ public class MenuController : MonoBehaviour
         for (int i = firstFilePositionIndex; i < saveFilePositions.Length - firstFilePositionIndex; i++) // Start our iteration at the position we determined the first file would appear at. (Position 4, the first file position index).
         {
             saveFiles[fileIndex].transform.position = saveFilePositions[i].transform.position; // Set each of our buttons to their appropriate starting positions.
-            if (i == firstFilePositionIndex * 2) highlightedSaveFile = saveFiles[fileIndex]; // The highlighted slot will always be the file in the center (position 8).
+            HighlightFile(i, fileIndex);
             fileIndex++; // Increase the index so we can set the position of buttons 1, 2 and 3 in the next three loops.
         }
         #endregion       
+    }
+    private void InfoPanelInitialisation()
+    {
+        btnReturnInfo = infoPanel.transform.Find("3_btn_return_info").GetComponent<Button>();
     }
     private void OptionsPanelInitialisation()
     {   // Get access to each setting in the options menu.
@@ -494,7 +501,7 @@ public class MenuController : MonoBehaviour
         optionsSettings[1] = optionsPanel.transform.Find("1_settings_options/1_stg_sdr_volume_master").gameObject;
         optionsSettings[2] = optionsPanel.transform.Find("1_settings_options/2_stg_sdr_volume_bgm").gameObject;
         optionsSettings[3] = optionsPanel.transform.Find("1_settings_options/3_stg_sdr_volume_sfx").gameObject;
-        optionsSettings[4] = optionsPanel.transform.Find("1_settings_options/4_btn_return").gameObject;
+        optionsSettings[4] = optionsPanel.transform.Find("1_settings_options/4_btn_return_options").gameObject;
     }
     private void QuitPanelInitialisation()
     {   // Get access to options "yes" and "no" in the quit prompt.       
