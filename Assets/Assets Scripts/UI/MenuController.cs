@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,10 +9,12 @@ public class MenuController : MonoBehaviour
     #region MAIN MENU variables.
     public float uiElementMotionCooldown = 0.1f;
     public float highlightPositionMoveSpeed = 0.2f;
+    public float panelPositionMoveSpeed = 0.2f;
     public float sliderAdjustmentPrecision = 0.05f;
 
     Canvas mainCanvas;
     GameObject mainPanel, filePanel, infoPanel, optionsPanel, quitPanel;
+    Vector3[] panelPositions = new Vector3[10]; // This array will contain both active and inactive panel positions. (0-4 for active positions, 5-9 for inactive positions)
     List<GameObject> mainMenuPanels = new List<GameObject>();
     Transform buttonPositionParent, mainButtonsParent, saveFilePositionParent, saveFileParent, highlightedPosition;
 
@@ -22,11 +25,12 @@ public class MenuController : MonoBehaviour
     GameObject[] saveFilePositions = new GameObject[17];
     GameObject[] saveFiles = new GameObject[9];
     GameObject[] optionsSettings = new GameObject[5];
-    GameObject highlightedObject, highlightedSaveFile, fileCursor;    
+    GameObject highlightedObject, highlightedSaveFile, fileCursor;
     SaveFile fileToLoad;
+    Image highlightImage;
 
-    int firstButtonPositionIndex, firstFilePositionIndex, buttonIndex, fileIndex, downwardCountMain, rightCountFile, downwardCountOptions;
-    bool uiElementsInMotion;
+    int panelPositionDifference, firstButtonPositionIndex, firstFilePositionIndex, buttonIndex, fileIndex, downwardCountMain, rightCountFile, downwardCountOptions;
+    bool uiElementsInMotion, highlightPositionTransferred;
     #endregion
 
     private enum MenuType // This system's subject to change, right now I'd like to experiment with keeping all menu-related functions within this script.
@@ -41,17 +45,22 @@ public class MenuController : MonoBehaviour
         FilePanelInitialisation();
         InfoPanelInitialisation();
         OptionsPanelInitialisation();
-        QuitPanelInitialisation();
-
-        SetAsActiveMenu("Main");
+        QuitPanelInitialisation();        
+        
+        SetAsActiveMenu("Main");       
     }
 
     void Start()
-    {
+    {             
     }
 
     void Update()
-    {        
+    {
+        if(!highlightPositionTransferred)
+        {
+            StartCoroutine(TransferHighlightPosition(activeMenu, highlightPositionMoveSpeed));
+            highlightPositionTransferred = true;                     
+        }
         switch (activeMenu)
         {
             case MenuType.MAIN:
@@ -64,7 +73,7 @@ public class MenuController : MonoBehaviour
                 CheckButtonSelection();
                 break;
 
-            case MenuType.INFO:               
+            case MenuType.INFO:
                 CheckButtonSelection();
                 break;
 
@@ -84,14 +93,14 @@ public class MenuController : MonoBehaviour
     #region COMMON MENU METHODS & COROUTINES.
     private void CheckButtonSelection()
     {
-        if (Input.GetKeyUp(KeyCode.Return) || Input.GetButtonUp("A"))
+        if ((Input.GetKeyUp(KeyCode.Return) || Input.GetButtonUp("A")) && !uiElementsInMotion && highlightImage.enabled)
         {
             if (highlightedObject.GetComponent<Button>() != null) highlightedObject.GetComponent<Button>().onClick.Invoke();
             else if (highlightedObject.GetComponent<Toggle>() != null) highlightedObject.GetComponent<Toggle>().isOn = !highlightedObject.GetComponent<Toggle>().isOn;
         }
     }
     public void SetAsActiveMenu(string menuName)
-    {        
+    {
         bool menuValid = true;
 
         if (menuName.ToUpper() == "MAIN") activeMenu = MenuType.MAIN;
@@ -106,24 +115,35 @@ public class MenuController : MonoBehaviour
         }
         if (menuValid)
         {
-            StartCoroutine(TransferHighlightPosition(activeMenu, 0.2f));
-            UpdateMenuPanels();
+            highlightedPosition.gameObject.SetActive(false);
+            UpdateMenuPanels();           
         }
     }
     private void UpdateMenuPanels()
     {
+        int panelIndex = 0;       
+
         foreach (GameObject menuPanel in mainMenuPanels)
         {
-            if (menuPanel.name.ToUpper().Contains(activeMenu.ToString())) menuPanel.SetActive(true);
-            else menuPanel.SetActive(false);
+            if (menuPanel.name.ToUpper().Contains(activeMenu.ToString()))
+            {
+                menuPanel.SetActive(true);
+                StartCoroutine(ShiftUiElementPosition(menuPanel.transform, panelPositions[panelIndex], panelPositionMoveSpeed, true));
+            }
+            else
+            {
+                StartCoroutine(ShiftUiElementPosition(menuPanel.transform, panelPositions[panelIndex + panelPositionDifference], panelPositionMoveSpeed, true));
+                menuPanel.SetActive(false);
+            }
+            panelIndex++;
         }
-    }   
+    }
 
     private IEnumerator TransferHighlightPosition(MenuType activatedMenu, float transitionDuration)
     {   // https://answers.unity.com/questions/63060/vector3lerp-works-outside-of-update.html Coroutine derived from top answer here.
-
+        uiElementsInMotion = true;
         Vector3 newHighlightPosition;
-        
+
         switch (activatedMenu)
         {
             default: // If we are returning to the main menu.                
@@ -152,6 +172,7 @@ public class MenuController : MonoBehaviour
             case MenuType.OPTIONS: // If we're moving to the options menu.                
                 newHighlightPosition = optionsSettings[0].transform.position;
                 highlightedObject = optionsSettings[0].gameObject;
+                downwardCountOptions = 0; 
                 break;
 
             case MenuType.QUIT: // If we're moving to the quit prompt.                
@@ -169,24 +190,26 @@ public class MenuController : MonoBehaviour
             yield return null;
         }
         highlightedPosition.position = newHighlightPosition; // Ensure the button is at the exact position it should be by the end.
+        uiElementsInMotion = false;
+        highlightedPosition.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        if (!highlightImage.enabled) highlightImage.enabled = true;
     }
-    private IEnumerator ShiftHighlightPosition(Vector3 highlightDestinationPosition, float transitionDuration)
+    private IEnumerator ShiftUiElementPosition(Transform uiElement, Vector3 highlightDestinationPosition, float transitionDuration, bool elementIsPanel)
     {
+        uiElementsInMotion = true;
         float startTime = Time.time; // Get the time this coroutine started.
 
         while (Time.time < startTime + transitionDuration) // While the transition duration hasn't passed...
         {
             // ...Move the menu button to its new position, lerping is used to achieve a "smoother" effect.
-            highlightedPosition.position = Vector3.Lerp(highlightedPosition.transform.position, highlightDestinationPosition, (Time.time - startTime) / transitionDuration);
+            uiElement.position = Vector3.Lerp(highlightedPosition.transform.position, highlightDestinationPosition, (Time.time - startTime) / transitionDuration);
             yield return null;
         }
         highlightedPosition.position = highlightDestinationPosition; // Ensure the button is at the exact position it should be by the end.
-    }
-    private IEnumerator FalsifyElementMotionBool()
-    {
-        yield return new WaitForSeconds(uiElementMotionCooldown);
+        if(elementIsPanel) highlightPositionTransferred = false;
         uiElementsInMotion = false;
-    }
+    }   
     #endregion
 
     #region MAIN MENU METHODS & COROUTINES.
@@ -198,8 +221,7 @@ public class MenuController : MonoBehaviour
     private void NavigateDownMain()
     {
         if (downwardCountMain < firstButtonPositionIndex && !uiElementsInMotion) // The menu buttons can only shift as far as the difference in number between button positions and the buttons themselves.            
-        {
-            uiElementsInMotion = true;
+        {           
             // Since the difference is 3, we have three extra positions to move to, and no more. We use "downwardCountMain" to determine how far we have moved.
             buttonIndex = 0;
             for (int i = 0; i < buttonPositions.Length; i++) // Iterate through each potential position.
@@ -209,16 +231,14 @@ public class MenuController : MonoBehaviour
                     StartCoroutine(ShiftButtonPosition(activeMenu, buttonIndex, i - 1, highlightPositionMoveSpeed)); // ...Shift this button to the position directly above its current position.
                     buttonIndex++; // Increase the button index so that we can shift the positions of buttons 1, 2 and 3 in the next three iterations.
                 }
-            }
-            StartCoroutine("FalsifyElementMotionBool");
+            }            
             downwardCountMain++; // Increase the count so that we know how far "down" the player is in the main menu.
         }
     }
     private void NavigateUpMain()
     {
         if (downwardCountMain > 0 && !uiElementsInMotion) // If this count is at 0 it means the user is at the "top" of the menu, and therefore can move no further upwards.
-        {
-            uiElementsInMotion = true;
+        {           
             buttonIndex = mainButtons.Length - 1; // Start our button index at 3, "Quit Game", the button at the bottom of the list.
             for (int i = buttonPositions.Length - 1; i >= 0; i--) // Iterate through each position, starting from the bottom (position 6) and moving upwards.
             {
@@ -229,8 +249,7 @@ public class MenuController : MonoBehaviour
                     StartCoroutine(ShiftButtonPosition(activeMenu, buttonIndex, i + 1, highlightPositionMoveSpeed));
                     buttonIndex--;
                 }
-            }
-            StartCoroutine("FalsifyElementMotionBool");
+            }            
             downwardCountMain--; // Decrease the count so that we know how far "up" the player is in the main menu.
         }
     }
@@ -268,7 +287,7 @@ public class MenuController : MonoBehaviour
         if (currentMenu == MenuType.MAIN && positionIndex == firstButtonPositionIndex) highlightedObject = objectToMove.gameObject; // Confirmed to work.        
 
         objectToMove.transform.position = newPosition; // Ensure the object is at the exact position it should be by the end.
-    }   
+    }
     #endregion
 
     #region FILE MENU METHODS & COROUTINES
@@ -279,7 +298,7 @@ public class MenuController : MonoBehaviour
             if (highlightedObject == fileCursor) highlightedObject = btnReturnFile.gameObject;
             else highlightedObject = fileCursor;
 
-            StartCoroutine(ShiftHighlightPosition(highlightedObject.transform.position, highlightPositionMoveSpeed));
+            StartCoroutine(ShiftUiElementPosition(highlightedPosition, highlightedObject.transform.position, highlightPositionMoveSpeed, false));
         }
 
         else if (Input.GetKeyUp(KeyCode.DownArrow))
@@ -287,7 +306,7 @@ public class MenuController : MonoBehaviour
             if (highlightedObject == btnReturnFile.gameObject) highlightedObject = fileCursor;
             else highlightedObject = btnReturnFile.gameObject;
 
-            StartCoroutine(ShiftHighlightPosition(highlightedObject.transform.position, highlightPositionMoveSpeed));
+            StartCoroutine(ShiftUiElementPosition(highlightedPosition, highlightedObject.transform.position, highlightPositionMoveSpeed, false));
         }
 
         else if (Input.GetKeyUp(KeyCode.LeftArrow) && highlightedObject == fileCursor) NavigateLeftFile();
@@ -296,8 +315,7 @@ public class MenuController : MonoBehaviour
     private void NavigateLeftFile()
     {
         if (rightCountFile < firstFilePositionIndex && !uiElementsInMotion)
-        {
-            uiElementsInMotion = true;
+        {            
             fileIndex = 0;
             for (int i = 0; i < saveFilePositions.Length; i++)
             {
@@ -305,36 +323,33 @@ public class MenuController : MonoBehaviour
                 {
                     StartCoroutine(ShiftButtonPosition(activeMenu, fileIndex, i + 1, highlightPositionMoveSpeed));
                     HighlightFile(i, fileIndex - 1);
-                    fileIndex++;                    
+                    fileIndex++;
                 }
-            }
-            StartCoroutine("FalsifyElementMotionBool");
-            rightCountFile++;            
+            }            
+            rightCountFile++;
         }
     }
     private void NavigateRightFile()
     {
         if (rightCountFile > -firstFilePositionIndex && !uiElementsInMotion)
-        {
-            uiElementsInMotion = true;
+        {           
             fileIndex = 0;
             for (int i = 0; i < saveFilePositions.Length; i++)
             {
                 if (i >= firstFilePositionIndex + rightCountFile && fileIndex < saveFiles.Length)
                 {
-                    StartCoroutine(ShiftButtonPosition(activeMenu, fileIndex, i - 1, highlightPositionMoveSpeed));                   
+                    StartCoroutine(ShiftButtonPosition(activeMenu, fileIndex, i - 1, highlightPositionMoveSpeed));
                     fileIndex++;
                     HighlightFile(i, fileIndex);
                 }
-            }
-            StartCoroutine("FalsifyElementMotionBool");
-            rightCountFile--;            
+            }            
+            rightCountFile--;
         }
     }
     private void HighlightFile(int positionIndex, int fileIndex)
     {
         if (positionIndex == firstFilePositionIndex * 2) highlightedSaveFile = saveFiles[fileIndex]; // Ensure that whichever file lands in the center is designated the highlighted file.
-    }   
+    }
     public void LoadSaveFile()
     {
         fileToLoad = highlightedSaveFile.GetComponent<SaveFile>();
@@ -353,7 +368,7 @@ public class MenuController : MonoBehaviour
             if (downwardCountOptions >= optionsSettings.Length) downwardCountOptions = 0;
 
             highlightedObject = optionsSettings[downwardCountOptions];
-            StartCoroutine(ShiftHighlightPosition(highlightedObject.transform.position, highlightPositionMoveSpeed));
+            StartCoroutine(ShiftUiElementPosition(highlightedPosition, highlightedObject.transform.position, highlightPositionMoveSpeed, false));
         }
 
         else if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetAxisRaw("D-PadV") == 1)
@@ -363,7 +378,7 @@ public class MenuController : MonoBehaviour
             if (downwardCountOptions < 0) downwardCountOptions = optionsSettings.Length - 1;
 
             highlightedObject = optionsSettings[downwardCountOptions];
-            StartCoroutine(ShiftHighlightPosition(highlightedObject.transform.position, highlightPositionMoveSpeed));
+            StartCoroutine(ShiftUiElementPosition(highlightedPosition, highlightedObject.transform.position, highlightPositionMoveSpeed, false));
         }
     }
     private void HandleSliderAdjustment()
@@ -388,7 +403,7 @@ public class MenuController : MonoBehaviour
             if (highlightedObject == quitButtons[0]) highlightedObject = quitButtons[1].gameObject;
             else highlightedObject = quitButtons[0].gameObject;
 
-            StartCoroutine(ShiftHighlightPosition(highlightedObject.transform.position, highlightPositionMoveSpeed));
+            StartCoroutine(ShiftUiElementPosition(highlightedPosition, highlightedObject.transform.position, highlightPositionMoveSpeed, false));
         }
 
         else if (Input.GetKeyUp(KeyCode.DownArrow))
@@ -396,7 +411,7 @@ public class MenuController : MonoBehaviour
             if (highlightedObject == quitButtons[1]) highlightedObject = quitButtons[0].gameObject;
             else highlightedObject = quitButtons[1].gameObject;
 
-            StartCoroutine(ShiftHighlightPosition(highlightedObject.transform.position, highlightPositionMoveSpeed));
+            StartCoroutine(ShiftUiElementPosition(highlightedPosition, highlightedObject.transform.position, highlightPositionMoveSpeed, false));
         }
     }
     public void QuitGame()
@@ -411,9 +426,10 @@ public class MenuController : MonoBehaviour
     {
         #region Get access to required game object parents.
         mainCanvas = GameObject.Find("canvas_main").GetComponent<Canvas>(); // Get access to the main menu's canvas.
-        highlightedPosition = mainCanvas.transform.Find("position_highlight"); // Find our menu option highlighter.
+        highlightedPosition = mainCanvas.transform.Find("position_highlight"); // Find our menu option highlighter.   
+        highlightImage = highlightedPosition.GetComponent<Image>();
 
-        #region Get access to each of the main menu's panels.
+        #region Get access to each of the main menu's panels, as well as the active and inactive positions of each panel.
         mainPanel = mainCanvas.transform.Find("pnl0_main").gameObject;
         filePanel = mainCanvas.transform.Find("pnl1_file").gameObject;
         infoPanel = mainCanvas.transform.Find("pnl2_info").gameObject;
@@ -425,6 +441,15 @@ public class MenuController : MonoBehaviour
         mainMenuPanels.Add(infoPanel);
         mainMenuPanels.Add(optionsPanel);
         mainMenuPanels.Add(quitPanel);
+
+        panelPositionDifference = panelPositions.Length / 2; // Should be 5. Each active position has a corresponding inactive position 5 elements away from it. 
+        // For example: the main panel's active position is position 0, its inactive position is position 5.
+
+        for (int i = 0; i < mainMenuPanels.Count; i++) // Get our panel positions.
+        {
+            panelPositions[i] = mainMenuPanels.ElementAt(i).transform.position; // Get this panel's designated active position.
+            panelPositions[i + panelPositionDifference] = mainCanvas.transform.Find(string.Format("inactive_pos_pnl_{0}", i)).position; // Get this panel's designated inactive position.
+        }
         #endregion
 
         buttonPositionParent = mainPanel.transform.Find("0_button_positions_main"); // Get access to main panel's potential button positions.
@@ -455,13 +480,13 @@ public class MenuController : MonoBehaviour
             mainButtons[buttonIndex].transform.position = buttonPositions[i].transform.position; // Set each of our buttons to their appropriate starting positions.
             buttonIndex++; // Increase the index so we can set the position of buttons 1, 2 and 3 in the next three loops.
         }
-        #endregion
-
-        fileCursor = filePanel.transform.Find("3_file_cursor").gameObject; // Get access to the file cursor.       
-        btnReturnFile = filePanel.transform.Find("4_btn_return").GetComponent<Button>(); // Get the file panel's return button.       
+        #endregion      
     }
     private void FilePanelInitialisation()
     {
+        fileCursor = filePanel.transform.Find("3_file_cursor").gameObject; // Get access to the file cursor.       
+        btnReturnFile = filePanel.transform.Find("4_btn_return").GetComponent<Button>(); // Get the file panel's return button.       
+
         saveFilePositionParent = filePanel.transform.Find("0_slot_positions"); // Get access to the file panel's potential file positions.
         saveFileParent = filePanel.transform.Find("1_slots"); // Get access to the file panel's files.
 
