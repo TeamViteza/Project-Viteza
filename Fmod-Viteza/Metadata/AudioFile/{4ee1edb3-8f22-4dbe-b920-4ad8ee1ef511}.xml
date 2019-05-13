@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{4ee1edb3-8f22-4dbe-b920-4ad8ee1ef511}">
+        <property name="assetPath">
+            <value>ESM_Retro_Game_UI_Select_22_Arcade_80s_Simple_Alert_Notification_Classic.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>96</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>0.34999999999999998</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{7932ad0e-1089-47b5-b4c4-e9da497ccab9}</destination>
+        </relationship>
+    </object>
+</objects>

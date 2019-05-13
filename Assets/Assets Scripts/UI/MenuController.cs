@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-
+using FMOD.Studio;
+using FMODUnity;
 public class MenuController : MonoBehaviour
 {
     #region MAIN MENU variables.
@@ -39,8 +40,16 @@ public class MenuController : MonoBehaviour
     }
     private MenuType activeMenu;
 
+    EventInstance playNavSound;
+    EventInstance playSelectSound;
+    EventInstance playNegativeSound;
+
     void Awake()
     {
+        playNavSound = RuntimeManager.CreateInstance("event:/Master/SFX/UISFX/Nav");
+        playSelectSound = RuntimeManager.CreateInstance("event:/Master/SFX/UISFX/Pos");
+        playNegativeSound = RuntimeManager.CreateInstance("event:/Master/SFX/UISFX/Neg");
+
         MainPanelInitialisation();
         FilePanelInitialisation();
         InfoPanelInitialisation();
@@ -71,10 +80,19 @@ public class MenuController : MonoBehaviour
             case MenuType.FILE:
                 NavigateFile();
                 CheckButtonSelection();
+
+                PLAYBACK_STATE PbState;
+                playSelectSound.getPlaybackState(out PbState);
+                if (PbState != PLAYBACK_STATE.PLAYING)
+                {
+                    playSelectSound.start();
+                }
+
                 break;
 
             case MenuType.INFO:
                 CheckButtonSelection();
+                
                 break;
 
             case MenuType.OPTIONS:
@@ -86,6 +104,7 @@ public class MenuController : MonoBehaviour
             case MenuType.QUIT:
                 NavigateQuit();
                 CheckButtonSelection();
+                playSelectSound.start();
                 break;
         }
     }
@@ -97,6 +116,15 @@ public class MenuController : MonoBehaviour
         {
             if (highlightedObject.GetComponent<Button>() != null) highlightedObject.GetComponent<Button>().onClick.Invoke();
             else if (highlightedObject.GetComponent<Toggle>() != null) highlightedObject.GetComponent<Toggle>().isOn = !highlightedObject.GetComponent<Toggle>().isOn;
+           
+            if (highlightedObject.name.Contains("return"))
+            {
+                playNegativeSound.start();
+            }
+            else
+            {
+                playSelectSound.start();
+            }
         }
     }
     public void SetAsActiveMenu(string menuName)
@@ -215,8 +243,17 @@ public class MenuController : MonoBehaviour
     #region MAIN MENU METHODS & COROUTINES.
     private void NavigateMain()
     {
-        if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetAxisRaw("D-PadV") == -1) NavigateDownMain();
-        else if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetAxisRaw("D-PadV") == 1) NavigateUpMain();
+        if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetAxisRaw("D-PadV") == -1)
+        {
+            NavigateDownMain();
+            playNavSound.start();
+        }
+
+        else if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetAxisRaw("D-PadV") == 1)
+        {
+            NavigateUpMain();
+            playNavSound.start();
+        }
     }
     private void NavigateDownMain()
     {
@@ -364,7 +401,7 @@ public class MenuController : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetAxisRaw("D-PadV") == -1)
         {
             downwardCountOptions++;
-
+            playNavSound.start();
             if (downwardCountOptions >= optionsSettings.Length) downwardCountOptions = 0;
 
             highlightedObject = optionsSettings[downwardCountOptions];
@@ -374,7 +411,7 @@ public class MenuController : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetAxisRaw("D-PadV") == 1)
         {
             downwardCountOptions--;
-
+            playNavSound.start();
             if (downwardCountOptions < 0) downwardCountOptions = optionsSettings.Length - 1;
 
             highlightedObject = optionsSettings[downwardCountOptions];
