@@ -79,20 +79,11 @@ public class MenuController : MonoBehaviour
 
             case MenuType.FILE:
                 NavigateFile();
-                CheckButtonSelection();
-
-                PLAYBACK_STATE PbState;
-                playSelectSound.getPlaybackState(out PbState);
-                if (PbState != PLAYBACK_STATE.PLAYING)
-                {
-                    playSelectSound.start();
-                }
-
+                CheckButtonSelection();                
                 break;
 
             case MenuType.INFO:
-                CheckButtonSelection();
-                
+                CheckButtonSelection();          
                 break;
 
             case MenuType.OPTIONS:
@@ -103,8 +94,7 @@ public class MenuController : MonoBehaviour
 
             case MenuType.QUIT:
                 NavigateQuit();
-                CheckButtonSelection();
-                playSelectSound.start();
+                CheckButtonSelection();                
                 break;
         }
     }
@@ -122,7 +112,7 @@ public class MenuController : MonoBehaviour
                 playNegativeSound.start();
             }
             else
-            {
+            {               
                 playSelectSound.start();
             }
         }
@@ -332,6 +322,7 @@ public class MenuController : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.UpArrow))
         {
+            playNavSound.start();
             if (highlightedObject == fileCursor) highlightedObject = btnReturnFile.gameObject;
             else highlightedObject = fileCursor;
 
@@ -340,6 +331,7 @@ public class MenuController : MonoBehaviour
 
         else if (Input.GetKeyUp(KeyCode.DownArrow))
         {
+            playNavSound.start();
             if (highlightedObject == btnReturnFile.gameObject) highlightedObject = fileCursor;
             else highlightedObject = btnReturnFile.gameObject;
 
@@ -351,6 +343,7 @@ public class MenuController : MonoBehaviour
     }
     private void NavigateLeftFile()
     {
+        playNavSound.start();
         if (rightCountFile < firstFilePositionIndex && !uiElementsInMotion)
         {            
             fileIndex = 0;
@@ -368,6 +361,7 @@ public class MenuController : MonoBehaviour
     }
     private void NavigateRightFile()
     {
+        playNavSound.start();
         if (rightCountFile > -firstFilePositionIndex && !uiElementsInMotion)
         {           
             fileIndex = 0;
@@ -437,6 +431,7 @@ public class MenuController : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.UpArrow))
         {
+            playNavSound.start();
             if (highlightedObject == quitButtons[0]) highlightedObject = quitButtons[1].gameObject;
             else highlightedObject = quitButtons[0].gameObject;
 
@@ -445,6 +440,7 @@ public class MenuController : MonoBehaviour
 
         else if (Input.GetKeyUp(KeyCode.DownArrow))
         {
+            playNavSound.start();
             if (highlightedObject == quitButtons[1]) highlightedObject = quitButtons[0].gameObject;
             else highlightedObject = quitButtons[1].gameObject;
 
