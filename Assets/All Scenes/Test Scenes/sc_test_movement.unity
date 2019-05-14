@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 32561637}
   - component: {fileID: 32561633}
   - component: {fileID: 32561635}
+  - component: {fileID: 32561636}
   m_Layer: 0
   m_Name: Katt
   m_TagString: Untagged
@@ -205,7 +206,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -220,7 +221,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.2, y: -1.5}
@@ -247,10 +248,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc7a0c73dd933af4d80d5f482c645903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  body: {fileID: 32561633}
-  jumpForce: 8
-  walkSpeed: 0.2
-  runSpeed: 0.4
+--- !u!114 &32561636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 32561630}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7728ca26430358d478d372bc10aa06ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!60 &32561637
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -260,7 +268,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -11331,7 +11339,7 @@ GameObject:
   - component: {fileID: 939817357}
   m_Layer: 0
   m_Name: Grid
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
