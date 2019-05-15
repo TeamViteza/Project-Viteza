@@ -5,32 +5,34 @@ using UnityEngine;
 public class scr_DoubleJump : MonoBehaviour {
 
     Rigidbody2D body;
-    BoxCollider2D detectBox;
+    CircleCollider2D feetPos;
 
-    float jumpForce = 2f;
-    bool jumpAbility;
+    float jumpForce = 4f;
     bool doubleJump = false;
 
 	// Use this for initialization
 	void Start ()
     {
         body = GetComponent<Rigidbody2D>();
-        detectBox = GetComponent<BoxCollider2D>();
+        feetPos = GetComponent<CircleCollider2D>();
 	}
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetKey(KeyCode.Space) && jumpAbility == true)
+        if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
-            body.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-            jumpAbility = false;
+            if (doubleJump == true)
+            {
+                body.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+                doubleJump = false;
+            }
         }
 	}
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Platform")
         {
-            jumpAbility = true;
+            doubleJump = true;
         }
     }
 }
