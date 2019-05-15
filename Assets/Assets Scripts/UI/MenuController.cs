@@ -31,7 +31,7 @@ public class MenuController : MonoBehaviour
     Image highlightImage;
 
     int panelPositionDifference, firstButtonPositionIndex, firstFilePositionIndex, buttonIndex, fileIndex, downwardCountMain, rightCountFile, downwardCountOptions;
-    bool uiElementsInMotion, highlightPositionTransferred;
+    bool uiElementsInMotion, highlightPositionTransferred, axisInUse;
     #endregion
 
     private enum MenuType // This system's subject to change, right now I'd like to experiment with keeping all menu-related functions within this script.
@@ -102,7 +102,7 @@ public class MenuController : MonoBehaviour
     #region COMMON MENU METHODS & COROUTINES.
     private void CheckButtonSelection()
     {
-        if ((Input.GetKeyUp(KeyCode.Return) || Input.GetButtonUp("A")) && !uiElementsInMotion && highlightImage.enabled)
+        if ((Input.GetKeyUp(KeyCode.Return) || Input.GetButtonUp("BtnA")) && !uiElementsInMotion && highlightImage.enabled)
         {
             if (highlightedObject.GetComponent<Button>() != null) highlightedObject.GetComponent<Button>().onClick.Invoke();
             else if (highlightedObject.GetComponent<Toggle>() != null) highlightedObject.GetComponent<Toggle>().isOn = !highlightedObject.GetComponent<Toggle>().isOn;
@@ -233,17 +233,23 @@ public class MenuController : MonoBehaviour
     #region MAIN MENU METHODS & COROUTINES.
     private void NavigateMain()
     {
-        if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetAxisRaw("D-PadV") == -1)
+        if (Input.GetAxisRaw("D-PadV") == -1 && !axisInUse)
         {
-            NavigateDownMain();
-            playNavSound.start();
+            
+                NavigateDownMain();
+                playNavSound.start();
+                axisInUse = true;
+            
         }
 
-        else if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetAxisRaw("D-PadV") == 1)
-        {
-            NavigateUpMain();
-            playNavSound.start();
+        else if (Input.GetAxisRaw("D-PadV") == 1 && !axisInUse)
+        {           
+                NavigateUpMain();
+                playNavSound.start();
+                axisInUse = true;           
         }
+
+        else if (Input.GetAxisRaw("D-PadV") == 0) axisInUse = false;
     }
     private void NavigateDownMain()
     {
