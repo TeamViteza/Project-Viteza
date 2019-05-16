@@ -64,7 +64,8 @@ public class MenuController : MonoBehaviour
     }
 
     void Update()
-    {        
+    {
+        Debug.Log(axisInUse);
         if (!highlightPositionTransferred)
         {
             StartCoroutine(TransferHighlightPosition(activeMenu, highlightPositionMoveSpeed));
@@ -87,7 +88,7 @@ public class MenuController : MonoBehaviour
                 break;
 
             case MenuType.OPTIONS:
-                NavigateOptions();
+                NavigateOptions(GetAxisAsButtonDown("D-PadV"));
                 CheckButtonSelection();
                 HandleSliderAdjustment();
                 break;
@@ -161,6 +162,24 @@ public class MenuController : MonoBehaviour
     {
         if (Input.GetAxisRaw("D-PadV") == 0 && Input.GetAxisRaw("D-PadH") == 0) axisInUse = false;
     }
+    private void NavigateTwoButtonMenu(GameObject button1, GameObject button2) // Applicable to the file and quit menu.
+    {
+        playNavSound.start();
+        if (highlightedObject.name == button1.name) highlightedObject = button2;
+        else highlightedObject = button1;
+
+        StartCoroutine(ShiftUiElementPosition(highlightedPosition, highlightedObject.transform.position, highlightPositionMoveSpeed, false));
+    }
+    private string GetAxisAsButtonDown(string axisNameIn)
+    {
+        float axisValue = Input.GetAxisRaw(axisNameIn);
+        if (axisValue != 0 && !axisInUse)
+        {
+            axisInUse = true;
+            return axisValue.ToString();
+        }
+        else return "0";
+    }    
 
     private IEnumerator TransferHighlightPosition(MenuType activatedMenu, float transitionDuration)
     {   // https://answers.unity.com/questions/63060/vector3lerp-works-outside-of-update.html Coroutine derived from top answer here.
@@ -238,19 +257,17 @@ public class MenuController : MonoBehaviour
     #region MAIN MENU METHODS & COROUTINES.
     private void NavigateMain()
     {
-        if (Input.GetAxisRaw("D-PadV") == -1 && !axisInUse)
+        switch (GetAxisAsButtonDown("D-PadV"))
         {
-            axisInUse = true;
-            playNavSound.start();
-            NavigateDownMain();                      
+            case "-1":
+                playNavSound.start();
+                NavigateDownMain();
+                break;
+            case "1":
+                playNavSound.start();
+                NavigateUpMain();
+                break;
         }
-
-        else if (Input.GetAxisRaw("D-PadV") == 1 && !axisInUse)
-        {
-            axisInUse = true;
-            playNavSound.start();
-            NavigateUpMain();                    
-        }       
     }
     private void NavigateDownMain()
     {
@@ -326,36 +343,24 @@ public class MenuController : MonoBehaviour
 
     #region FILE MENU METHODS & COROUTINES
     private void NavigateFile()
-    {       
-        if (Input.GetAxisRaw("D-PadV") == 1 && !axisInUse)
-        {
-            axisInUse = true;
-            playNavSound.start();
-            if (highlightedObject == fileCursor) highlightedObject = btnReturnFile.gameObject;
-            else highlightedObject = fileCursor;
-
-            StartCoroutine(ShiftUiElementPosition(highlightedPosition, highlightedObject.transform.position, highlightPositionMoveSpeed, false));
-        }
-
-        else if (Input.GetAxisRaw("D-PadV") == -1 && !axisInUse)
-        {
-            axisInUse = true;
-            playNavSound.start();
-            if (highlightedObject == btnReturnFile.gameObject) highlightedObject = fileCursor;
-            else highlightedObject = btnReturnFile.gameObject;
-
-            StartCoroutine(ShiftUiElementPosition(highlightedPosition, highlightedObject.transform.position, highlightPositionMoveSpeed, false));
-        }
+    {
+        if (GetAxisAsButtonDown("D-PadV") != "0") NavigateTwoButtonMenu(btnReturnFile.gameObject, fileCursor);
 
         if (highlightedObject == fileCursor)
         {
-            if (Input.GetAxisRaw("D-PadH") == -1 && !axisInUse) NavigateLeftFile();
-            else if (Input.GetAxisRaw("D-PadH") == 1 && !axisInUse) NavigateRightFile();
-        }                
-    }
+            switch (GetAxisAsButtonDown("D-PadH"))
+            {
+                case "-1":
+                    NavigateLeftFile();
+                    break;
+                case "1":
+                    NavigateRightFile();
+                    break;
+            }
+        }
+    }    
     private void NavigateLeftFile()
     {
-        axisInUse = true;
         playNavSound.start();
         if (rightCountFile < firstFilePositionIndex && !uiElementsInMotion)
         {
@@ -374,7 +379,6 @@ public class MenuController : MonoBehaviour
     }
     private void NavigateRightFile()
     {
-        axisInUse = true;
         playNavSound.start();
         if (rightCountFile > -firstFilePositionIndex && !uiElementsInMotion)
         {
@@ -404,39 +408,40 @@ public class MenuController : MonoBehaviour
     #endregion
 
     #region OPTIONS MENU METHODS & COROUTINES.
-    private void NavigateOptions()
+    private void NavigateOptions(string axisValue)
     {
-        if (Input.GetAxisRaw("D-PadV") == -1 && !axisInUse)
-        {
-            axisInUse = true;
-            playNavSound.start();
-            downwardCountOptions++;            
-            if (downwardCountOptions >= optionsSettings.Length) downwardCountOptions = 0;
+        if (axisValue == "0") return;
 
-            highlightedObject = optionsSettings[downwardCountOptions];
-            StartCoroutine(ShiftUiElementPosition(highlightedPosition, highlightedObject.transform.position, highlightPositionMoveSpeed, false));
+        playNavSound.start();
+
+        if (axisValue == "-1") // Down
+        {
+            downwardCountOptions++;
+            if (downwardCountOptions >= optionsSettings.Length) downwardCountOptions = 0;
+        }
+        else if (axisValue == "1") // Up
+        {
+            downwardCountOptions--;
+            if (downwardCountOptions < 0) downwardCountOptions = optionsSettings.Length - 1;
         }
 
-        else if (Input.GetAxisRaw("D-PadV") == 1 && !axisInUse)
-        {
-            axisInUse = true;
-            playNavSound.start();
-            downwardCountOptions--;           
-            if (downwardCountOptions < 0) downwardCountOptions = optionsSettings.Length - 1;
-
-            highlightedObject = optionsSettings[downwardCountOptions];
-            StartCoroutine(ShiftUiElementPosition(highlightedPosition, highlightedObject.transform.position, highlightPositionMoveSpeed, false));
-        }        
+        highlightedObject = optionsSettings[downwardCountOptions];
+        StartCoroutine(ShiftUiElementPosition(highlightedPosition, highlightedObject.transform.position, highlightPositionMoveSpeed, false));
     }
     private void HandleSliderAdjustment()
     {
-        if (Input.GetAxisRaw("D-PadV") == -1 && !axisInUse)
+        if (highlightedObject.GetComponent<Slider>() != null)
         {
-            if (highlightedObject.GetComponent<Slider>() != null) highlightedObject.GetComponent<Slider>().value -= sliderAdjustmentPrecision;
-        }
-        else if (Input.GetAxisRaw("D-PadV") == 1 && !axisInUse)
-        {
-            if (highlightedObject.GetComponent<Slider>() != null) highlightedObject.GetComponent<Slider>().value += sliderAdjustmentPrecision;
+            Slider sliderToAdjust = highlightedObject.GetComponent<Slider>();
+            switch (GetAxisAsButtonDown("D-PadH"))
+            {
+                case "-1": // Left
+                    sliderToAdjust.value -= sliderAdjustmentPrecision;
+                    break;
+                case "1": // Right
+                    sliderToAdjust.value += sliderAdjustmentPrecision;
+                    break;
+            }
         }       
     }
     #endregion
@@ -444,25 +449,7 @@ public class MenuController : MonoBehaviour
     #region QUIT MENU METHODS & COROUTINES.
     private void NavigateQuit()
     {
-        if (Input.GetAxisRaw("D-PadV") == -1 && !axisInUse) // Down
-        {
-            axisInUse = true;
-            playNavSound.start();
-            if (highlightedObject.name == quitButtons[1].name) highlightedObject = quitButtons[0].gameObject;
-            else highlightedObject = quitButtons[1].gameObject;
-
-            StartCoroutine(ShiftUiElementPosition(highlightedPosition, highlightedObject.transform.position, highlightPositionMoveSpeed, false));
-        }
-
-        else if (Input.GetAxisRaw("D-PadV") == 1 && !axisInUse) // Up
-        {
-            axisInUse = true;
-            playNavSound.start();
-            if (highlightedObject.name == quitButtons[0].name) highlightedObject = quitButtons[1].gameObject;
-            else highlightedObject = quitButtons[0].gameObject;
-
-            StartCoroutine(ShiftUiElementPosition(highlightedPosition, highlightedObject.transform.position, highlightPositionMoveSpeed, false));
-        }        
+        if (GetAxisAsButtonDown("D-PadV") != "0") NavigateTwoButtonMenu(quitButtons[1].gameObject, quitButtons[0].gameObject);      
     }
     public void QuitGame()
     {
