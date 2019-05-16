@@ -64,7 +64,7 @@ public class MenuController : MonoBehaviour
     }
 
     void Update()
-    {
+    {        
         if (!highlightPositionTransferred)
         {
             StartCoroutine(TransferHighlightPosition(activeMenu, highlightPositionMoveSpeed));
@@ -97,6 +97,7 @@ public class MenuController : MonoBehaviour
                 CheckButtonSelection();
                 break;
         }
+        CheckDirectionalAxisUse(); // I'll keep an eye on where this is placed in the Update().
     }
 
     #region COMMON MENU METHODS & COROUTINES.
@@ -155,6 +156,10 @@ public class MenuController : MonoBehaviour
             }
             panelIndex++;
         }
+    }
+    private void CheckDirectionalAxisUse()
+    {
+        if (Input.GetAxisRaw("D-PadV") == 0 && Input.GetAxisRaw("D-PadH") == 0) axisInUse = false;
     }
 
     private IEnumerator TransferHighlightPosition(MenuType activatedMenu, float transitionDuration)
@@ -236,18 +241,16 @@ public class MenuController : MonoBehaviour
         if (Input.GetAxisRaw("D-PadV") == -1 && !axisInUse)
         {
             axisInUse = true;
-            NavigateDownMain();
-            playNavSound.start();            
+            playNavSound.start();
+            NavigateDownMain();                      
         }
 
         else if (Input.GetAxisRaw("D-PadV") == 1 && !axisInUse)
         {
             axisInUse = true;
-            NavigateUpMain();
-            playNavSound.start();           
-        }
-
-        else if (Input.GetAxisRaw("D-PadV") == 0) axisInUse = false;
+            playNavSound.start();
+            NavigateUpMain();                    
+        }       
     }
     private void NavigateDownMain()
     {
@@ -348,9 +351,7 @@ public class MenuController : MonoBehaviour
         {
             if (Input.GetAxisRaw("D-PadH") == -1 && !axisInUse) NavigateLeftFile();
             else if (Input.GetAxisRaw("D-PadH") == 1 && !axisInUse) NavigateRightFile();
-        }        
-
-        if (Input.GetAxisRaw("D-PadV") == 0 && Input.GetAxisRaw("D-PadH") == 0) axisInUse = false;
+        }                
     }
     private void NavigateLeftFile()
     {
@@ -405,60 +406,63 @@ public class MenuController : MonoBehaviour
     #region OPTIONS MENU METHODS & COROUTINES.
     private void NavigateOptions()
     {
-        if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetAxisRaw("D-PadV") == -1)
+        if (Input.GetAxisRaw("D-PadV") == -1 && !axisInUse)
         {
-            downwardCountOptions++;
+            axisInUse = true;
             playNavSound.start();
+            downwardCountOptions++;            
             if (downwardCountOptions >= optionsSettings.Length) downwardCountOptions = 0;
 
             highlightedObject = optionsSettings[downwardCountOptions];
             StartCoroutine(ShiftUiElementPosition(highlightedPosition, highlightedObject.transform.position, highlightPositionMoveSpeed, false));
         }
 
-        else if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetAxisRaw("D-PadV") == 1)
+        else if (Input.GetAxisRaw("D-PadV") == 1 && !axisInUse)
         {
-            downwardCountOptions--;
+            axisInUse = true;
             playNavSound.start();
+            downwardCountOptions--;           
             if (downwardCountOptions < 0) downwardCountOptions = optionsSettings.Length - 1;
 
             highlightedObject = optionsSettings[downwardCountOptions];
             StartCoroutine(ShiftUiElementPosition(highlightedPosition, highlightedObject.transform.position, highlightPositionMoveSpeed, false));
-        }
+        }        
     }
     private void HandleSliderAdjustment()
     {
-        if (Input.GetKeyUp(KeyCode.RightArrow))
-        {
-            if (highlightedObject.GetComponent<Slider>() != null) highlightedObject.GetComponent<Slider>().value += sliderAdjustmentPrecision;
-        }
-
-        else if (Input.GetKeyUp(KeyCode.LeftArrow))
+        if (Input.GetAxisRaw("D-PadV") == -1 && !axisInUse)
         {
             if (highlightedObject.GetComponent<Slider>() != null) highlightedObject.GetComponent<Slider>().value -= sliderAdjustmentPrecision;
         }
+        else if (Input.GetAxisRaw("D-PadV") == 1 && !axisInUse)
+        {
+            if (highlightedObject.GetComponent<Slider>() != null) highlightedObject.GetComponent<Slider>().value += sliderAdjustmentPrecision;
+        }       
     }
     #endregion
 
     #region QUIT MENU METHODS & COROUTINES.
     private void NavigateQuit()
     {
-        if (Input.GetKeyUp(KeyCode.UpArrow))
+        if (Input.GetAxisRaw("D-PadV") == -1 && !axisInUse) // Down
         {
+            axisInUse = true;
             playNavSound.start();
-            if (highlightedObject == quitButtons[0]) highlightedObject = quitButtons[1].gameObject;
-            else highlightedObject = quitButtons[0].gameObject;
-
-            StartCoroutine(ShiftUiElementPosition(highlightedPosition, highlightedObject.transform.position, highlightPositionMoveSpeed, false));
-        }
-
-        else if (Input.GetKeyUp(KeyCode.DownArrow))
-        {
-            playNavSound.start();
-            if (highlightedObject == quitButtons[1]) highlightedObject = quitButtons[0].gameObject;
+            if (highlightedObject.name == quitButtons[1].name) highlightedObject = quitButtons[0].gameObject;
             else highlightedObject = quitButtons[1].gameObject;
 
             StartCoroutine(ShiftUiElementPosition(highlightedPosition, highlightedObject.transform.position, highlightPositionMoveSpeed, false));
         }
+
+        else if (Input.GetAxisRaw("D-PadV") == 1 && !axisInUse) // Up
+        {
+            axisInUse = true;
+            playNavSound.start();
+            if (highlightedObject.name == quitButtons[0].name) highlightedObject = quitButtons[1].gameObject;
+            else highlightedObject = quitButtons[0].gameObject;
+
+            StartCoroutine(ShiftUiElementPosition(highlightedPosition, highlightedObject.transform.position, highlightPositionMoveSpeed, false));
+        }        
     }
     public void QuitGame()
     {
