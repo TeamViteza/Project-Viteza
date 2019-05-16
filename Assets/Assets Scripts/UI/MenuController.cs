@@ -54,21 +54,21 @@ public class MenuController : MonoBehaviour
         FilePanelInitialisation();
         InfoPanelInitialisation();
         OptionsPanelInitialisation();
-        QuitPanelInitialisation();        
-        
-        SetAsActiveMenu("Main");       
+        QuitPanelInitialisation();
+
+        SetAsActiveMenu("Main");
     }
 
     void Start()
-    {             
+    {
     }
 
     void Update()
     {
-        if(!highlightPositionTransferred)
+        if (!highlightPositionTransferred)
         {
             StartCoroutine(TransferHighlightPosition(activeMenu, highlightPositionMoveSpeed));
-            highlightPositionTransferred = true;                     
+            highlightPositionTransferred = true;
         }
         switch (activeMenu)
         {
@@ -79,11 +79,11 @@ public class MenuController : MonoBehaviour
 
             case MenuType.FILE:
                 NavigateFile();
-                CheckButtonSelection();                
+                CheckButtonSelection();
                 break;
 
             case MenuType.INFO:
-                CheckButtonSelection();          
+                CheckButtonSelection();
                 break;
 
             case MenuType.OPTIONS:
@@ -94,7 +94,7 @@ public class MenuController : MonoBehaviour
 
             case MenuType.QUIT:
                 NavigateQuit();
-                CheckButtonSelection();                
+                CheckButtonSelection();
                 break;
         }
     }
@@ -106,13 +106,13 @@ public class MenuController : MonoBehaviour
         {
             if (highlightedObject.GetComponent<Button>() != null) highlightedObject.GetComponent<Button>().onClick.Invoke();
             else if (highlightedObject.GetComponent<Toggle>() != null) highlightedObject.GetComponent<Toggle>().isOn = !highlightedObject.GetComponent<Toggle>().isOn;
-           
+
             if (highlightedObject.name.Contains("return"))
             {
                 playNegativeSound.start();
             }
             else
-            {               
+            {
                 playSelectSound.start();
             }
         }
@@ -134,12 +134,12 @@ public class MenuController : MonoBehaviour
         if (menuValid)
         {
             highlightedPosition.gameObject.SetActive(false);
-            UpdateMenuPanels();           
+            UpdateMenuPanels();
         }
     }
     private void UpdateMenuPanels()
     {
-        int panelIndex = 0;       
+        int panelIndex = 0;
 
         foreach (GameObject menuPanel in mainMenuPanels)
         {
@@ -190,7 +190,7 @@ public class MenuController : MonoBehaviour
             case MenuType.OPTIONS: // If we're moving to the options menu.                
                 newHighlightPosition = optionsSettings[0].transform.position;
                 highlightedObject = optionsSettings[0].gameObject;
-                downwardCountOptions = 0; 
+                downwardCountOptions = 0;
                 break;
 
             case MenuType.QUIT: // If we're moving to the quit prompt.                
@@ -225,9 +225,9 @@ public class MenuController : MonoBehaviour
             yield return null;
         }
         highlightedPosition.position = highlightDestinationPosition; // Ensure the button is at the exact position it should be by the end.
-        if(elementIsPanel) highlightPositionTransferred = false;
+        if (elementIsPanel) highlightPositionTransferred = false;
         uiElementsInMotion = false;
-    }   
+    }
     #endregion
 
     #region MAIN MENU METHODS & COROUTINES.
@@ -235,18 +235,16 @@ public class MenuController : MonoBehaviour
     {
         if (Input.GetAxisRaw("D-PadV") == -1 && !axisInUse)
         {
-            
-                NavigateDownMain();
-                playNavSound.start();
-                axisInUse = true;
-            
+            axisInUse = true;
+            NavigateDownMain();
+            playNavSound.start();            
         }
 
         else if (Input.GetAxisRaw("D-PadV") == 1 && !axisInUse)
-        {           
-                NavigateUpMain();
-                playNavSound.start();
-                axisInUse = true;           
+        {
+            axisInUse = true;
+            NavigateUpMain();
+            playNavSound.start();           
         }
 
         else if (Input.GetAxisRaw("D-PadV") == 0) axisInUse = false;
@@ -254,7 +252,7 @@ public class MenuController : MonoBehaviour
     private void NavigateDownMain()
     {
         if (downwardCountMain < firstButtonPositionIndex && !uiElementsInMotion) // The menu buttons can only shift as far as the difference in number between button positions and the buttons themselves.            
-        {           
+        {
             // Since the difference is 3, we have three extra positions to move to, and no more. We use "downwardCountMain" to determine how far we have moved.
             buttonIndex = 0;
             for (int i = 0; i < buttonPositions.Length; i++) // Iterate through each potential position.
@@ -264,14 +262,14 @@ public class MenuController : MonoBehaviour
                     StartCoroutine(ShiftButtonPosition(activeMenu, buttonIndex, i - 1, highlightPositionMoveSpeed)); // ...Shift this button to the position directly above its current position.
                     buttonIndex++; // Increase the button index so that we can shift the positions of buttons 1, 2 and 3 in the next three iterations.
                 }
-            }            
+            }
             downwardCountMain++; // Increase the count so that we know how far "down" the player is in the main menu.
         }
     }
     private void NavigateUpMain()
     {
         if (downwardCountMain > 0 && !uiElementsInMotion) // If this count is at 0 it means the user is at the "top" of the menu, and therefore can move no further upwards.
-        {           
+        {
             buttonIndex = mainButtons.Length - 1; // Start our button index at 3, "Quit Game", the button at the bottom of the list.
             for (int i = buttonPositions.Length - 1; i >= 0; i--) // Iterate through each position, starting from the bottom (position 6) and moving upwards.
             {
@@ -282,7 +280,7 @@ public class MenuController : MonoBehaviour
                     StartCoroutine(ShiftButtonPosition(activeMenu, buttonIndex, i + 1, highlightPositionMoveSpeed));
                     buttonIndex--;
                 }
-            }            
+            }
             downwardCountMain--; // Decrease the count so that we know how far "up" the player is in the main menu.
         }
     }
@@ -325,9 +323,10 @@ public class MenuController : MonoBehaviour
 
     #region FILE MENU METHODS & COROUTINES
     private void NavigateFile()
-    {
-        if (Input.GetKeyUp(KeyCode.UpArrow))
+    {       
+        if (Input.GetAxisRaw("D-PadV") == 1 && !axisInUse)
         {
+            axisInUse = true;
             playNavSound.start();
             if (highlightedObject == fileCursor) highlightedObject = btnReturnFile.gameObject;
             else highlightedObject = fileCursor;
@@ -335,8 +334,9 @@ public class MenuController : MonoBehaviour
             StartCoroutine(ShiftUiElementPosition(highlightedPosition, highlightedObject.transform.position, highlightPositionMoveSpeed, false));
         }
 
-        else if (Input.GetKeyUp(KeyCode.DownArrow))
+        else if (Input.GetAxisRaw("D-PadV") == -1 && !axisInUse)
         {
+            axisInUse = true;
             playNavSound.start();
             if (highlightedObject == btnReturnFile.gameObject) highlightedObject = fileCursor;
             else highlightedObject = btnReturnFile.gameObject;
@@ -344,14 +344,20 @@ public class MenuController : MonoBehaviour
             StartCoroutine(ShiftUiElementPosition(highlightedPosition, highlightedObject.transform.position, highlightPositionMoveSpeed, false));
         }
 
-        else if (Input.GetKeyUp(KeyCode.LeftArrow) && highlightedObject == fileCursor) NavigateLeftFile();
-        else if (Input.GetKeyUp(KeyCode.RightArrow) && highlightedObject == fileCursor) NavigateRightFile();
+        if (highlightedObject == fileCursor)
+        {
+            if (Input.GetAxisRaw("D-PadH") == -1 && !axisInUse) NavigateLeftFile();
+            else if (Input.GetAxisRaw("D-PadH") == 1 && !axisInUse) NavigateRightFile();
+        }        
+
+        if (Input.GetAxisRaw("D-PadV") == 0 && Input.GetAxisRaw("D-PadH") == 0) axisInUse = false;
     }
     private void NavigateLeftFile()
     {
+        axisInUse = true;
         playNavSound.start();
         if (rightCountFile < firstFilePositionIndex && !uiElementsInMotion)
-        {            
+        {
             fileIndex = 0;
             for (int i = 0; i < saveFilePositions.Length; i++)
             {
@@ -361,15 +367,16 @@ public class MenuController : MonoBehaviour
                     HighlightFile(i, fileIndex - 1);
                     fileIndex++;
                 }
-            }            
+            }
             rightCountFile++;
         }
     }
     private void NavigateRightFile()
     {
+        axisInUse = true;
         playNavSound.start();
         if (rightCountFile > -firstFilePositionIndex && !uiElementsInMotion)
-        {           
+        {
             fileIndex = 0;
             for (int i = 0; i < saveFilePositions.Length; i++)
             {
@@ -379,7 +386,7 @@ public class MenuController : MonoBehaviour
                     fileIndex++;
                     HighlightFile(i, fileIndex);
                 }
-            }            
+            }
             rightCountFile--;
         }
     }
