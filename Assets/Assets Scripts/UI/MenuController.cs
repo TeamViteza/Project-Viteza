@@ -64,8 +64,7 @@ public class MenuController : MonoBehaviour
     }
 
     void Update()
-    {
-        Debug.Log(axisInUse);
+    {       
         if (!highlightPositionTransferred)
         {
             StartCoroutine(TransferHighlightPosition(activeMenu, highlightPositionMoveSpeed));
@@ -237,7 +236,7 @@ public class MenuController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         if (!highlightImage.enabled) highlightImage.enabled = true;
     }
-    private IEnumerator ShiftUiElementPosition(Transform uiElement, Vector3 highlightDestinationPosition, float transitionDuration, bool elementIsPanel)
+    private IEnumerator ShiftUiElementPosition(Transform uiElement, Vector3 uiElementDestinationPosition, float transitionDuration, bool elementIsPanel)
     {
         uiElementsInMotion = true;
         float startTime = Time.time; // Get the time this coroutine started.
@@ -245,10 +244,10 @@ public class MenuController : MonoBehaviour
         while (Time.time < startTime + transitionDuration) // While the transition duration hasn't passed...
         {
             // ...Move the menu button to its new position, lerping is used to achieve a "smoother" effect.
-            uiElement.position = Vector3.Lerp(highlightedPosition.transform.position, highlightDestinationPosition, (Time.time - startTime) / transitionDuration);
+            uiElement.position = Vector3.Lerp(highlightedPosition.transform.position, uiElementDestinationPosition, (Time.time - startTime) / transitionDuration);
             yield return null;
         }
-        highlightedPosition.position = highlightDestinationPosition; // Ensure the button is at the exact position it should be by the end.
+        uiElement.position = uiElementDestinationPosition; // Ensure the button is at the exact position it should be by the end.
         if (elementIsPanel) highlightPositionTransferred = false;
         uiElementsInMotion = false;
     }
