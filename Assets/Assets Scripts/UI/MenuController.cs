@@ -64,32 +64,33 @@ public class MenuController : MonoBehaviour
     }
 
     void Update()
-    {       
+    {
         if (!highlightPositionTransferred)
         {
             StartCoroutine(TransferHighlightPosition(activeMenu, highlightPositionMoveSpeed));
             highlightPositionTransferred = true;
         }
+        
         switch (activeMenu)
         {
-            case MenuType.MAIN:
-                NavigateMain();
-                CheckButtonSelection();
+            case MenuType.MAIN:              
+                    NavigateMain();
+                    CheckButtonSelection();                
                 break;
 
-            case MenuType.FILE:
-                NavigateFile();
-                CheckButtonSelection();
+            case MenuType.FILE:               
+                    NavigateFile();
+                    CheckButtonSelection();           
                 break;
 
             case MenuType.INFO:
-                CheckButtonSelection();
+                 CheckButtonSelection();
                 break;
 
-            case MenuType.OPTIONS:
-                NavigateOptions(GetAxisAsButtonDown("D-PadV"));
-                CheckButtonSelection();
-                HandleSliderAdjustment();
+            case MenuType.OPTIONS:                
+                    NavigateOptions(GetAxisAsButtonDown("D-PadV"));
+                    CheckButtonSelection();
+                    HandleSliderAdjustment();             
                 break;
 
             case MenuType.QUIT:
@@ -103,7 +104,7 @@ public class MenuController : MonoBehaviour
     #region COMMON MENU METHODS & COROUTINES.
     private void CheckButtonSelection()
     {
-        if ((Input.GetKeyUp(KeyCode.Return) || Input.GetButtonUp("BtnA")) && !uiElementsInMotion && highlightImage.enabled)
+        if ((Input.GetKeyUp(KeyCode.Return) || Input.GetButtonUp("BtnA")) && !uiElementsInMotion && highlightPositionTransferred && !axisInUse) // Gotta finalise this if statement...
         {
             if (highlightedObject.GetComponent<Button>() != null) highlightedObject.GetComponent<Button>().onClick.Invoke();
             else if (highlightedObject.GetComponent<Toggle>() != null) highlightedObject.GetComponent<Toggle>().isOn = !highlightedObject.GetComponent<Toggle>().isOn;
@@ -178,7 +179,7 @@ public class MenuController : MonoBehaviour
             return axisValue.ToString();
         }
         else return "0";
-    }    
+    }
 
     private IEnumerator TransferHighlightPosition(MenuType activatedMenu, float transitionDuration)
     {   // https://answers.unity.com/questions/63060/vector3lerp-works-outside-of-update.html Coroutine derived from top answer here.
@@ -357,7 +358,7 @@ public class MenuController : MonoBehaviour
                     break;
             }
         }
-    }    
+    }
     private void NavigateLeftFile()
     {
         playNavSound.start();
@@ -441,14 +442,14 @@ public class MenuController : MonoBehaviour
                     sliderToAdjust.value += sliderAdjustmentPrecision;
                     break;
             }
-        }       
+        }
     }
     #endregion
 
     #region QUIT MENU METHODS & COROUTINES.
     private void NavigateQuit()
     {
-        if (GetAxisAsButtonDown("D-PadV") != "0") NavigateTwoButtonMenu(quitButtons[1].gameObject, quitButtons[0].gameObject);      
+        if (GetAxisAsButtonDown("D-PadV") != "0") NavigateTwoButtonMenu(quitButtons[1].gameObject, quitButtons[0].gameObject);
     }
     public void QuitGame()
     {
