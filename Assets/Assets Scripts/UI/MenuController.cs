@@ -65,46 +65,37 @@ public class MenuController : MonoBehaviour
 
     void Update()
     {
-        if (!highlightPositionTransferred)
-        {
-            StartCoroutine(TransferHighlightPosition(activeMenu, highlightPositionMoveSpeed));
-            highlightPositionTransferred = true;
-        }
-        
+        Debug.Log("UI Elements in motion: " + uiElementsInMotion);
+        if (!highlightPositionTransferred) StartCoroutine(TransferHighlightPosition(activeMenu, highlightPositionMoveSpeed)); // Move the highlighter if the active menu has changed.
+
+        CheckButtonSelection();
+        CheckDirectionalAxisUse(); // I'll keep an eye on where this is placed in the Update().          
+
         switch (activeMenu)
         {
-            case MenuType.MAIN:              
-                    NavigateMain();
-                    CheckButtonSelection();                
+            case MenuType.MAIN:
+                NavigateMain();
                 break;
 
-            case MenuType.FILE:               
-                    NavigateFile();
-                    CheckButtonSelection();           
+            case MenuType.FILE:
+                NavigateFile();
                 break;
 
-            case MenuType.INFO:
-                 CheckButtonSelection();
-                break;
-
-            case MenuType.OPTIONS:                
-                    NavigateOptions(GetAxisAsButtonDown("D-PadV"));
-                    CheckButtonSelection();
-                    HandleSliderAdjustment();             
+            case MenuType.OPTIONS:
+                NavigateOptions(GetAxisAsButtonDown("D-PadV"));
+                HandleSliderAdjustment();
                 break;
 
             case MenuType.QUIT:
                 NavigateQuit();
-                CheckButtonSelection();
                 break;
         }
-        CheckDirectionalAxisUse(); // I'll keep an eye on where this is placed in the Update().
     }
 
     #region COMMON MENU METHODS & COROUTINES.
     private void CheckButtonSelection()
     {
-        if ((Input.GetKeyUp(KeyCode.Return) || Input.GetButtonUp("BtnA")) && !uiElementsInMotion && highlightPositionTransferred && !axisInUse) // Gotta finalise this if statement...
+        if (Input.GetButtonUp("BtnA") && !uiElementsInMotion) // Gotta finalise this if statement...
         {
             if (highlightedObject.GetComponent<Button>() != null) highlightedObject.GetComponent<Button>().onClick.Invoke();
             else if (highlightedObject.GetComponent<Toggle>() != null) highlightedObject.GetComponent<Toggle>().isOn = !highlightedObject.GetComponent<Toggle>().isOn;
@@ -182,7 +173,8 @@ public class MenuController : MonoBehaviour
     }
 
     private IEnumerator TransferHighlightPosition(MenuType activatedMenu, float transitionDuration)
-    {   // https://answers.unity.com/questions/63060/vector3lerp-works-outside-of-update.html Coroutine derived from top answer here.
+    {   // https://answers.unity.com/questions/63060/vector3lerp-works-outside-of-update.html Coroutine derived from top answer here.       
+        highlightPositionTransferred = true;
         uiElementsInMotion = true;
         Vector3 newHighlightPosition;
 
@@ -231,12 +223,12 @@ public class MenuController : MonoBehaviour
             highlightedPosition.position = Vector3.Lerp(highlightedPosition.transform.position, newHighlightPosition, (Time.time - startTime) / transitionDuration);
             yield return null;
         }
-        highlightedPosition.position = newHighlightPosition; // Ensure the button is at the exact position it should be by the end.
+        highlightedPosition.position = newHighlightPosition; // Ensure the button is at the exact position it should be by the end.          
         uiElementsInMotion = false;
         highlightedPosition.gameObject.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         if (!highlightImage.enabled) highlightImage.enabled = true;
-    }
+    } // Gotta look into refactoring these coroutines.
     private IEnumerator ShiftUiElementPosition(Transform uiElement, Vector3 uiElementDestinationPosition, float transitionDuration, bool elementIsPanel)
     {
         uiElementsInMotion = true;
@@ -245,69 +237,16 @@ public class MenuController : MonoBehaviour
         while (Time.time < startTime + transitionDuration) // While the transition duration hasn't passed...
         {
             // ...Move the menu button to its new position, lerping is used to achieve a "smoother" effect.
-            uiElement.position = Vector3.Lerp(highlightedPosition.transform.position, uiElementDestinationPosition, (Time.time - startTime) / transitionDuration);
+            uiElement.position = Vector3.Lerp(uiElement.position, uiElementDestinationPosition, (Time.time - startTime) / transitionDuration);
             yield return null;
         }
         uiElement.position = uiElementDestinationPosition; // Ensure the button is at the exact position it should be by the end.
         if (elementIsPanel) highlightPositionTransferred = false;
         uiElementsInMotion = false;
     }
-    #endregion
-
-    #region MAIN MENU METHODS & COROUTINES.
-    private void NavigateMain()
-    {
-        switch (GetAxisAsButtonDown("D-PadV"))
-        {
-            case "-1":
-                playNavSound.start();
-                NavigateDownMain();
-                break;
-            case "1":
-                playNavSound.start();
-                NavigateUpMain();
-                break;
-        }
-    }
-    private void NavigateDownMain()
-    {
-        if (downwardCountMain < firstButtonPositionIndex && !uiElementsInMotion) // The menu buttons can only shift as far as the difference in number between button positions and the buttons themselves.            
-        {
-            // Since the difference is 3, we have three extra positions to move to, and no more. We use "downwardCountMain" to determine how far we have moved.
-            buttonIndex = 0;
-            for (int i = 0; i < buttonPositions.Length; i++) // Iterate through each potential position.
-            {
-                if (i >= firstButtonPositionIndex - downwardCountMain && buttonIndex < mainButtons.Length) // Once we've reached the first position that holds a button... 
-                {   // ...and assuming we haven't yet set a new position for each button...                                   
-                    StartCoroutine(ShiftButtonPosition(activeMenu, buttonIndex, i - 1, highlightPositionMoveSpeed)); // ...Shift this button to the position directly above its current position.
-                    buttonIndex++; // Increase the button index so that we can shift the positions of buttons 1, 2 and 3 in the next three iterations.
-                }
-            }
-            downwardCountMain++; // Increase the count so that we know how far "down" the player is in the main menu.
-        }
-    }
-    private void NavigateUpMain()
-    {
-        if (downwardCountMain > 0 && !uiElementsInMotion) // If this count is at 0 it means the user is at the "top" of the menu, and therefore can move no further upwards.
-        {
-            buttonIndex = mainButtons.Length - 1; // Start our button index at 3, "Quit Game", the button at the bottom of the list.
-            for (int i = buttonPositions.Length - 1; i >= 0; i--) // Iterate through each position, starting from the bottom (position 6) and moving upwards.
-            {
-                // What follows is the same as what is occuring in the "NavigateDownMain" method, the only difference is that we are moving through the positions in reverse...
-                // ...Shifting each button to the position directly below it, instead of above.
-                if (i <= (buttonPositions.Length - 1) - downwardCountMain && buttonIndex >= 0)
-                {
-                    StartCoroutine(ShiftButtonPosition(activeMenu, buttonIndex, i + 1, highlightPositionMoveSpeed));
-                    buttonIndex--;
-                }
-            }
-            downwardCountMain--; // Decrease the count so that we know how far "up" the player is in the main menu.
-        }
-    }
-
     private IEnumerator ShiftButtonPosition(MenuType currentMenu, int buttonIndex, int positionIndex, float transitionDuration)
     {   // https://answers.unity.com/questions/63060/vector3lerp-works-outside-of-update.html Coroutine derived from top answer here.
-
+        uiElementsInMotion = true; // Added for testing purposes.
         GameObject objectToMove;
         Vector3 currentPosition, newPosition;
 
@@ -338,6 +277,60 @@ public class MenuController : MonoBehaviour
         if (currentMenu == MenuType.MAIN && positionIndex == firstButtonPositionIndex) highlightedObject = objectToMove.gameObject; // Confirmed to work.        
 
         objectToMove.transform.position = newPosition; // Ensure the object is at the exact position it should be by the end.
+        uiElementsInMotion = false;
+    }
+
+    #endregion
+
+    #region MAIN MENU METHODS & COROUTINES.
+    private void NavigateMain()
+    {
+        switch (GetAxisAsButtonDown("D-PadV"))
+        {
+            case "-1":
+                playNavSound.start();
+                NavigateDownMain();
+                break;
+            case "1":
+                playNavSound.start();
+                NavigateUpMain();
+                break;
+        }
+    }
+    private void NavigateDownMain()
+    {
+        if (downwardCountMain < firstButtonPositionIndex) // The menu buttons can only shift as far as the difference in number between button positions and the buttons themselves.            
+        {
+            // Since the difference is 3, we have three extra positions to move to, and no more. We use "downwardCountMain" to determine how far we have moved.
+            buttonIndex = 0;
+            for (int i = 0; i < buttonPositions.Length; i++) // Iterate through each potential position.
+            {
+                if (i >= firstButtonPositionIndex - downwardCountMain && buttonIndex < mainButtons.Length) // Once we've reached the first position that holds a button... 
+                {   // ...and assuming we haven't yet set a new position for each button...                                   
+                    StartCoroutine(ShiftButtonPosition(activeMenu, buttonIndex, i - 1, highlightPositionMoveSpeed)); // ...Shift this button to the position directly above its current position.
+                    buttonIndex++; // Increase the button index so that we can shift the positions of buttons 1, 2 and 3 in the next three iterations.
+                }
+            }
+            downwardCountMain++; // Increase the count so that we know how far "down" the player is in the main menu.
+        }
+    }
+    private void NavigateUpMain()
+    {
+        if (downwardCountMain > 0) // If this count is at 0 it means the user is at the "top" of the menu, and therefore can move no further upwards.
+        {
+            buttonIndex = mainButtons.Length - 1; // Start our button index at 3, "Quit Game", the button at the bottom of the list.
+            for (int i = buttonPositions.Length - 1; i >= 0; i--) // Iterate through each position, starting from the bottom (position 6) and moving upwards.
+            {
+                // What follows is the same as what is occuring in the "NavigateDownMain" method, the only difference is that we are moving through the positions in reverse...
+                // ...Shifting each button to the position directly below it, instead of above.
+                if (i <= (buttonPositions.Length - 1) - downwardCountMain && buttonIndex >= 0)
+                {
+                    StartCoroutine(ShiftButtonPosition(activeMenu, buttonIndex, i + 1, highlightPositionMoveSpeed));
+                    buttonIndex--;
+                }
+            }
+            downwardCountMain--; // Decrease the count so that we know how far "up" the player is in the main menu.
+        }
     }
     #endregion
 
