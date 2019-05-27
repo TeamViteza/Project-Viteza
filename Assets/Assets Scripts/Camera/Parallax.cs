@@ -30,7 +30,7 @@ public class Parallax : MonoBehaviour
         //float distV = (cam.transform.position.y * parallaxEffect);
         //// Vertical testing.
         //if (!(tempV >= startPosV + lengthV) || !(tempV <= startPosV - lengthV))
-        //{            
+        //{
         //    transform.position = new Vector3(transform.position.x, startPosV + dist, transform.position.z);
         //}
 

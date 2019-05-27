@@ -95,7 +95,7 @@ public class MenuController : MonoBehaviour
     #region COMMON MENU METHODS & COROUTINES.
     private void CheckButtonSelection()
     {
-        if (Input.GetButtonUp("BtnA") && !uiElementsInMotion) // Gotta finalise this if statement...
+        if (Input.GetButtonUp("BtnA") && !uiElementsInMotion) 
         {
             if (highlightedObject.GetComponent<Button>() != null) highlightedObject.GetComponent<Button>().onClick.Invoke();
             else if (highlightedObject.GetComponent<Toggle>() != null) highlightedObject.GetComponent<Toggle>().isOn = !highlightedObject.GetComponent<Toggle>().isOn;
