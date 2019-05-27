@@ -12,9 +12,9 @@ public class PowerBar : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        MaxProg = 20f;
+        MaxProg = 1f;
 
-        CurrentProg = MaxProg;
+        CurrentProg = 0;
 
         powerMeter.value = CalulatePower();
 	}
@@ -23,7 +23,7 @@ public class PowerBar : MonoBehaviour {
     void Update() {
         if (Input.GetKeyDown(KeyCode.X))
         {
-            ProgGet(0.8f);
+            ProgGet(0.2f);
         }
 	}
 
