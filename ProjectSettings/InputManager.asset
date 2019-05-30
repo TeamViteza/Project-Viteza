@@ -11,7 +11,7 @@ InputManager:
     descriptiveNegativeName: Directional Button Down (Keyboard)
     negativeButton: down
     positiveButton: up
-    altNegativeButton: s
+    altNegativeButton: d
     altPositiveButton: w
     gravity: 1000
     dead: 0.001

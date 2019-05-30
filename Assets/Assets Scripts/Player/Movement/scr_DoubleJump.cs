@@ -7,7 +7,7 @@ public class scr_DoubleJump : MonoBehaviour {
     Rigidbody2D body;
     CircleCollider2D feetPos;
 
-    float jumpForce = 4f;
+    float jumpForce = 5f;
     bool doubleJump = false;
 
 	// Use this for initialization
@@ -21,11 +21,15 @@ public class scr_DoubleJump : MonoBehaviour {
     {
         if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
-            if (doubleJump == true)
+            if (body.velocity.y <= 0)
             {
-                body.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-                doubleJump = false;
+                if (doubleJump == true)
+                {
+                    body.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+                    doubleJump = false;
+                }
             }
+            
         }
 	}
     private void OnCollisionExit2D(Collision2D collision)

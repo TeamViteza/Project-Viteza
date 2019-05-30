@@ -11,9 +11,9 @@ public class scr_PlayerMovement : MonoBehaviour
     Rigidbody2D body;
     CircleCollider2D feetPos;
 
-    float moveSpeed = 8f;
+    float moveSpeed = 10f;
     float horizontalMove;
-    float jumpForce = 4f;
+    float jumpForce = 8f;
     bool jumpAbility;
 
     // Methods
@@ -24,11 +24,15 @@ public class scr_PlayerMovement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         feetPos = GetComponent<CircleCollider2D>();
     }
+    /// <summary>
+    /// GET AXIS AND FLIP SPRITE
+    /// </summary>
     void Update()
     {
         // MOVEMENT
         horizontalMove = Input.GetAxisRaw("D-PadH");
 
+        // FLIP SPRITE
         if (horizontalMove < 0 || body.velocity.x < 0)
         {
             spriteFlipper.flipX = true;
@@ -38,19 +42,13 @@ public class scr_PlayerMovement : MonoBehaviour
             spriteFlipper.flipX = false;
         }
     }
+    /// <summary>
+    /// MOVEMENT PHYSICS
+    /// </summary>
     private void FixedUpdate()
     {
         // MOVEMENT
-        body.AddForce(new Vector2(horizontalMove * moveSpeed, 0));
-
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-        {
-            body.AddForce(new Vector2(-moveSpeed, 0));
-        }
-        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
-            body.AddForce(new Vector2(moveSpeed, 0));
-        }
+        body.velocity = new Vector2(horizontalMove * moveSpeed, body.velocity.y);
 
         // JUMP
         if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
@@ -62,6 +60,10 @@ public class scr_PlayerMovement : MonoBehaviour
             }
         }
     }
+    /// <summary>
+    /// CHECK IF TOUCHING PLATFORM
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Platform")
