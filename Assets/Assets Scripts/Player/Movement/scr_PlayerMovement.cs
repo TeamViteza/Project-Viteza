@@ -13,7 +13,7 @@ public class scr_PlayerMovement : MonoBehaviour
 
     float moveSpeed = 10f;
     float horizontalMove;
-    float jumpForce = 8f;
+    float jumpForce = 16f;
     bool jumpAbility;
 
     // Methods
