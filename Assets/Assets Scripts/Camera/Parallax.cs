@@ -4,37 +4,23 @@ using UnityEngine;
 
 public class Parallax : MonoBehaviour
 {   // Script derived from this Parallax tutorial: https://www.youtube.com/watch?v=zit45k6CUMk
-    private float lengthH, lengthV, startPosH, startPosV;
+    private float length, startPos;
     public GameObject cam;
     public float parallaxEffect;
 
     void Start()
     {
-        startPosH = transform.position.x;
-        lengthH = GetComponent<SpriteRenderer>().bounds.size.x;
-
-        startPosV = transform.position.y;
-        lengthV = GetComponent<SpriteRenderer>().bounds.size.y;
+        startPos = transform.position.x;
+        length = GetComponent<SpriteRenderer>().bounds.size.x;        
     }
 
     void FixedUpdate()
     {
         float temp = (cam.transform.position.x * (1 - parallaxEffect));
         float dist = (cam.transform.position.x * parallaxEffect);
-        transform.position = new Vector3(startPosH + dist, transform.position.y, transform.position.z);
+        transform.position = new Vector3(startPos + dist, transform.position.y, transform.position.z);
 
-        if (temp > startPosH + lengthH) startPosH += lengthH;
-        else if (temp < startPosH - lengthH) startPosH -= lengthH;
-
-        //float tempV = (cam.transform.position.y * (1 - parallaxEffect));
-        //float distV = (cam.transform.position.y * parallaxEffect);
-        //// Vertical testing.
-        //if (!(tempV >= startPosV + lengthV) || !(tempV <= startPosV - lengthV))
-        //{
-        //    transform.position = new Vector3(transform.position.x, startPosV + dist, transform.position.z);
-        //}
-
-        //if (tempV >= startPosV + lengthV) startPosV += lengthV;
-        //else if (tempV < startPosV - lengthV) startPosV -= lengthV;
+        if (temp > startPos + length) startPos += length;
+        else if (temp < startPos - length) startPos -= length;       
     }
 }
