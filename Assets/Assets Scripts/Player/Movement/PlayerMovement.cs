@@ -4,24 +4,23 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Properties
-    SpriteRenderer spriteFlipper;
+    // Properties   
+    public float moveSpeed = 10f;
+    public float jumpForce = 16f;
+
+    float horizontalMove;
+    bool jumpAbility;
 
     Rigidbody2D body;
     CircleCollider2D feetPos;
-
-    float moveSpeed = 10f;
-    float horizontalMove;
-    float jumpForce = 16f;
-    bool jumpAbility;
+    SpriteRenderer playerSprite;
 
     // Methods
     void Start()
     {
-        spriteFlipper = GetComponent<SpriteRenderer>();
-
         body = GetComponent<Rigidbody2D>();
         feetPos = GetComponent<CircleCollider2D>();
+        playerSprite = GetComponent<SpriteRenderer>();
     }
     /// <summary>
     /// GET AXIS AND FLIP SPRITE
@@ -32,24 +31,26 @@ public class PlayerMovement : MonoBehaviour
         horizontalMove = Input.GetAxisRaw("D-PadH");
 
         // FLIP SPRITE
-        if (horizontalMove < 0 || body.velocity.x < 0)
-        {
-            spriteFlipper.flipX = true;
-        }
-        else if (horizontalMove > 0 || body.velocity.x > 0)
-        {
-            spriteFlipper.flipX = false;
-        }
+        //if (horizontalMove < 0 || body.velocity.x < 0)
+        //{
+        //    playerSprite.flipX = true;
+        //}
+        //else if (horizontalMove > 0 || body.velocity.x > 0)
+        //{
+        //    playerSprite.flipX = false;
+        //}
     }
-    /// <summary>
-    /// MOVEMENT PHYSICS
-    /// </summary>
+
+    // MOVEMENT PHYSICS  
     private void FixedUpdate()
     {
+
         // MOVEMENT
         body.velocity = new Vector2(horizontalMove * moveSpeed, body.velocity.y);
+    }
 
-        // JUMP
+    private void HandleJumpInput()
+    {
         if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             if (jumpAbility == true)
@@ -59,10 +60,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-    /// <summary>
-    /// CHECK IF TOUCHING PLATFORM
-    /// </summary>
-    /// <param name="collision"></param>
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Platform")
