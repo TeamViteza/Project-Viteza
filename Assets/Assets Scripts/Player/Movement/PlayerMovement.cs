@@ -22,31 +22,20 @@ public class PlayerMovement : MonoBehaviour
         feetPos = GetComponent<CircleCollider2D>();
         playerSprite = GetComponent<SpriteRenderer>();
     }
-    /// <summary>
-    /// GET AXIS AND FLIP SPRITE
-    /// </summary>
+    
     void Update()
-    {
-        // MOVEMENT
-        horizontalMove = Input.GetAxisRaw("D-PadH");
-
-        // FLIP SPRITE
-        //if (horizontalMove < 0 || body.velocity.x < 0)
-        //{
-        //    playerSprite.flipX = true;
-        //}
-        //else if (horizontalMove > 0 || body.velocity.x > 0)
-        //{
-        //    playerSprite.flipX = false;
-        //}
+    {               
+        UpdateSpriteOrientation();
     }
 
     // MOVEMENT PHYSICS  
     private void FixedUpdate()
     {
-
+        horizontalMove = Input.GetAxisRaw("D-PadH");
         // MOVEMENT
         body.velocity = new Vector2(horizontalMove * moveSpeed, body.velocity.y);
+
+        HandleJumpInput();
     }
 
     private void HandleJumpInput()
@@ -58,6 +47,18 @@ public class PlayerMovement : MonoBehaviour
                 body.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
                 jumpAbility = false;
             }
+        }
+    }
+
+    private void UpdateSpriteOrientation()
+    {
+        if (horizontalMove < 0 || body.velocity.x < 0)
+        {
+            playerSprite.flipX = true;
+        }
+        else if (horizontalMove > 0 || body.velocity.x > 0)
+        {
+            playerSprite.flipX = false;
         }
     }
 
