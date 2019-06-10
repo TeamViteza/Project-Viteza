@@ -15,10 +15,5 @@ public class Health : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         XH.text = "x" + lives;
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            lives--;
-        }
 	}
 }
