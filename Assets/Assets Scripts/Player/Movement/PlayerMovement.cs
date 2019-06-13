@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         feetPos = GetComponent<CircleCollider2D>();
         playerSprite = GetComponent<SpriteRenderer>();
-        firePoint = GetComponent<GameObject>();
+        firePoint = transform.Find("fire_point").gameObject;
     }
     
     void Update()
@@ -58,13 +58,13 @@ public class PlayerMovement : MonoBehaviour
         if (horizontalMove < 0 || body.velocity.x < 0)
         {
             playerSprite.flipX = true;
-            firePoint.gameObject.transform.localPosition = this.gameObject.transform.right * relativePos;
+            firePoint.transform.localPosition = this.transform.right * relativePos;
         }
         else if (horizontalMove > 0 || body.velocity.x > 0)
         {
             playerSprite.flipX = false;
-            firePoint.GetComponent<SpriteRenderer>().flipX = false;
-            firePoint.gameObject.transform.localPosition = this.gameObject.transform.right * relativePos;
+            //firePoint.GetComponent<SpriteRenderer>().flipX = false;
+            firePoint.transform.localPosition = this.transform.right * relativePos;
         }
     }
 
