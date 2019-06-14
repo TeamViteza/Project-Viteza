@@ -23,7 +23,9 @@ public class SMovement : MonoBehaviour
     const float fall = 2.5f;
 
     // Components
-
+    SpriteRenderer sprite;
+    Vector3 spriteCenter;
+    Rigidbody2D body;
 
     // Children    
     GameObject[] sensors = new GameObject[4]; // Increase to 6 when E and F are added.
@@ -31,27 +33,38 @@ public class SMovement : MonoBehaviour
     // Methods
     void Start()
     {
+        body = GetComponent<Rigidbody2D>();
+
+        sprite = GetComponent<SpriteRenderer>();
+        spriteCenter = sprite.bounds.center;
+
         // Get access to Katt's sensors.
         GameObject sensorParent = transform.Find("0_sensors").gameObject;
-        
+
         for (int i = 0; i < sensors.Length; i++)
         {
             sensors[i] = sensorParent.transform.GetChild(i).gameObject;
         }
 
-        foreach(GameObject go in sensors)
-        {
-            Debug.Log(go.name);
-        }
+        //foreach(GameObject go in sensors)
+        //{
+        //    Debug.Log(go.name);
+        //}
+
+
+
+        Debug.Log("Distance from center to right: " + sprite.bounds.extents.x);
+        Debug.Log("Distance from center to left: " + -sprite.bounds.extents.x);
+        Debug.Log("Distance from center to top: " + sprite.bounds.extents.y);
+        Debug.Log("Distance from center to bottom: " + -sprite.bounds.extents.y);
     }
 
     void Update()
     {
-
+        if (sensors[0].GetComponent<Sensor>().Activated)
+        {
+            body.gravityScale = 0.0f;
+        }
+        
     }
-
-
-
-
-
 }
