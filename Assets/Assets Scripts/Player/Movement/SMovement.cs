@@ -63,7 +63,7 @@ public class SMovement : MonoBehaviour
     {
         if (sensors[0].GetComponent<Sensor>().Activated)
         {
-            body.gravityScale = 0.0f;
+            body.gravityScale = -0.1f;
         }
         
     }
