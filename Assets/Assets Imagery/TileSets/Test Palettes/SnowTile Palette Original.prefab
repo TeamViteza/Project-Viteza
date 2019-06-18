@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4146577639123684}
   - component: {fileID: 2569400268540323182}
   m_Layer: 31
-  m_Name: SnowTile Palette
+  m_Name: SnowTile Palette Original
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,7 +90,7 @@ Grid:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1590568953829380}
   m_Enabled: 1
-  m_CellSize: {x: 1, y: 1, z: 0}
+  m_CellSize: {x: 2, y: 2, z: 0}
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
