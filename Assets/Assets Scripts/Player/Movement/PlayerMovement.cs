@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         feetPos = GetComponent<CircleCollider2D>();
         playerSprite = GetComponent<SpriteRenderer>();
-        firePoint = transform.Find("fire_point").gameObject;
+        firePoint = transform.Find("1_fire_point").gameObject;
     }
     
     void Update()
