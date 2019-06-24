@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     GameObject firePoint;
     float relativePos;
 
+    private bool facingRight = true;
+
     // Methods
     void Start()
     {
@@ -65,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
             playerSprite.flipX = false;
             //firePoint.GetComponent<SpriteRenderer>().flipX = false;
             firePoint.transform.localPosition = this.transform.right * relativePos;
+
         }
     }
 
