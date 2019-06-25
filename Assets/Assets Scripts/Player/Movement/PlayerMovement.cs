@@ -7,15 +7,13 @@ public class PlayerMovement : MonoBehaviour
     // Properties   
     public float moveSpeed = 10f;
     public float jumpForce = 16f;
+    public SpriteRenderer playerSprite;
 
-    float horizontalMove;
+    float horizontalMove, relativePos;
     bool jumpAbility;
-
     Rigidbody2D body;
     CircleCollider2D feetPos;
-    public SpriteRenderer playerSprite;
     GameObject firePoint;
-    float relativePos;
 
     private bool facingRight = true;
 
@@ -27,9 +25,9 @@ public class PlayerMovement : MonoBehaviour
         playerSprite = GetComponent<SpriteRenderer>();
         firePoint = transform.Find("1_fire_point").gameObject;
     }
-    
+
     void Update()
-    {               
+    {
         UpdateSpriteOrientation();
     }
 
@@ -45,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleJumpInput()
     {
-        if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetButtonDown("BtnA")) 
         {
             if (jumpAbility == true)
             {
@@ -57,17 +55,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateSpriteOrientation()
     {
-        if (horizontalMove < 0 || body.velocity.x < 0)
+        if ((horizontalMove < 0 || body.velocity.x < 0) && facingRight == true)
         {
-            playerSprite.flipX = true;
-            firePoint.transform.localPosition = this.transform.right * relativePos;
+            facingRight = false;
+            transform.Rotate(0, -180, 0);
+            firePoint.transform.localRotation = transform.rotation;
         }
-        else if (horizontalMove > 0 || body.velocity.x > 0)
+        else if ((horizontalMove > 0 || body.velocity.x > 0) && facingRight == false)
         {
-            playerSprite.flipX = false;
-            firePoint.GetComponent<SpriteRenderer>().flipX = false;
-            firePoint.transform.localPosition = this.transform.right * relativePos;
-
+            facingRight = true;
+            transform.Rotate(0, 180, 0);
+            firePoint.transform.localRotation = transform.rotation;
         }
     }
 

@@ -89,7 +89,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d6d8944481bc1441b89cf5db5f8964d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flipDirection: {x: 0, y: 0}
   speed: 20
+  damage: 100
   rb: {fileID: 50447969703317780}
 --- !u!212 &212009746889909006
 SpriteRenderer:

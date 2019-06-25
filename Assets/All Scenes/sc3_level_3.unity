@@ -3185,10 +3185,10 @@ GameObject:
   - component: {fileID: 1996739898}
   - component: {fileID: 1996739897}
   - component: {fileID: 1996739896}
+  - component: {fileID: 1996739901}
   - component: {fileID: 1996739895}
   - component: {fileID: 1996739894}
   - component: {fileID: 1996739893}
-  - component: {fileID: 1996739901}
   m_Layer: 0
   m_Name: s_katt
   m_TagString: Untagged
@@ -3333,6 +3333,7 @@ MonoBehaviour:
   firePoint: {fileID: 880004153}
   bulletPrefab: {fileID: 1348646217877640, guid: 97d935c243a04e64b841c25690522fb3,
     type: 2}
+  player: {fileID: 0}
 --- !u!212 &1996739897
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3431,6 +3432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   jumpForce: 9
+  playerSprite: {fileID: 0}
 --- !u!1 &2010406270
 GameObject:
   m_ObjectHideFlags: 0
