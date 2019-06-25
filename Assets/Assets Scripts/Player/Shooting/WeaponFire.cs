@@ -6,8 +6,15 @@ public class WeaponFire : MonoBehaviour {
 
     public Transform firePoint;
     public GameObject bulletPrefab;
-	// Update is called once per frame
-	void Update () {
+    public PlayerMovement player;
+    // Update is called once per frame
+
+     void Start()
+    {
+        player = transform.parent.GetComponent<PlayerMovement>();
+    }
+
+    void Update () {
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
@@ -18,6 +25,12 @@ public class WeaponFire : MonoBehaviour {
 
     void Shoot ()
     {
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        //if (player.playerSprite.flipX == true)
+        //{
+        //    firePoint.
+            
+        //}
+
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation, firePoint);
     }
 }
