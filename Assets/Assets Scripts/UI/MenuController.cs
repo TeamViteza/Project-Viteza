@@ -14,6 +14,7 @@ public class MenuController : MonoBehaviour
     public float sliderAdjustmentPrecision = 0.05f;
 
     Canvas mainCanvas;
+    Resolution[] resolutions;
     GameObject mainPanel, filePanel, infoPanel, optionsPanel, quitPanel;
     Vector3[] panelPositions = new Vector3[10]; // This array will contain both active and inactive panel positions. (0-4 for active positions, 5-9 for inactive positions)
     List<GameObject> mainMenuPanels = new List<GameObject>();
@@ -47,6 +48,7 @@ public class MenuController : MonoBehaviour
 
     void Awake()
     {
+        resolutions = Screen.resolutions;
         playNavSound = RuntimeManager.CreateInstance("event:/Master/SFX/UISFX/Nav");
         playSelectSound = RuntimeManager.CreateInstance("event:/Master/SFX/UISFX/Pos");
         playNegativeSound = RuntimeManager.CreateInstance("event:/Master/SFX/UISFX/Neg");
@@ -55,7 +57,7 @@ public class MenuController : MonoBehaviour
         FilePanelInitialisation();
         InfoPanelInitialisation();
         OptionsPanelInitialisation();
-        QuitPanelInitialisation();
+        QuitPanelInitialisation();       
 
         SetAsActiveMenu("Main");
     }
@@ -66,7 +68,7 @@ public class MenuController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("UI Elements in motion: " + uiElementsInMotion);
+        //Debug.Log("UI Elements in motion: " + uiElementsInMotion);
         if (!highlightPositionTransferred) StartCoroutine(TransferHighlightPosition(activeMenu, highlightPositionMoveSpeed)); // Move the highlighter if the active menu has changed.
 
         CheckButtonSelection();
@@ -355,7 +357,7 @@ public class MenuController : MonoBehaviour
         }
     }
     private void NavigateLeftFile()
-    {        
+    {
         if (rightCountFile < firstFilePositionIndex && !uiElementsInMotion)
         {
             playNavSound.start();
@@ -373,7 +375,7 @@ public class MenuController : MonoBehaviour
         }
     }
     private void NavigateRightFile()
-    {       
+    {
         if (rightCountFile > -firstFilePositionIndex && !uiElementsInMotion)
         {
             playNavSound.start();
@@ -422,7 +424,7 @@ public class MenuController : MonoBehaviour
 
         highlightedObject = optionsSettings[downwardCountOptions];
         StartCoroutine(ShiftUiElementPosition(highlightedPosition, highlightedObject.transform.position, highlightPositionMoveSpeed, false));
-    }    
+    }
     private void HandleSliderAdjustment()
     {
         if (highlightedObject.GetComponent<Slider>() != null)
@@ -439,9 +441,41 @@ public class MenuController : MonoBehaviour
             }
         }
     }
+    private void SetResolutionOptions()
+    {
+        resolutionDropdown.ClearOptions();
+
+        List<string> resolutionOptions = new List<string>();
+        int currentResIndex = 0;
+
+        for (int i = 0; i < resolutions.Length; i++)
+        {
+            string resOption = resolutions[i].width + " x " + resolutions[i].height;
+            resolutionOptions.Add(resOption);
+
+            if (resolutions[i].width == Screen.currentResolution.width &&
+                resolutions[i].height == Screen.currentResolution.height)
+            {
+                currentResIndex = i;
+            }
+        }
+
+        resolutionDropdown.AddOptions(resolutionOptions);
+        resolutionDropdown.value = currentResIndex;
+        resolutionDropdown.RefreshShownValue();
+    }
     public void SetGraphicsQuality(int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
+    }
+    public void SetResolution(int resolutionIndex)
+    {
+        Resolution resolution = resolutions[resolutionIndex];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
+    public void SetFullScreen(bool fullScreenEnabled)
+    {
+        Screen.fullScreen = fullScreenEnabled;
     }
     #endregion
 
@@ -570,7 +604,9 @@ public class MenuController : MonoBehaviour
 
         qualityDropdown = optionsSettings[0].GetComponent<Dropdown>();
         resolutionDropdown = optionsSettings[1].GetComponent<Dropdown>();
-    }    
+
+        SetResolutionOptions();
+    }
     private void QuitPanelInitialisation()
     {   // Get access to options "yes" and "no" in the quit prompt.       
         quitButtons[0] = quitPanel.transform.Find("1_buttons_quit/btn_0_no").GetComponent<Button>();
