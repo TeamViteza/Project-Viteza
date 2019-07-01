@@ -25,7 +25,7 @@ public class MenuController : MonoBehaviour
     Button[] quitButtons = new Button[2];
     GameObject[] saveFilePositions = new GameObject[17];
     GameObject[] saveFiles = new GameObject[9];
-    GameObject[] optionsSettings = new GameObject[5];
+    GameObject[] optionsSettings = new GameObject[6];
     GameObject highlightedObject, highlightedSaveFile, fileCursor;
     SaveFile fileToLoad;
     Image highlightImage;
@@ -95,7 +95,7 @@ public class MenuController : MonoBehaviour
     #region COMMON MENU METHODS & COROUTINES.
     private void CheckButtonSelection()
     {
-        if (Input.GetButtonUp("BtnA") && !uiElementsInMotion) 
+        if (Input.GetButtonUp("BtnA") && !uiElementsInMotion)
         {
             if (highlightedObject.GetComponent<Button>() != null) highlightedObject.GetComponent<Button>().onClick.Invoke();
             else if (highlightedObject.GetComponent<Toggle>() != null) highlightedObject.GetComponent<Toggle>().isOn = !highlightedObject.GetComponent<Toggle>().isOn;
@@ -551,12 +551,15 @@ public class MenuController : MonoBehaviour
         btnReturnInfo = infoPanel.transform.Find("3_btn_return_info").GetComponent<Button>();
     }
     private void OptionsPanelInitialisation()
-    {   // Get access to each setting in the options menu.
-        optionsSettings[0] = optionsPanel.transform.Find("1_settings_options/0_stg_tgl_fullscreen").gameObject;
-        optionsSettings[1] = optionsPanel.transform.Find("1_settings_options/1_stg_sdr_volume_master").gameObject;
-        optionsSettings[2] = optionsPanel.transform.Find("1_settings_options/2_stg_sdr_volume_bgm").gameObject;
-        optionsSettings[3] = optionsPanel.transform.Find("1_settings_options/3_stg_sdr_volume_sfx").gameObject;
-        optionsSettings[4] = optionsPanel.transform.Find("1_settings_options/4_btn_return_options").gameObject;
+    {   // Get access to each setting in the options menu.       
+        // I want to use GetChild() with a for loop here, but Unity won't consider my objects' transforms in the right order despite me ordering them correctly. 
+        // So let's explicitly call out each child object instead.
+        optionsSettings[0] = optionsPanel.transform.Find("1_settings_options/0_stg_drpdwn_resolution").gameObject;
+        optionsSettings[1] = optionsPanel.transform.Find("1_settings_options/1_stg_tgl_fullscreen").gameObject;
+        optionsSettings[2] = optionsPanel.transform.Find("1_settings_options/2_stg_sdr_volume_master").gameObject;
+        optionsSettings[3] = optionsPanel.transform.Find("1_settings_options/3_stg_sdr_volume_bgm").gameObject;
+        optionsSettings[4] = optionsPanel.transform.Find("1_settings_options/4_stg_sdr_volume_sfx").gameObject;
+        optionsSettings[5] = optionsPanel.transform.Find("1_settings_options/5_btn_return_options").gameObject;       
     }
     private void QuitPanelInitialisation()
     {   // Get access to options "yes" and "no" in the quit prompt.       
