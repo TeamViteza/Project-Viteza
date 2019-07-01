@@ -25,10 +25,11 @@ public class MenuController : MonoBehaviour
     Button[] quitButtons = new Button[2];
     GameObject[] saveFilePositions = new GameObject[17];
     GameObject[] saveFiles = new GameObject[9];
-    GameObject[] optionsSettings = new GameObject[6];
+    GameObject[] optionsSettings = new GameObject[7];
     GameObject highlightedObject, highlightedSaveFile, fileCursor;
     SaveFile fileToLoad;
     Image highlightImage;
+    Dropdown qualityDropdown, resolutionDropdown;
 
     int panelPositionDifference, firstButtonPositionIndex, firstFilePositionIndex, buttonIndex, fileIndex, downwardCountMain, rightCountFile, downwardCountOptions;
     bool uiElementsInMotion, highlightPositionTransferred, axisInUse;
@@ -98,6 +99,7 @@ public class MenuController : MonoBehaviour
         if (Input.GetButtonUp("BtnA") && !uiElementsInMotion)
         {
             if (highlightedObject.GetComponent<Button>() != null) highlightedObject.GetComponent<Button>().onClick.Invoke();
+            else if (highlightedObject.GetComponent<Dropdown>() != null) highlightedObject.GetComponent<Dropdown>().Show();
             else if (highlightedObject.GetComponent<Toggle>() != null) highlightedObject.GetComponent<Toggle>().isOn = !highlightedObject.GetComponent<Toggle>().isOn;
 
             if (highlightedObject.name.Contains("return"))
@@ -353,10 +355,10 @@ public class MenuController : MonoBehaviour
         }
     }
     private void NavigateLeftFile()
-    {
-        playNavSound.start();
+    {        
         if (rightCountFile < firstFilePositionIndex && !uiElementsInMotion)
         {
+            playNavSound.start();
             fileIndex = 0;
             for (int i = 0; i < saveFilePositions.Length; i++)
             {
@@ -371,10 +373,10 @@ public class MenuController : MonoBehaviour
         }
     }
     private void NavigateRightFile()
-    {
-        playNavSound.start();
+    {       
         if (rightCountFile > -firstFilePositionIndex && !uiElementsInMotion)
         {
+            playNavSound.start();
             fileIndex = 0;
             for (int i = 0; i < saveFilePositions.Length; i++)
             {
@@ -403,7 +405,7 @@ public class MenuController : MonoBehaviour
     #region OPTIONS MENU METHODS & COROUTINES.
     private void NavigateOptions(string axisValue)
     {
-        if (axisValue == "0") return;
+        if (axisValue == "0" || qualityDropdown.transform.Find("Dropdown List") != null || resolutionDropdown.transform.Find("Dropdown List") != null) return;
 
         playNavSound.start();
 
@@ -420,7 +422,7 @@ public class MenuController : MonoBehaviour
 
         highlightedObject = optionsSettings[downwardCountOptions];
         StartCoroutine(ShiftUiElementPosition(highlightedPosition, highlightedObject.transform.position, highlightPositionMoveSpeed, false));
-    }
+    }    
     private void HandleSliderAdjustment()
     {
         if (highlightedObject.GetComponent<Slider>() != null)
@@ -436,6 +438,10 @@ public class MenuController : MonoBehaviour
                     break;
             }
         }
+    }
+    public void SetGraphicsQuality(int qualityIndex)
+    {
+        QualitySettings.SetQualityLevel(qualityIndex);
     }
     #endregion
 
@@ -552,15 +558,19 @@ public class MenuController : MonoBehaviour
     }
     private void OptionsPanelInitialisation()
     {   // Get access to each setting in the options menu.       
-        // I want to use GetChild() with a for loop here, but Unity won't consider my objects' transforms in the right order despite me ordering them correctly. 
+        // I want to use GetChild(index) with a for loop here, but Unity won't consider my objects' transforms in the right order despite me ordering them correctly. 
         // So let's explicitly call out each child object instead.
-        optionsSettings[0] = optionsPanel.transform.Find("1_settings_options/0_stg_drpdwn_resolution").gameObject;
-        optionsSettings[1] = optionsPanel.transform.Find("1_settings_options/1_stg_tgl_fullscreen").gameObject;
-        optionsSettings[2] = optionsPanel.transform.Find("1_settings_options/2_stg_sdr_volume_master").gameObject;
-        optionsSettings[3] = optionsPanel.transform.Find("1_settings_options/3_stg_sdr_volume_bgm").gameObject;
-        optionsSettings[4] = optionsPanel.transform.Find("1_settings_options/4_stg_sdr_volume_sfx").gameObject;
-        optionsSettings[5] = optionsPanel.transform.Find("1_settings_options/5_btn_return_options").gameObject;       
-    }
+        optionsSettings[0] = optionsPanel.transform.Find("1_settings_options/0_stg_drpdwn_quality").gameObject;
+        optionsSettings[1] = optionsPanel.transform.Find("1_settings_options/1_stg_drpdwn_resolution").gameObject;
+        optionsSettings[2] = optionsPanel.transform.Find("1_settings_options/2_stg_tgl_fullscreen").gameObject;
+        optionsSettings[3] = optionsPanel.transform.Find("1_settings_options/3_stg_sdr_volume_master").gameObject;
+        optionsSettings[4] = optionsPanel.transform.Find("1_settings_options/4_stg_sdr_volume_bgm").gameObject;
+        optionsSettings[5] = optionsPanel.transform.Find("1_settings_options/5_stg_sdr_volume_sfx").gameObject;
+        optionsSettings[6] = optionsPanel.transform.Find("1_settings_options/6_btn_return_options").gameObject;
+
+        qualityDropdown = optionsSettings[0].GetComponent<Dropdown>();
+        resolutionDropdown = optionsSettings[1].GetComponent<Dropdown>();
+    }    
     private void QuitPanelInitialisation()
     {   // Get access to options "yes" and "no" in the quit prompt.       
         quitButtons[0] = quitPanel.transform.Find("1_buttons_quit/btn_0_no").GetComponent<Button>();
