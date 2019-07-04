@@ -3189,6 +3189,7 @@ GameObject:
   - component: {fileID: 1996739895}
   - component: {fileID: 1996739894}
   - component: {fileID: 1996739893}
+  - component: {fileID: 1996739902}
   m_Layer: 0
   m_Name: s_katt
   m_TagString: Untagged
@@ -3234,7 +3235,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3, y: 4}
+    oldSize: {x: 1.52, y: 3.5}
     newSize: {x: 3, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3330,10 +3331,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f40a479a6b77c3d4e867f38a29822f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 880004153}
   bulletPrefab: {fileID: 1348646217877640, guid: 97d935c243a04e64b841c25690522fb3,
     type: 2}
-  player: {fileID: 0}
 --- !u!212 &1996739897
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3433,6 +3432,24 @@ MonoBehaviour:
   moveSpeed: 10
   jumpForce: 9
   playerSprite: {fileID: 0}
+--- !u!95 &1996739902
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1996739892}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fd5bdf0cab818f1429f093c94bd22f31, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2010406270
 GameObject:
   m_ObjectHideFlags: 0
