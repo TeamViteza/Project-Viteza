@@ -74,8 +74,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateAnimation()
     {
+        if (animator == null) return;
         animator.SetFloat("horizontalMove", horizontalMove);
         animator.SetFloat("xVelocity", body.velocity.x);
+        animator.SetFloat("yVelocity", body.velocity.y);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

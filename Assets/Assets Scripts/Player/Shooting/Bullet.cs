@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour {
     public Rigidbody2D rb;
 	
 	void Start () {
-        Debug.Log("Rotation Y: " + transform.rotation.y + "\nLocal Rotation Y: " + transform.localRotation.y);
+        //Debug.Log("Rotation Y: " + transform.rotation.y + "\nLocal Rotation Y: " + transform.localRotation.y);
 
         if(transform.rotation.y == 0) rb.velocity = new Vector2(speed, 0); // Works fine, but I want to get the bullet to shoot from the angle that Katt is slanted at.  
         else rb.velocity = new Vector2(-speed, 0);
