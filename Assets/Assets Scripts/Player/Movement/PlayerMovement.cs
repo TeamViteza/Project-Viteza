@@ -13,7 +13,8 @@ public class PlayerMovement : MonoBehaviour
     bool jumpAbility;
     Rigidbody2D body;
     CircleCollider2D feetPos;
-    GameObject firePoint;
+    Animator animator;
+    GameObject firePoint;   
 
     private bool facingRight = true;
 
@@ -24,11 +25,13 @@ public class PlayerMovement : MonoBehaviour
         feetPos = GetComponent<CircleCollider2D>();
         playerSprite = GetComponent<SpriteRenderer>();
         firePoint = transform.Find("1_fire_point").gameObject;
+        animator = GetComponent<Animator>();
     }
 
     void Update()
-    {
+    {        
         UpdateSpriteOrientation();
+        UpdateAnimation();
     }
 
     // MOVEMENT PHYSICS  
@@ -69,11 +72,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void UpdateAnimation()
+    {
+        animator.SetFloat("horizontalMove", horizontalMove);
+        animator.SetFloat("xVelocity", body.velocity.x);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Platform")
-        {
-            jumpAbility = true;
-        }
+        if (collision.gameObject.tag == "Platform") jumpAbility = true;        
     }
 }
