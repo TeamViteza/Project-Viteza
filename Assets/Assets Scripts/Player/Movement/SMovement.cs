@@ -5,11 +5,16 @@ using UnityEngine;
 public class SMovement : MonoBehaviour
 {  // http://info.sonicretro.org/SPG:Solid_Tiles Used for reference here.
 
-    // Variables
+    #region  Variables
+    // Public
+    public float GroundRayDistance;
+
+    // Private
     float xPos, yPos; // The X and Y co-ordinates of Katt's center.
     float xSpeed, ySpeed, gSpeed; // Katt's horizontal, vertical and ground speed.
     float slope; // The current slope factor in use.
-    float angle; // Katt's angle on the ground.
+    float angle; // Katt's angle on the ground.   
+    Vector2 groundRayDirection; // The direction the ground ray will point in.
 
     // Constants
     const float acc = 0.046875f;
@@ -29,14 +34,16 @@ public class SMovement : MonoBehaviour
 
     // Children    
     GameObject[] sensors = new GameObject[4]; // Increase to 6 when E and F are added.
+    #endregion
 
     // Methods
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
-
         sprite = GetComponent<SpriteRenderer>();
         spriteCenter = sprite.bounds.center;
+
+        groundRayDirection = new Vector2(0, 1);
 
         // Get access to Katt's sensors.
         GameObject sensorParent = transform.Find("0_sensors").gameObject;
@@ -51,20 +58,31 @@ public class SMovement : MonoBehaviour
         //    Debug.Log(go.name);
         //}
 
-
-
-        Debug.Log("Distance from center to right: " + sprite.bounds.extents.x);
-        Debug.Log("Distance from center to left: " + -sprite.bounds.extents.x);
-        Debug.Log("Distance from center to top: " + sprite.bounds.extents.y);
-        Debug.Log("Distance from center to bottom: " + -sprite.bounds.extents.y);
+        //Debug.Log("Distance from center to right: " + sprite.bounds.extents.x);
+        //Debug.Log("Distance from center to left: " + -sprite.bounds.extents.x);
+        //Debug.Log("Distance from center to top: " + sprite.bounds.extents.y);
+        //Debug.Log("Distance from center to bottom: " + -sprite.bounds.extents.y);
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        if (sensors[0].GetComponent<Sensor>().Activated)
+        GroundRayUpdate();
+    }
+
+    public RaycastHit2D CheckGroundRaycast()
+    {
+        Vector2 groundRayStartPos = new Vector2(transform.position.x, transform.position.y - 1f); // Fiddle here?        
+        return Physics2D.Raycast(groundRayStartPos, groundRayDirection, GroundRayDistance, LayerMask.GetMask("Platform"));
+    }
+
+    private void GroundRayUpdate()
+    {
+        RaycastHit2D hit = CheckGroundRaycast();
+
+        if (hit.collider)
         {
-            body.gravityScale = -0.1f;
+            Debug.Log("Hit this object: " + hit.collider.name); 
+            Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - 1f), hit.normal, Color.yellow);
         }
-        
     }
 }
