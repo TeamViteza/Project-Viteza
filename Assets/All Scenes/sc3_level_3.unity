@@ -1233,7 +1233,7 @@ GameObject:
   - component: {fileID: 462741513}
   - component: {fileID: 462741515}
   - component: {fileID: 462741514}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: flatgrass_b4f
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -1595,7 +1595,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 781989685}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: flatgrass
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -1853,7 +1853,7 @@ GameObject:
   - component: {fileID: 1212642059}
   - component: {fileID: 1212642061}
   - component: {fileID: 1212642060}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: flatgrass_b2f
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -1953,7 +1953,7 @@ GameObject:
   - component: {fileID: 1237302405}
   - component: {fileID: 1237302407}
   - component: {fileID: 1237302406}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: flatgrass_b1f
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -2183,11 +2183,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1372911905509722, guid: 34efdc0f5f04394439bdd8f6c274fdd3, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1574432859277586, guid: 34efdc0f5f04394439bdd8f6c274fdd3, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114811857512050028, guid: 34efdc0f5f04394439bdd8f6c274fdd3,
         type: 2}
@@ -2465,7 +2465,7 @@ GameObject:
   - component: {fileID: 1557199999}
   - component: {fileID: 1557200001}
   - component: {fileID: 1557200000}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: flatgrass_b3f
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -3102,7 +3102,7 @@ GameObject:
   - component: {fileID: 2051177664}
   - component: {fileID: 2051177666}
   - component: {fileID: 2051177665}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Flatgrass B5F
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -3382,7 +3382,7 @@ GameObject:
   - component: {fileID: 2105883109}
   - component: {fileID: 2105883108}
   - component: {fileID: 2105883107}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: flatgrass_0f
   m_TagString: Platform
   m_Icon: {fileID: 0}
