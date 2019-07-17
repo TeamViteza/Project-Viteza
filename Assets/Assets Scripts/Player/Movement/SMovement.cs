@@ -5,14 +5,16 @@ using UnityEngine;
 public class SMovement : MonoBehaviour
 {  // http://info.sonicretro.org/SPG:Solid_Tiles Used for reference here.
     #region  Variables   
+    // Public
+    public Quaternion DefaultRotation; // Katt's default rotation, she will revert to this whenever she is airborne. This'll be public until I merge a lot of P Movement's functions into S Movement.
+
     // Private
     float xPos, yPos; // The X and Y co-ordinates of Katt's center.
     float xSpeed, ySpeed, gSpeed; // Katt's horizontal, vertical and ground speed.
     float slope; // The current slope factor in use.
     float angle; // Katt's angle on the ground.   
     float groundRayDistance, groundRayOffsetY;
-    Vector2 groundRayDirection; // The direction the ground ray will point in.
-    Quaternion defaultRotation; // Katt's default rotation, she will revert to this whenever she is airborne.
+    Vector2 groundRayDirection; // The direction the ground ray will point in.    
     bool grounded; // Is Katt in mid-air? If not, this bool will be true.
 
     // Constants
@@ -30,6 +32,7 @@ public class SMovement : MonoBehaviour
     SpriteRenderer sprite;
     Vector3 spriteCenter;
     Rigidbody2D body;
+    PlayerMovement pMovement; // I'll have this component temporarily, until I merge the two scripts.
 
     // Children    
     Sensor[] sensors = new Sensor[4]; // Increase to 6 when E and F are added.
@@ -41,7 +44,8 @@ public class SMovement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         spriteCenter = sprite.bounds.center;
-        defaultRotation = transform.rotation;
+        pMovement = GetComponent<PlayerMovement>();
+        DefaultRotation = transform.rotation;
 
         GroundRayInitialisation();
         SensorInitialisation();
@@ -49,16 +53,28 @@ public class SMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        //Debug.Log("Grounded: " + grounded);
         GroundRayUpdate();
-        RevertRotation();
+        SensorPlatformCheck();
+        RevertRotation();       
     }
 
     private void RevertRotation()
     {
         if (grounded == false)
         {
-            //transform.rotation = defaultRotation; More tinkering required here.
+            //transform.rotation = DefaultRotation;
+            Debug.Log("Reverting Rotation.");
+            transform.Rotate(DefaultRotation.eulerAngles.x, pMovement.OrientationH, DefaultRotation.eulerAngles.z); // More tinkering to be done here.
+            UpdateOrientation();
         }
+    }
+
+    private void UpdateOrientation()
+    {
+        //Debug.Log("Updating Orientation to Y " + pMovement.OrientationH);
+        transform.Rotate(0, pMovement.OrientationH, 0);
+        //DefaultRotation = transform.rotation;
     }
 
     #region SENSOR METHODS
@@ -81,9 +97,10 @@ public class SMovement : MonoBehaviour
 
         if (hit.collider)
         {
-            Debug.Log("Hit this object: " + hit.collider.name);
+            //Debug.Log("Hit this object: " + hit.collider.name);
             Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + groundRayOffsetY), hit.normal, Color.yellow);
-            transform.rotation = Quaternion.FromToRotation(-transform.up, hit.normal) * transform.rotation;
+            transform.rotation = Quaternion.FromToRotation(-transform.up, hit.normal) * transform.rotation;   
+            
         }
     }
     #endregion

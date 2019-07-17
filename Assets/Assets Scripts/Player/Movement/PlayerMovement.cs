@@ -8,13 +8,15 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 10f;
     public float jumpForce = 16f;
     public SpriteRenderer playerSprite;
+    public float OrientationH; // Katt's horizontal orientation. (Is she facing left or right?)
 
     float horizontalMove, relativePos;
     bool jumpAbility;
     Rigidbody2D body;
     CircleCollider2D feetPos;
     Animator animator;
-    GameObject firePoint;   
+    GameObject firePoint;
+    SMovement sMovement;
 
     private bool facingRight = true;
 
@@ -26,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         playerSprite = GetComponent<SpriteRenderer>();
         firePoint = transform.Find("1_fire_point").gameObject;
         animator = GetComponent<Animator>();
+        sMovement = GetComponent<SMovement>();
     }
 
     void Update()
@@ -61,13 +64,19 @@ public class PlayerMovement : MonoBehaviour
         if ((horizontalMove < 0 || body.velocity.x < 0) && facingRight == true)
         {
             facingRight = false;
-            transform.Rotate(0, -180, 0);
-            firePoint.transform.localRotation = transform.rotation;
+            //transform.Rotate(0, -180, 0);
+            //sMovement.DefaultRotation = transform.rotation; // Set the default rotation of our S Movement. (This allows us to keep Katt facing whichever direction she's in.)
+            OrientationH = -180;
+            sMovement.Invoke("UpdateOrientation", 0);
+            firePoint.transform.localRotation = transform.rotation; // Hmm, maybe I should move this to S Movement.
         }
         else if ((horizontalMove > 0 || body.velocity.x > 0) && facingRight == false)
         {
             facingRight = true;
-            transform.Rotate(0, 180, 0);
+            //transform.Rotate(0, 180, 0);
+            //sMovement.DefaultRotation = transform.rotation; // Set the default rotation of our S Movement. (This allows us to keep Katt facing whichever direction she's in.)
+            OrientationH = 180;
+            sMovement.Invoke("UpdateOrientation", 0);
             firePoint.transform.localRotation = transform.rotation;
         }
     }
