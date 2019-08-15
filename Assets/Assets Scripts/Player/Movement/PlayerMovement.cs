@@ -2,22 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour // This script is no longer in active use. It has been replaced by S Movement.
 {
     // Properties   
     public float moveSpeed = 10f;
     public float jumpForce = 16f;
     public SpriteRenderer playerSprite;
     public float OrientationH; // Katt's horizontal orientation. (Is she facing left or right?)
-
-    public float horizontalMove;
-    //float horizontalMove, relativePos;
+   
+    float horizontalMove, relativePos;
     bool jumpAbility;
     Rigidbody2D body;
     CircleCollider2D feetPos;
     Animator animator;
     GameObject firePoint;
-    SMovement sMovement;
+    //SMovement sMovement;
 
     public bool FacingRight = true;
 
@@ -29,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
         playerSprite = GetComponent<SpriteRenderer>();
         firePoint = transform.Find("1_fire_point").gameObject;
         animator = GetComponent<Animator>();
-        sMovement = GetComponent<SMovement>();
+        //sMovement = GetComponent<SMovement>();
     }
 
     void Update()
@@ -63,21 +62,16 @@ public class PlayerMovement : MonoBehaviour
     private void UpdateSpriteOrientation()
     {
         if ((horizontalMove < 0 || body.velocity.x < 0) && FacingRight == true)
-        {            
-            //transform.Rotate(0, -180, 0);
-            //sMovement.DefaultRotation = transform.rotation; // Set the default rotation of our S Movement. (This allows us to keep Katt facing whichever direction she's in.)
-            //OrientationH = Mathf.Clamp(-180, -180, -180);
+        {
             OrientationH = -180;
-            sMovement.Invoke("UpdateOrientation", 0);
+            //sMovement.Invoke("UpdateOrientation", 0); No longer necessary.
             firePoint.transform.localRotation = transform.rotation; // Hmm, maybe I should move this to S Movement.
             FacingRight = false;
         }
         else if ((horizontalMove > 0 || body.velocity.x > 0) && FacingRight == false)
-        {            
-            //transform.Rotate(0, 180, 0);
-            //sMovement.DefaultRotation = transform.rotation; // Set the default rotation of our S Movement. (This allows us to keep Katt facing whichever direction she's in.)
+        {
             OrientationH = 180;
-            sMovement.Invoke("UpdateOrientation", 0);
+            //sMovement.Invoke("UpdateOrientation", 0);
             firePoint.transform.localRotation = transform.rotation;
             FacingRight = true;
         }

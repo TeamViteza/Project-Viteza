@@ -6,16 +6,20 @@ public class SMovement : MonoBehaviour
 {  // http://info.sonicretro.org/SPG:Solid_Tiles Used for reference here.
     #region  Variables   
     // Public
+    public float moveSpeed = 10f;
+    public float jumpForce = 16f;
     public Quaternion DefaultRotation; // Katt's default rotation, she will revert to this whenever she is airborne. This'll be public until I merge a lot of P Movement's functions into S Movement.
 
     // Private
+    float horizontalMove;
+    float orientationH; // Katt's horizontal orientation. (Is she facing left or right?) 
     float xPos, yPos; // The X and Y co-ordinates of Katt's center.
     float xSpeed, ySpeed, gSpeed; // Katt's horizontal, vertical and ground speed.
     float slope; // The current slope factor in use.
     float angle; // Katt's angle on the ground.   
     float groundRayDistance, groundRayOffsetY;
     Vector2 groundRayDirection; // The direction the ground ray will point in.    
-    bool airborne; // For keeping track of whether or not Katt is in mid-air.
+    bool facingRight, jumpCapable, airborne; // For keeping track of whether or not Katt is in mid-air.
 
     // Constants
     const float acc = 0.046875f;
@@ -31,8 +35,10 @@ public class SMovement : MonoBehaviour
     // Components
     SpriteRenderer sprite;
     Vector3 spriteCenter;
-    Rigidbody2D body;
-    PlayerMovement pMovement; // I'll have this component temporarily, until I merge the two scripts.
+    Rigidbody2D body;    
+    CircleCollider2D testFeetCollider; // From the old script. I'll likely get rid of it soon and use the sensors instead.
+    GameObject blaster; // Katt's blaster, used to fire projectiles.
+    Animator animator;
 
     // Children    
     Sensor[] sensors = new Sensor[4]; // Increase to 6 when E and F are added.
@@ -42,21 +48,53 @@ public class SMovement : MonoBehaviour
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        testFeetCollider = GetComponent<CircleCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
         spriteCenter = sprite.bounds.center;
-        pMovement = GetComponent<PlayerMovement>();
+        facingRight = true;
+        blaster = transform.Find("1_fire_point").gameObject;
+        animator = GetComponent<Animator>();        
+        
         DefaultRotation = transform.rotation;
 
         GroundRayInitialisation();
         SensorInitialisation();
     }
 
-    void FixedUpdate()
-    {       
+    void Update() // Used to update game elements not related to physics.
+    {
+        UpdateSpriteOrientation();
+        UpdateAnimation();
+    }
+
+    void FixedUpdate() // Used to update physics-related game elements.
+    {
+        HandleMovement();        
         GroundRayUpdate();
         SensorAirborneCheck();
         RevertRotation();       
     }
+
+    #region MOVEMENT METHODS
+    private void HandleMovement()
+    {
+        horizontalMove = Input.GetAxisRaw("D-PadH");        
+        body.velocity = new Vector2(horizontalMove * moveSpeed, body.velocity.y);
+        HandleJumpInput();
+    }
+
+    private void HandleJumpInput()
+    {
+        if (Input.GetButtonDown("BtnA"))
+        {
+            if (jumpCapable == true)
+            {
+                body.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+                jumpCapable = false;
+            }
+        }
+    }
+    #endregion
 
     #region ROTATION & ORIENTATION METHODS
     private void RevertRotation() // Upon becoming airborne, we want Katt to be upright. (No longer slanted at an angle if she was jumping off of a slope.)
@@ -66,16 +104,29 @@ public class SMovement : MonoBehaviour
             Quaternion revertedRotation = new Quaternion(); // The rotation Katt will revert to upon becoming airborne.
             int orientationValue = 0; // This value will remain at 0 if Katt's facing the right side of the screen.
 
-            if (!pMovement.FacingRight) orientationValue = -180; // If Katt's facing the left of the screen, change this value to -180 so that she can face the appropriate direction upon reverting her rotation.
+            if (!facingRight) orientationValue = -180; // If Katt's facing the left of the screen, change this value to -180 so that she can face the appropriate direction upon reverting her rotation.
 
             revertedRotation = new Quaternion(DefaultRotation.eulerAngles.x, orientationValue, DefaultRotation.eulerAngles.z, 0); // Determine the quaternion Katt's rotation should revert to.            
 
             transform.rotation = revertedRotation; // Revert Katt's rotation.
         }
-    }
-    private void UpdateOrientation() // Ensure Katt's facing in the direction she's moving.
+    }   
+    private void UpdateSpriteOrientation()
     {
-        transform.Rotate(0, pMovement.OrientationH, 0);
+        if ((horizontalMove < 0 || body.velocity.x < 0) && facingRight == true)
+        {
+            orientationH = -180;            
+            transform.Rotate(0, orientationH, 0);
+            blaster.transform.localRotation = transform.rotation;
+            facingRight = false;
+        }
+        else if ((horizontalMove > 0 || body.velocity.x > 0) && facingRight == false)
+        {
+            orientationH = 180;            
+            transform.Rotate(0, orientationH, 0);
+            blaster.transform.localRotation = transform.rotation;
+            facingRight = true;
+        }
     }
     #endregion    
 
@@ -104,6 +155,23 @@ public class SMovement : MonoBehaviour
             Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + groundRayOffsetY), hit.normal, Color.yellow);
             transform.rotation = Quaternion.FromToRotation(-transform.up, hit.normal) * transform.rotation;            
         }
+    }
+    #endregion
+
+    #region ANIMATION METHODS
+    private void UpdateAnimation()
+    {
+        if (animator == null) return;
+        animator.SetFloat("horizontalMove", horizontalMove);
+        animator.SetFloat("xVelocity", body.velocity.x);
+        animator.SetFloat("yVelocity", body.velocity.y);
+    }
+    #endregion
+
+    #region COLLISION METHODS
+    private void OnCollisionEnter2D(Collision2D collision) // Might replace this using sensors.
+    {
+        if (collision.gameObject.tag == "Platform") jumpCapable = true;
     }
     #endregion
 
