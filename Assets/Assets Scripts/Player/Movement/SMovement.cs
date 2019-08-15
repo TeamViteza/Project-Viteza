@@ -52,44 +52,35 @@ public class SMovement : MonoBehaviour
     }
 
     void FixedUpdate()
-    {
-        Debug.Log("Airborne: " + airborne);
+    {       
         GroundRayUpdate();
-        SensorPlatformCheck();
+        SensorAirborneCheck();
         RevertRotation();       
     }
 
-    private void RevertRotation()
+    #region ROTATION & ORIENTATION METHODS
+    private void RevertRotation() // Upon becoming airborne, we want Katt to be upright. (No longer slanted at an angle if she was jumping off of a slope.)
     {
         if (airborne == true)
-        {
-            //transform.rotation = DefaultRotation;
-            Debug.Log("Airborne: " + airborne + ". Reverting Rotation.");
-            //transform.Rotate(DefaultRotation.eulerAngles.x, pMovement.OrientationH, DefaultRotation.eulerAngles.z); // More tinkering to be done here.
-            Quaternion revertedRotation = new Quaternion();
-            if (pMovement.FacingRight)
-            {
-                revertedRotation = new Quaternion(DefaultRotation.eulerAngles.x, 0, DefaultRotation.eulerAngles.z, 0);
-            }
-            else
-            {
-                revertedRotation = new Quaternion(DefaultRotation.eulerAngles.x, -180, DefaultRotation.eulerAngles.z, 0);
-            }
-            transform.rotation = revertedRotation;
-            
-            //UpdateOrientation();
+        {                                    
+            Quaternion revertedRotation = new Quaternion(); // The rotation Katt will revert to upon becoming airborne.
+            int orientationValue = 0; // This value will remain at 0 if Katt's facing the right side of the screen.
+
+            if (!pMovement.FacingRight) orientationValue = -180; // If Katt's facing the left of the screen, change this value to -180 so that she can face the appropriate direction upon reverting her rotation.
+
+            revertedRotation = new Quaternion(DefaultRotation.eulerAngles.x, orientationValue, DefaultRotation.eulerAngles.z, 0); // Determine the quaternion Katt's rotation should revert to.            
+
+            transform.rotation = revertedRotation; // Revert Katt's rotation.
         }
     }
-
-    private void UpdateOrientation()
+    private void UpdateOrientation() // Ensure Katt's facing in the direction she's moving.
     {
-        //Debug.Log("Updating Orientation to Y " + pMovement.OrientationH);
         transform.Rotate(0, pMovement.OrientationH, 0);
-        //DefaultRotation = transform.rotation;
     }
+    #endregion    
 
     #region SENSOR METHODS
-    private void SensorPlatformCheck()
+    private void SensorAirborneCheck() // Check whether Katt's currently airborne.
     {
         if (sensors[0].Activated || sensors[1].Activated) airborne = false;
         else if (!sensors[0].Activated && !sensors[1].Activated) airborne = true;
