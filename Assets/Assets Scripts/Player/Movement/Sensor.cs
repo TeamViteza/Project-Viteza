@@ -17,18 +17,18 @@ public class Sensor : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Platform")
-        {
-            //Debug.Log(gameObject.name.ToUpper() + " Activated");
+        {            
             Activated = true;
+            //Debug.Log(gameObject.name.ToUpper() + " Activated");
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Platform")
-        {
-            //Debug.Log(gameObject.name.ToUpper() + " De-activated");
+        {            
             Activated = false;
+            //Debug.Log(gameObject.name.ToUpper() + " De-activated");
         }
     }
 }

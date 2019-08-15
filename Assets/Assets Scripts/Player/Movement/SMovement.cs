@@ -15,7 +15,7 @@ public class SMovement : MonoBehaviour
     float angle; // Katt's angle on the ground.   
     float groundRayDistance, groundRayOffsetY;
     Vector2 groundRayDirection; // The direction the ground ray will point in.    
-    bool grounded; // Is Katt in mid-air? If not, this bool will be true.
+    bool airborne; // For keeping track of whether or not Katt is in mid-air.
 
     // Constants
     const float acc = 0.046875f;
@@ -53,7 +53,7 @@ public class SMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        //Debug.Log("Grounded: " + grounded);
+        Debug.Log("Airborne: " + airborne);
         GroundRayUpdate();
         SensorPlatformCheck();
         RevertRotation();       
@@ -61,12 +61,23 @@ public class SMovement : MonoBehaviour
 
     private void RevertRotation()
     {
-        if (grounded == false)
+        if (airborne == true)
         {
             //transform.rotation = DefaultRotation;
-            Debug.Log("Reverting Rotation.");
-            transform.Rotate(DefaultRotation.eulerAngles.x, pMovement.OrientationH, DefaultRotation.eulerAngles.z); // More tinkering to be done here.
-            UpdateOrientation();
+            Debug.Log("Airborne: " + airborne + ". Reverting Rotation.");
+            //transform.Rotate(DefaultRotation.eulerAngles.x, pMovement.OrientationH, DefaultRotation.eulerAngles.z); // More tinkering to be done here.
+            Quaternion revertedRotation = new Quaternion();
+            if (pMovement.FacingRight)
+            {
+                revertedRotation = new Quaternion(DefaultRotation.eulerAngles.x, 0, DefaultRotation.eulerAngles.z, 0);
+            }
+            else
+            {
+                revertedRotation = new Quaternion(DefaultRotation.eulerAngles.x, -180, DefaultRotation.eulerAngles.z, 0);
+            }
+            transform.rotation = revertedRotation;
+            
+            //UpdateOrientation();
         }
     }
 
@@ -80,8 +91,8 @@ public class SMovement : MonoBehaviour
     #region SENSOR METHODS
     private void SensorPlatformCheck()
     {
-        if(sensors[0].Activated || sensors[1].Activated) grounded = true;       
-        else grounded = false;
+        if (sensors[0].Activated || sensors[1].Activated) airborne = false;
+        else if (!sensors[0].Activated && !sensors[1].Activated) airborne = true;
     }
     #endregion
 
@@ -93,14 +104,14 @@ public class SMovement : MonoBehaviour
     }
     private void GroundRayUpdate()
     {
+        if (airborne) return;
         RaycastHit2D hit = CheckGroundRaycast();
 
         if (hit.collider)
         {
             //Debug.Log("Hit this object: " + hit.collider.name);
             Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + groundRayOffsetY), hit.normal, Color.yellow);
-            transform.rotation = Quaternion.FromToRotation(-transform.up, hit.normal) * transform.rotation;   
-            
+            transform.rotation = Quaternion.FromToRotation(-transform.up, hit.normal) * transform.rotation;            
         }
     }
     #endregion
