@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponFire : MonoBehaviour
-{    
+{
     public GameObject bulletPrefab;
 
     Animator playerAnimator;
 
     void Start()
     {
-        playerAnimator = transform.GetComponentInParent<Animator>();       
+        playerAnimator = transform.GetComponentInParent<Animator>();
     }
 
     void Update()
     {
         if (Input.GetButtonDown("BtnX")) Shoot();
-        else if (playerAnimator !=null && playerAnimator.GetBool("firing") == true) UpdateShootAnimation(false);
+        else if (playerAnimator != null && playerAnimator.GetBool("firing") == true) UpdateShootAnimation(false);
     }
 
     void Shoot()
-    {       
-        Instantiate(bulletPrefab, transform.position, transform.rotation);
+    {
+        Instantiate(bulletPrefab, transform.position, transform.rotation); // Gotta figure out why this isn't working for S Katt.
         UpdateShootAnimation(true);
     }
 
