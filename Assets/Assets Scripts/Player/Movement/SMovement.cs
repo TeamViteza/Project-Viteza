@@ -52,7 +52,7 @@ public class SMovement : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         spriteCenter = sprite.bounds.center;
         facingRight = true;
-        blaster = transform.Find("1_fire_point").gameObject;
+        blaster = transform.Find("1_blaster").gameObject;
         animator = GetComponent<Animator>();        
         
         DefaultRotation = transform.rotation;

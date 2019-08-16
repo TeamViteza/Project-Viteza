@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour // This script is no longer in activ
         body = GetComponent<Rigidbody2D>();
         feetPos = GetComponent<CircleCollider2D>();
         playerSprite = GetComponent<SpriteRenderer>();
-        firePoint = transform.Find("1_fire_point").gameObject;
+        firePoint = transform.Find("1_blaster").gameObject;
         animator = GetComponent<Animator>();
         //sMovement = GetComponent<SMovement>();
     }
@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour // This script is no longer in activ
         {
             OrientationH = -180;
             //sMovement.Invoke("UpdateOrientation", 0); No longer necessary.
-            firePoint.transform.localRotation = transform.rotation; // Hmm, maybe I should move this to S Movement.
+            firePoint.transform.localRotation = transform.rotation; 
             FacingRight = false;
         }
         else if ((horizontalMove > 0 || body.velocity.x > 0) && FacingRight == false)
