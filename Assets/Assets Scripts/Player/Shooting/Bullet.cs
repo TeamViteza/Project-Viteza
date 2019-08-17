@@ -16,12 +16,14 @@ public class Bullet : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {      
+    {
+        if (collision.tag == "Sensor") return; // We don't want our bullets colliding with Katt's Sensors, since they are trigger collisions.
+
         Enemy enemy = collision.GetComponent<Enemy>();
         if (enemy != null)
         {
             enemy.TakeDamage(100);
         }
-        Destroy(gameObject);
+        Destroy(gameObject); // This bullet will disappear upon hitting a collision.
     }   
 }

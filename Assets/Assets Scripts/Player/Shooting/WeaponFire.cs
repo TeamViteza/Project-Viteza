@@ -21,7 +21,7 @@ public class WeaponFire : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate(bulletPrefab, transform.position, transform.rotation); // Gotta figure out why this isn't working for S Katt.
+        Instantiate(bulletPrefab, transform.position, transform.rotation); 
         UpdateShootAnimation(true);
     }
 

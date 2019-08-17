@@ -6,8 +6,7 @@ public class PlayerMovement : MonoBehaviour // This script is no longer in activ
 {
     // Properties   
     public float moveSpeed = 10f;
-    public float jumpForce = 16f;
-    public SpriteRenderer playerSprite;
+    public float jumpForce = 16f;   
     public float OrientationH; // Katt's horizontal orientation. (Is she facing left or right?)
    
     float horizontalMove, relativePos;
@@ -24,8 +23,7 @@ public class PlayerMovement : MonoBehaviour // This script is no longer in activ
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
-        feetPos = GetComponent<CircleCollider2D>();
-        playerSprite = GetComponent<SpriteRenderer>();
+        feetPos = GetComponent<CircleCollider2D>();       
         firePoint = transform.Find("1_blaster").gameObject;
         animator = GetComponent<Animator>();
         //sMovement = GetComponent<SMovement>();
