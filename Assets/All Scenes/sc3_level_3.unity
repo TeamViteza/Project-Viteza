@@ -1695,6 +1695,25 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1051062331 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1348226277113516, guid: 34efdc0f5f04394439bdd8f6c274fdd3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1420056938}
+--- !u!114 &1051062334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1051062331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f40a479a6b77c3d4e867f38a29822f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 1280738245067036, guid: d34fa090ba672234b8abdc795ad817e8,
+    type: 2}
+  bulletOriginOffsetY: 0.05
 --- !u!1 &1080927508
 GameObject:
   m_ObjectHideFlags: 0
@@ -2225,7 +2244,7 @@ Prefab:
     - target: {fileID: 212878851435179810, guid: 34efdc0f5f04394439bdd8f6c274fdd3,
         type: 2}
       propertyPath: m_SortingOrder
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1668017376210824, guid: 34efdc0f5f04394439bdd8f6c274fdd3, type: 2}
       propertyPath: m_IsActive
@@ -2256,7 +2275,70 @@ Prefab:
       propertyPath: jumpForce
       value: 10
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 212878851435179810, guid: 34efdc0f5f04394439bdd8f6c274fdd3,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 37c551bbc8be41e4bb51216a093a10f1,
+        type: 3}
+    - target: {fileID: 212878851435179810, guid: 34efdc0f5f04394439bdd8f6c274fdd3,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 4.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 212878851435179810, guid: 34efdc0f5f04394439bdd8f6c274fdd3,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 3.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 212878851435179810, guid: 34efdc0f5f04394439bdd8f6c274fdd3,
+        type: 2}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4409211044510066, guid: 34efdc0f5f04394439bdd8f6c274fdd3, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.1521729
+      objectReference: {fileID: 0}
+    - target: {fileID: 4409211044510066, guid: 34efdc0f5f04394439bdd8f6c274fdd3, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.1521729
+      objectReference: {fileID: 0}
+    - target: {fileID: 4409211044510066, guid: 34efdc0f5f04394439bdd8f6c274fdd3, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.1521729
+      objectReference: {fileID: 0}
+    - target: {fileID: 4409211044510066, guid: 34efdc0f5f04394439bdd8f6c274fdd3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.439
+      objectReference: {fileID: 0}
+    - target: {fileID: 4409211044510066, guid: 34efdc0f5f04394439bdd8f6c274fdd3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.0877
+      objectReference: {fileID: 0}
+    - target: {fileID: 114741739091579928, guid: 34efdc0f5f04394439bdd8f6c274fdd3,
+        type: 2}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 1280738245067036, guid: d34fa090ba672234b8abdc795ad817e8,
+        type: 2}
+    - target: {fileID: 212878851435179810, guid: 34efdc0f5f04394439bdd8f6c274fdd3,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212878851435179810, guid: 34efdc0f5f04394439bdd8f6c274fdd3,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212878851435179810, guid: 34efdc0f5f04394439bdd8f6c274fdd3,
+        type: 2}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114741739091579928, guid: 34efdc0f5f04394439bdd8f6c274fdd3, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 34efdc0f5f04394439bdd8f6c274fdd3, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1446082106

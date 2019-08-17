@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour {
-    public Vector2 flipDirection;
+public class Bullet : MonoBehaviour {   
     public float speed = 200f;
     public int damage = 100;
     public Rigidbody2D rb;
@@ -11,7 +10,7 @@ public class Bullet : MonoBehaviour {
 	void Start () {
         //Debug.Log("Rotation Y: " + transform.rotation.y + "\nLocal Rotation Y: " + transform.localRotation.y);
 
-        if(transform.rotation.y == 0) rb.velocity = new Vector2(speed, 0); // Works fine, but I want to get the bullet to shoot from the angle that Katt is slanted at.  
+        if(transform.rotation.y == 0) rb.velocity = new Vector2(speed, 0); // Gotta ensure here that the bullet is always firing in the proper direction.
         else rb.velocity = new Vector2(-speed, 0);
     }
 
