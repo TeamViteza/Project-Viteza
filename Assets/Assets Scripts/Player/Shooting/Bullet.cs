@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour {
     public Rigidbody2D rb;
 	
 	void Start () {
-        //Debug.Log("Rotation Y: " + transform.rotation.y + "\nLocal Rotation Y: " + transform.localRotation.y);
+        Debug.Log("Rotation Y: " + transform.rotation.y + "\nLocal Rotation Y: " + transform.localRotation.y);
 
         if(transform.rotation.y == 0) rb.velocity = new Vector2(speed, 0); // Gotta ensure here that the bullet is always firing in the proper direction.
         else rb.velocity = new Vector2(-speed, 0);

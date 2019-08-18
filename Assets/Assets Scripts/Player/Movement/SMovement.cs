@@ -113,6 +113,7 @@ public class SMovement : MonoBehaviour
             revertedRotation = new Quaternion(DefaultRotation.eulerAngles.x, orientationValue, DefaultRotation.eulerAngles.z, 0); // Determine the quaternion Katt's rotation should revert to.            
 
             transform.rotation = revertedRotation; // Revert Katt's rotation.
+            //blasterGO.transform.localRotation = transform.rotation;
         }
     }   
     private void UpdateSpriteOrientation()
@@ -122,7 +123,7 @@ public class SMovement : MonoBehaviour
             orientationH = -180;            
             transform.Rotate(0, orientationH, 0);            
             facingRight = false;
-            blasterGO.transform.localRotation = transform.rotation;
+            //blasterGO.transform.localRotation = transform.rotation;
             blasterSC.ToggleOrientation();
         }
         else if ((horizontalMove > 0 || body.velocity.x > 0) && facingRight == false)
@@ -130,9 +131,11 @@ public class SMovement : MonoBehaviour
             orientationH = 180;            
             transform.Rotate(0, orientationH, 0);           
             facingRight = true;
-            blasterGO.transform.localRotation = transform.rotation;
+            //blasterGO.transform.localRotation = transform.rotation;
             blasterSC.ToggleOrientation();
         }
+
+        blasterGO.transform.localRotation = transform.rotation;
     }
     #endregion    
 
