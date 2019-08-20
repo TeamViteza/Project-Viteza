@@ -29,8 +29,20 @@ public class WeaponFire : MonoBehaviour
     }
 
     void Shoot()
-    {       
-        Instantiate(bulletPrefab, new Vector3(transform.position.x + bSpriteExtentsX, (transform.position.y + bSpriteExtentsY) - bulletOriginOffsetY, 0), transform.rotation);            
+    {
+        //Instantiate(bulletPrefab, new Vector3(transform.position.x + bSpriteExtentsX, (transform.position.y + bSpriteExtentsY) - bulletOriginOffsetY, 0), transform.rotation);   
+
+        switch (blasterSprite.flipX)
+        {
+            case true:
+                Instantiate(bulletPrefab, new Vector3(transform.position.x + bSpriteExtentsX, (transform.position.y + bSpriteExtentsY) - bulletOriginOffsetY, 0), new Quaternion(0, -180, 0, 0));
+                break;
+
+            case false:
+                Instantiate(bulletPrefab, new Vector3(transform.position.x + bSpriteExtentsX, (transform.position.y + bSpriteExtentsY) - bulletOriginOffsetY, 0), new Quaternion(0, 0, 0, 0));
+                break;
+        }
+
         UpdateShootAnimation(true);
     }
 
@@ -41,7 +53,7 @@ public class WeaponFire : MonoBehaviour
     }
 
     public void ToggleOrientation()
-    {
+    {   // Maybe I should rotate the gun instead of flipping its sprite.
         blasterSprite.flipX = !blasterSprite.flipX;
     }
 }

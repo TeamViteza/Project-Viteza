@@ -2337,6 +2337,10 @@ Prefab:
       propertyPath: m_FlipY
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1348226277113516, guid: 34efdc0f5f04394439bdd8f6c274fdd3, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114741739091579928, guid: 34efdc0f5f04394439bdd8f6c274fdd3, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 34efdc0f5f04394439bdd8f6c274fdd3, type: 2}

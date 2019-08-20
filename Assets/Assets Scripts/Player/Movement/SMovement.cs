@@ -67,6 +67,7 @@ public class SMovement : MonoBehaviour
 
     void Update() // Used to update game elements not related to physics.
     {
+        Debug.Log("Facing right: " + facingRight);
         UpdateSpriteOrientation();
         UpdateAnimation();
     }
@@ -75,7 +76,7 @@ public class SMovement : MonoBehaviour
     {
         HandleMovement();        
         GroundRayUpdate();
-        SensorAirborneCheck();
+        SensorAirborneCheck();        
         RevertRotation();       
     }
 
@@ -104,13 +105,11 @@ public class SMovement : MonoBehaviour
     private void RevertRotation() // Upon becoming airborne, we want Katt to be upright. (No longer slanted at an angle if she was jumping off of a slope.)
     {
         if (airborne == true)
-        {                                    
-            Quaternion revertedRotation = new Quaternion(); // The rotation Katt will revert to upon becoming airborne.
+        {                                               
             int orientationValue = 0; // This value will remain at 0 if Katt's facing the right side of the screen.
-
             if (!facingRight) orientationValue = -180; // If Katt's facing the left of the screen, change this value to -180 so that she can face the appropriate direction upon reverting her rotation.
 
-            revertedRotation = new Quaternion(DefaultRotation.eulerAngles.x, orientationValue, DefaultRotation.eulerAngles.z, 0); // Determine the quaternion Katt's rotation should revert to.            
+            Quaternion revertedRotation = new Quaternion(DefaultRotation.eulerAngles.x, orientationValue, DefaultRotation.eulerAngles.z, 0); // Determine the quaternion Katt's rotation should revert to.            
 
             transform.rotation = revertedRotation; // Revert Katt's rotation.
             //blasterGO.transform.localRotation = transform.rotation;
@@ -123,7 +122,7 @@ public class SMovement : MonoBehaviour
             orientationH = -180;            
             transform.Rotate(0, orientationH, 0);            
             facingRight = false;
-            //blasterGO.transform.localRotation = transform.rotation;
+            //blasterGO.transform.localRotation = transform.rotation; 
             blasterSC.ToggleOrientation();
         }
         else if ((horizontalMove > 0 || body.velocity.x > 0) && facingRight == false)
@@ -135,7 +134,7 @@ public class SMovement : MonoBehaviour
             blasterSC.ToggleOrientation();
         }
 
-        blasterGO.transform.localRotation = transform.rotation;
+        //blasterGO.transform.localRotation = transform.rotation;
     }
     #endregion    
 
