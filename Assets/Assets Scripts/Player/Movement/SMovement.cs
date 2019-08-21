@@ -7,7 +7,8 @@ public class SMovement : MonoBehaviour
     #region  Variables   
     // Public
     public float moveSpeed = 10f;
-    public float jumpForce = 16f;    
+    public float jumpForce = 16f;
+    public bool FacingRight;
 
     // Private
     float horizontalMove;
@@ -18,7 +19,7 @@ public class SMovement : MonoBehaviour
     float angle; // Katt's angle on the ground.   
     float groundRayDistance, groundRayOffsetY;
     Vector2 groundRayDirection; // The direction the ground ray will point in.    
-    bool facingRight, jumpCapable, airborne; // For keeping track of whether or not Katt is in mid-air.
+    bool jumpCapable, airborne; // For keeping track of whether or not Katt is in mid-air.
 
     // Constants
     const float acc = 0.046875f;
@@ -36,11 +37,8 @@ public class SMovement : MonoBehaviour
     Vector3 spriteCenter;
     Rigidbody2D body;
     Quaternion DefaultRotation; // Katt's default rotation, she will revert to this whenever she is airborne.
-    CircleCollider2D testFeetCollider; // From the old script. I'll likely get rid of it soon and use the sensors instead.
-    GameObject blasterGO; // Katt's blaster, used to fire projectiles.
-    WeaponFire blasterSC; // Katt's blaster script. Likely won't need the GO in future. We'll see.
+    CircleCollider2D testFeetCollider; // From the old script. I'll likely get rid of it soon and use the sensors instead.    
     Animator animator;
-
 
     // Children    
     Sensor[] sensors = new Sensor[4]; // Increase to 6 when E and F are added.
@@ -49,15 +47,12 @@ public class SMovement : MonoBehaviour
     // Methods
     void Start()
     {
+        FacingRight = true;
         body = GetComponent<Rigidbody2D>();
         testFeetCollider = GetComponent<CircleCollider2D>();
+        animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
-        spriteCenter = sprite.bounds.center;
-        facingRight = true;
-        blasterGO = transform.Find("1_blaster").gameObject;
-        blasterSC = blasterGO.GetComponent<WeaponFire>();
-
-        animator = GetComponent<Animator>();        
+        spriteCenter = sprite.bounds.center;                   
         
         DefaultRotation = transform.rotation;
 
@@ -66,8 +61,7 @@ public class SMovement : MonoBehaviour
     }
 
     void Update() // Used to update game elements not related to physics.
-    {
-        Debug.Log("Facing right: " + facingRight);
+    {        
         UpdateSpriteOrientation();
         UpdateAnimation();
     }
@@ -107,34 +101,27 @@ public class SMovement : MonoBehaviour
         if (airborne == true)
         {                                               
             int orientationValue = 0; // This value will remain at 0 if Katt's facing the right side of the screen.
-            if (!facingRight) orientationValue = -180; // If Katt's facing the left of the screen, change this value to -180 so that she can face the appropriate direction upon reverting her rotation.
+            if (!FacingRight) orientationValue = -180; // If Katt's facing the left of the screen, change this value to -180 so that she can face the appropriate direction upon reverting her rotation.
 
             Quaternion revertedRotation = new Quaternion(DefaultRotation.eulerAngles.x, orientationValue, DefaultRotation.eulerAngles.z, 0); // Determine the quaternion Katt's rotation should revert to.            
 
-            transform.rotation = revertedRotation; // Revert Katt's rotation.
-            //blasterGO.transform.localRotation = transform.rotation;
+            transform.rotation = revertedRotation; // Revert Katt's rotation.            
         }
     }   
     private void UpdateSpriteOrientation()
     {
-        if ((horizontalMove < 0 || body.velocity.x < 0) && facingRight == true)
+        if ((horizontalMove < 0 || body.velocity.x < 0) && FacingRight == true)
         {
             orientationH = -180;            
             transform.Rotate(0, orientationH, 0);            
-            facingRight = false;
-            //blasterGO.transform.localRotation = transform.rotation; 
-            blasterSC.ToggleOrientation();
+            FacingRight = false;                     
         }
-        else if ((horizontalMove > 0 || body.velocity.x > 0) && facingRight == false)
+        else if ((horizontalMove > 0 || body.velocity.x > 0) && FacingRight == false)
         {
             orientationH = 180;            
             transform.Rotate(0, orientationH, 0);           
-            facingRight = true;
-            //blasterGO.transform.localRotation = transform.rotation;
-            blasterSC.ToggleOrientation();
-        }
-
-        //blasterGO.transform.localRotation = transform.rotation;
+            FacingRight = true;                   
+        }        
     }
     #endregion    
 
