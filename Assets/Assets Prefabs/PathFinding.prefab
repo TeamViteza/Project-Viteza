@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1519733540679058}
+  m_IsPrefabParent: 1
+--- !u!1 &1519733540679058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4030405599712098}
+  - component: {fileID: 114443680750911932}
+  m_Layer: 0
+  m_Name: PathFinding
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4030405599712098
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1519733540679058}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114443680750911932
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1519733540679058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  data:
+    dataString: UEsDBBQAAAgIAAAAIexMLGMJdQIAAB0FAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVMmS2jAQ/RVK50B5Y8stMQyTwyw1JDUXX4TVxipkySXJA8wU/56WbLBDTjSvt9evW/4iXJoacqv0RnP2pBiQ7yPibPJt1Dsf4UT3Sm75J1xj3jmzpQuiPuaNWq4QD12aURVYzfMfci9ccIBgI3mhdLVme0iVsQbhggoD6NLKumyJ0NeInPBnvHQpZ7SiubM+0VoGowuaOUgLug+N4kmcBEkUz7qM+WQxTYIoScIucTFZJsFsEa/HwdyXaGQuaFUDc/MMKl0rRJEPkzhpF+FK5UoIbjqaxJ5rL0NKa9PgkBjAOMWxPbdwEiNQAt+X1hUcpr8UhQHbqaLpecU16tfWJT9VK2pFzaFl9kFF4zpF05ln1RZ9+s8/Dr270Kp6vPYNA9fDljw/vNFzTo0dqD6EVwPqXqAjFQe6E/BegnxWG60aydBpdeNSGwPRqv97Gy0tIT/0eEv1DmzqXvHbkifxIgkXM7ehbmlunIsX4pQKXu1c9CRpga1QXnx/JKBxTb+Quz8h01VF1BH6Y+A33Q9vrXM8cG0surqBpWO6U412oWTt5XODNTZVWoKHO/41SCrs+RXL2Ptt3vkGbe88D9S9qq5557s+lrsUD/fxQXDnelXH295MqY5PYMqXxgouoSftHM+oU6qkbI9tqMk1bdvoguaDtH3D2b9XRop8PgthOg1hx3bzeDqeLsMgLyilBStmURASf4Zc4pxUvLZEO3lwa7IvLvHkrh+b0UbT2h8+0/S44Z+VGhLkslDbXAPIl7bEjTlo7IJvlK0ZR4W2YC2XfuHkKyNC5Qdg2a1n5kddn6ymWV8lIzX/UNYhGUn95yUjF3L5C1BLAwQUAAAICAAAACHsTQglJmwAAAB3AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9Kz0FFQSi9KLMgoBgoYgjilmSkgdrRSWrK5mWGqqalhalJKkrmxqa6ppaFBclpiYmJaSpqZkYGhUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAAIexMLGMJdQIAAB0FAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAAIexNCCUmbAAAAHcAAAAJACQAAAAAAAAAAAAAAMICAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAeQMAAAAA
+    upgradeData: 
+    file_cachedStartup: {fileID: 0}
+    data_cachedStartup: 
+    cacheStartup: 0
+  showNavGraphs: 1
+  showUnwalkableNodes: 1
+  debugMode: 0
+  debugFloor: 0
+  debugRoof: 1
+  manualDebugFloorRoof: 0
+  showSearchTree: 0
+  unwalkableNodeDebugSize: 0.3
+  logPathResults: 1
+  maxNearestNodeDistance: 100
+  scanOnStartup: 1
+  fullGetNearestSearch: 0
+  prioritizeGraphs: 0
+  prioritizeGraphsLimit: 1
+  colorSettings:
+    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
+    _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
+    _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
+    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
+    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
+    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
+    _AreaColors:
+    - {r: 0, g: 0, b: 0, a: 0}
+  tagNames: []
+  heuristic: 2
+  heuristicScale: 1
+  threadCount: 1
+  maxFrameTime: 1
+  batchGraphUpdates: 0
+  graphUpdateBatchingInterval: 0.2
+  euclideanEmbedding:
+    mode: 0
+    seed: 0
+    pivotPointRoot: {fileID: 0}
+    spreadOutCount: 1
+  showGraphs: 1
