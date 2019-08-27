@@ -9,17 +9,15 @@ public class PowerBar : MonoBehaviour {
     public float MaxProg { get; set; }
 
     public Slider powerMeter;
-
-    // Use this for initialization
+    
     void Start () {
         MaxProg = 1f;
 
         CurrentProg = 0;
 
-        powerMeter.value = CalulatePower();
+        powerMeter.value = CalulatePower(); 
 	}
-
-    // Update is called once per frame
+  
     void Update() {
         if (Input.GetKeyDown(KeyCode.X))
         {
