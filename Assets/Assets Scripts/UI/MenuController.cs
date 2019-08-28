@@ -32,6 +32,8 @@ public class MenuController : MonoBehaviour
     Image highlightImage;
     Dropdown qualityDropdown, resolutionDropdown;
 
+    EventInstance playNavSound, playSelectSound, playNegativeSound; // SFX
+
     int panelPositionDifference, firstButtonPositionIndex, firstFilePositionIndex, buttonIndex, fileIndex, downwardCountMain, rightCountFile, downwardCountOptions;
     bool uiElementsInMotion, highlightPositionTransferred, axisInUse;
     #endregion
@@ -40,18 +42,14 @@ public class MenuController : MonoBehaviour
     {
         MAIN, FILE, INFO, OPTIONS, QUIT, PAUSE
     }
-    private MenuType activeMenu;
-
-    //EventInstance playNavSound;
-    //EventInstance playSelectSound;
-    //EventInstance playNegativeSound;
+    private MenuType activeMenu;         
 
     void Awake()
     {      
         resolutions = Screen.resolutions;
-        //playNavSound = RuntimeManager.CreateInstance("event:/Master/SFX/UISFX/Nav");
-        //playSelectSound = RuntimeManager.CreateInstance("event:/Master/SFX/UISFX/Pos");
-        //playNegativeSound = RuntimeManager.CreateInstance("event:/Master/SFX/UISFX/Neg");
+        playNavSound = RuntimeManager.CreateInstance("event:/Master/SFX/UISFX/Nav");
+        playSelectSound = RuntimeManager.CreateInstance("event:/Master/SFX/UISFX/Pos");
+        playNegativeSound = RuntimeManager.CreateInstance("event:/Master/SFX/UISFX/Neg");
 
         MainPanelInitialisation();
         FilePanelInitialisation();
@@ -106,11 +104,11 @@ public class MenuController : MonoBehaviour
 
             if (highlightedObject.name.Contains("return"))
             {
-                //playNegativeSound.start();
+                playNegativeSound.start();
             }
             else
             {
-                //playSelectSound.start();
+                playSelectSound.start();
             }
         }
     }
@@ -159,7 +157,7 @@ public class MenuController : MonoBehaviour
     }
     private void NavigateTwoButtonMenu(GameObject button1, GameObject button2) // Applicable to the file and quit menu.
     {
-        //playNavSound.start();
+        playNavSound.start();
         if (highlightedObject.name == button1.name) highlightedObject = button2;
         else highlightedObject = button1;
 
@@ -292,11 +290,11 @@ public class MenuController : MonoBehaviour
         switch (GetAxisAsButtonDown("D-PadV"))
         {
             case "-1":
-                //playNavSound.start();
+                playNavSound.start();
                 NavigateDownMain();
                 break;
             case "1":
-                //playNavSound.start();
+                playNavSound.start();
                 NavigateUpMain();
                 break;
         }
@@ -360,7 +358,7 @@ public class MenuController : MonoBehaviour
     {
         if (rightCountFile < firstFilePositionIndex && !uiElementsInMotion)
         {
-            //playNavSound.start();
+            playNavSound.start();
             fileIndex = 0;
             for (int i = 0; i < saveFilePositions.Length; i++)
             {
@@ -378,7 +376,7 @@ public class MenuController : MonoBehaviour
     {
         if (rightCountFile > -firstFilePositionIndex && !uiElementsInMotion)
         {
-            //playNavSound.start();
+            playNavSound.start();
             fileIndex = 0;
             for (int i = 0; i < saveFilePositions.Length; i++)
             {
@@ -409,7 +407,7 @@ public class MenuController : MonoBehaviour
     {
         if (axisValue == "0" || qualityDropdown.transform.Find("Dropdown List") != null || resolutionDropdown.transform.Find("Dropdown List") != null) return;
 
-        //playNavSound.start();
+        playNavSound.start();
 
         if (axisValue == "-1") // Down
         {

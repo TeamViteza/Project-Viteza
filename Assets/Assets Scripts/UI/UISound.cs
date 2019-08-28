@@ -25,13 +25,11 @@ public class UISound : MonoBehaviour {
         Master = RuntimeManager.GetBus("bus:/Master");
         SFXVolumeEvent = RuntimeManager.CreateInstance("event:/Master/SFX/UISFX/Neg");
     }
-
-    // Use this for initialization
+    
     void Start () {
 		
 	}
-	
-	// Update is called once per frame
+		
 	void Update () {
         Music.setVolume(MusicVolume);
         SFX.setVolume(SFXVolume);
@@ -42,7 +40,6 @@ public class UISound : MonoBehaviour {
     {
         MasterVolume = master;
     }
-
     public void MusicVolumeLevel(float music)
     {
         MusicVolume = music;
@@ -57,6 +54,5 @@ public class UISound : MonoBehaviour {
         {
             SFXVolumeEvent.start();
         }
-    }
-   
+    }  
 }
