@@ -30,6 +30,7 @@ public class MenuController : MonoBehaviour
     GameObject highlightedObject, highlightedSaveFile, fileCursor;
     SaveFile fileToLoad;
     Image highlightImage;
+    RawImage titleImage;
     Dropdown qualityDropdown, resolutionDropdown;
 
     EventInstance playNavSound, playSelectSound, playNegativeSound; // SFX
@@ -49,7 +50,7 @@ public class MenuController : MonoBehaviour
         resolutions = Screen.resolutions;
         playNavSound = RuntimeManager.CreateInstance("event:/Master/SFX/UISFX/Nav");
         playSelectSound = RuntimeManager.CreateInstance("event:/Master/SFX/UISFX/Pos");
-        playNegativeSound = RuntimeManager.CreateInstance("event:/Master/SFX/UISFX/Neg");
+        playNegativeSound = RuntimeManager.CreateInstance("event:/Master/SFX/UISFX/Neg");       
 
         MainPanelInitialisation();
         FilePanelInitialisation();
@@ -116,8 +117,16 @@ public class MenuController : MonoBehaviour
     {
         bool menuValid = true;
 
-        if (menuName.ToUpper() == "MAIN") activeMenu = MenuType.MAIN;
-        else if (menuName.ToUpper() == "FILE") activeMenu = MenuType.FILE;
+        if (menuName.ToUpper() == "MAIN")
+        {
+            activeMenu = MenuType.MAIN;
+            if (!titleImage.enabled) titleImage.enabled = true;
+        }
+        else if (menuName.ToUpper() == "FILE")
+        {
+            activeMenu = MenuType.FILE;
+            if (titleImage.enabled) titleImage.enabled = false;
+        }
         else if (menuName.ToUpper() == "INFO") activeMenu = MenuType.INFO;
         else if (menuName.ToUpper() == "OPTIONS") activeMenu = MenuType.OPTIONS;
         else if (menuName.ToUpper() == "QUIT") activeMenu = MenuType.QUIT;
@@ -192,10 +201,10 @@ public class MenuController : MonoBehaviour
                         highlightedObject = mainButtons[i].gameObject;
                         break;
                     }
-                }
+                }               
                 break;
 
-            case MenuType.FILE: // If we're moving to the file menu.                
+            case MenuType.FILE: // If we're moving to the file menu.                   
                 newHighlightPosition = btnReturnFile.transform.position;
                 highlightedObject = btnReturnFile.gameObject;
                 break;
@@ -496,6 +505,7 @@ public class MenuController : MonoBehaviour
         mainCanvas = GameObject.Find("canvas_main").GetComponent<Canvas>(); // Get access to the main menu's canvas.
         highlightedPosition = mainCanvas.transform.Find("position_highlight"); // Find our menu option highlighter.   
         highlightImage = highlightedPosition.GetComponent<Image>();
+        titleImage = mainCanvas.transform.Find("title").GetComponent<RawImage>(); // Get access to our title image.
 
         #region Get access to each of the main menu's panels, as well as the active and inactive positions of each panel.
         mainPanel = mainCanvas.transform.Find("pnl0_main").gameObject;
