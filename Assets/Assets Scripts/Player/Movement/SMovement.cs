@@ -70,7 +70,8 @@ public class SMovement : MonoBehaviour
     {
         HandleMovement();        
         GroundRayUpdate();
-        SensorAirborneCheck();        
+        SensorAirborneCheck();
+        SensorJumpCheck();
         RevertRotation();       
     }
 
@@ -86,7 +87,7 @@ public class SMovement : MonoBehaviour
     {
         if (Input.GetButtonDown("BtnA"))
         {
-            if (jumpCapable == true)
+            if (jumpCapable && !airborne)
             {
                 body.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
                 jumpCapable = false;
@@ -131,6 +132,16 @@ public class SMovement : MonoBehaviour
         if (sensors[0].Activated || sensors[1].Activated) airborne = false;
         else if (!sensors[0].Activated && !sensors[1].Activated) airborne = true;
     }
+
+    private void SensorJumpCheck() 
+    {
+        if (((sensors[0].Activated && sensors[2].Activated) && !sensors[1].Activated) ||
+            ((sensors[1].Activated && sensors[3].Activated) && !sensors[0].Activated))
+        {
+            jumpCapable = false;
+        }
+        else if (!airborne) jumpCapable = true;
+    }
     #endregion
 
     #region GROUND RAYCAST METHODS
@@ -166,7 +177,7 @@ public class SMovement : MonoBehaviour
     #region COLLISION METHODS
     private void OnCollisionEnter2D(Collision2D collision) // Might replace this using sensors.
     {
-        if (collision.gameObject.tag == "Platform") jumpCapable = true;
+        //if (collision.gameObject.tag == "Platform") jumpCapable = true;
     }
     #endregion
 
@@ -178,6 +189,7 @@ public class SMovement : MonoBehaviour
         for (int i = 0; i < sensors.Length; i++)
         {
             sensors[i] = sensorParent.transform.GetChild(i).GetComponent<Sensor>();
+            //Debug.Log(sensors[i].name);
         }        
 
         //Debug.Log("Distance from center to right: " + sprite.bounds.extents.x);

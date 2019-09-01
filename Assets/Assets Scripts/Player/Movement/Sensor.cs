@@ -19,7 +19,7 @@ public class Sensor : MonoBehaviour {
         if (collision.gameObject.tag == "Platform")
         {            
             Activated = true;
-            //Debug.Log(gameObject.name.ToUpper() + " Activated");
+            Debug.Log(gameObject.name.ToUpper() + " Activated");
         }
     }
 
@@ -28,7 +28,7 @@ public class Sensor : MonoBehaviour {
         if (collision.gameObject.tag == "Platform")
         {            
             Activated = false;
-            //Debug.Log(gameObject.name.ToUpper() + " De-activated");
+            Debug.Log(gameObject.name.ToUpper() + " De-activated");
         }
     }
 }
