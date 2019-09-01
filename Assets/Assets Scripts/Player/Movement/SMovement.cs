@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using FMOD.Studio;
+using FMODUnity;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +11,11 @@ public class SMovement : MonoBehaviour
     public float moveSpeed = 10f;
     public float jumpForce = 16f;
     public bool FacingRight;
+
+
+    [EventRef]
+    public string jumpSfx = "event:/Master/SFX/jump/Sonic_Jump_Sound_Effect";
+    EventInstance jumpEvnt;
 
     // Private
     float horizontalMove;
@@ -47,6 +54,8 @@ public class SMovement : MonoBehaviour
     // Methods
     void Start()
     {
+        jumpEvnt = RuntimeManager.CreateInstance(jumpSfx);
+
         FacingRight = true;
         body = GetComponent<Rigidbody2D>();
         testFeetCollider = GetComponent<CircleCollider2D>();
@@ -89,6 +98,7 @@ public class SMovement : MonoBehaviour
         {
             if (jumpCapable && !airborne)
             {
+                RuntimeManager.PlayOneShot(jumpSfx);
                 body.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
                 jumpCapable = false;
             }

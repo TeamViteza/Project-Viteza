@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.10.00">
     <object class="Event" id="{08f97f43-3e99-4460-a94d-5a75f667bb7e}">
         <property name="name">
-            <value>Sonic Jump Sound Effect</value>
+            <value>Sonic_Jump_Sound_Effect</value>
         </property>
         <property name="outputFormat">
             <value>1</value>
@@ -100,6 +100,9 @@
         </relationship>
     </object>
     <object class="EventMixerGroup" id="{d6ad828b-d205-496d-9a5f-8b177feb0092}">
+        <property name="volume">
+            <value>-14</value>
+        </property>
         <property name="name">
             <value>Audio 1</value>
         </property>
