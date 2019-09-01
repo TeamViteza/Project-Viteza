@@ -12,6 +12,13 @@ public class SMovement : MonoBehaviour
     public float jumpForce = 16f;
     public bool FacingRight;
 
+    [EventRef]
+    public string collect = "event:/Master/SFX/Pick_Up/coin";
+    EventInstance collectEvent;
+
+    [EventRef]
+    public string spring = "event:/Master/SFX/jump/spring";
+    EventInstance springevent;
 
     [EventRef]
     public string jumpSfx = "event:/Master/SFX/jump/Sonic_Jump_Sound_Effect";
@@ -55,6 +62,8 @@ public class SMovement : MonoBehaviour
     void Start()
     {
         jumpEvnt = RuntimeManager.CreateInstance(jumpSfx);
+        collectEvent = RuntimeManager.CreateInstance(collect);
+        springevent = RuntimeManager.CreateInstance(spring);
 
         FacingRight = true;
         body = GetComponent<Rigidbody2D>();
@@ -187,6 +196,10 @@ public class SMovement : MonoBehaviour
     #region COLLISION METHODS
     private void OnCollisionEnter2D(Collision2D collision) // Might replace this using sensors.
     {
+
+       //RuntimeManager.PlayOneShot(spring);
+        //RuntimeManager.PlayOneShot(collect);
+
         //if (collision.gameObject.tag == "Platform") jumpCapable = true;
     }
     #endregion
