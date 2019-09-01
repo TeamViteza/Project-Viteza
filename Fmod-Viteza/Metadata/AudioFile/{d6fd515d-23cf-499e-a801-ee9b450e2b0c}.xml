@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{d6fd515d-23cf-499e-a801-ee9b450e2b0c}">
+        <property name="assetPath">
+            <value>ESM_Character_Death_Voice_2_Sound_Vocal_Hurt_Dead_Lose_Cartoon_Male.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>0.31560090702947846</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{7932ad0e-1089-47b5-b4c4-e9da497ccab9}</destination>
+        </relationship>
+    </object>
+</objects>

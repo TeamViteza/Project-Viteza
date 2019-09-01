@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
+using FMOD;
 
 public class Blaster : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public float bulletOriginOffsetY = 0.05f; // I recommend this value currently.
+
+    [EventRef]
+    public string footsteps = "event:/Master/SFX/blaster/blaster";
 
     SpriteRenderer blasterSprite;
     SMovement playerMovement;
