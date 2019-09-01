@@ -30,7 +30,7 @@ public class DoubleJump : MonoBehaviour {
     {
         if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
-            RuntimeManager.PlayOneShot(jumpSfx);
+          
             if (body.velocity.y <= 0)
             {
                 if (doubleJump == true)

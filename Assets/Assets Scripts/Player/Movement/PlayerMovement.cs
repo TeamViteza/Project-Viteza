@@ -12,9 +12,7 @@ public class PlayerMovement : MonoBehaviour // This script is no longer in activ
     public float jumpForce = 16f;   
     public float OrientationH; // Katt's horizontal orientation. (Is she facing left or right?)
 
-    [EventRef]
-    public string jumpSfx = "event:/Master/SFX/jump/Sonic_Jump_Sound_Effect";
-    EventInstance jumpEvnt;
+  
 
     float horizontalMove, relativePos;
     bool jumpAbility;
@@ -29,7 +27,7 @@ public class PlayerMovement : MonoBehaviour // This script is no longer in activ
     // Methods
     void Start()
     {
-        jumpEvnt = RuntimeManager.CreateInstance(jumpSfx);
+        
 
         body = GetComponent<Rigidbody2D>();
         feetPos = GetComponent<CircleCollider2D>();       
@@ -60,7 +58,7 @@ public class PlayerMovement : MonoBehaviour // This script is no longer in activ
         {
             if (jumpAbility == true)
             {
-                RuntimeManager.PlayOneShot(jumpSfx);
+                
                 body.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
                 jumpAbility = false;
             }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{a8014ede-4984-452b-bc22-9ea10dd2882b}">
+        <property name="assetPath">
+            <value>ESM_High_Pitched_Postive_Coin_Touch_Futuristic_Mobile_App_Pick_Up_Sci_fi.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>0.73251700680272114</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{7932ad0e-1089-47b5-b4c4-e9da497ccab9}</destination>
+        </relationship>
+    </object>
+</objects>
