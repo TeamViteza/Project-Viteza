@@ -11,6 +11,7 @@ public class SaveFile : MonoBehaviour {
 
     public void LoadData()
     {
+        //Debug.Log("Loading " + SceneManager.GetSceneAt(1).name);
         if (data == null) SceneManager.LoadScene(1); // For now, let's just load a sample gameplay scene. In the future, if there is no data, the game will start from the beginning.
     }
 }
