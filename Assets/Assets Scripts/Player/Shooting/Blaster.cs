@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
 using FMOD;
+using FMOD.Studio;
 
 public class Blaster : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class Blaster : MonoBehaviour
     public float bulletOriginOffsetY = 0.05f; // I recommend this value currently.
 
     [EventRef]
-    public string footsteps = "event:/Master/SFX/blaster/blaster";
+    public string blaster = "event:/Master/SFX/blaster/blaster";
+    EventInstance blasterEvnt;
 
     SpriteRenderer blasterSprite;
     SMovement playerMovement;
@@ -21,6 +23,8 @@ public class Blaster : MonoBehaviour
 
     void Start()
     {
+        blasterEvnt = RuntimeManager.CreateInstance(blaster);
+
         blasterSprite = transform.GetComponent<SpriteRenderer>();
         playerMovement = transform.GetComponentInParent<SMovement>();
         playerAnimator = transform.GetComponentInParent<Animator>();          
@@ -31,7 +35,11 @@ public class Blaster : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("BtnX")) Shoot();
+        if (Input.GetButtonDown("BtnX"))
+        {
+            Shoot();
+            FMODUnity.RuntimeManager.PlayOneShot(blaster);
+        }
         else if (playerAnimator != null && playerAnimator.GetBool("firing") == true) UpdateShootAnimation(false);      
     }
 
