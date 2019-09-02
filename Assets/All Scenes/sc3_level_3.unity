@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 3498852}
   m_Layer: 0
   m_Name: v_coin (244)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -287,6 +287,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (285)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -313,7 +317,7 @@ GameObject:
   - component: {fileID: 20390581}
   m_Layer: 0
   m_Name: v_coin (187)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -474,6 +478,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (279)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -537,6 +545,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (314)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -599,6 +611,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (358)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -717,6 +733,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (337)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -780,6 +800,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (65)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -837,6 +861,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (360)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -11878,6 +11906,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (194)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -11941,6 +11973,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (354)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -12003,6 +12039,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (129)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -12177,6 +12217,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (146)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -12240,6 +12284,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (149)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -12261,7 +12309,7 @@ GameObject:
   - component: {fileID: 84776272}
   m_Layer: 0
   m_Name: v_coin (50)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12385,7 +12433,7 @@ GameObject:
   - component: {fileID: 88692813}
   m_Layer: 0
   m_Name: v_coin (237)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12546,6 +12594,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (402)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -12609,6 +12661,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (355)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -12671,6 +12727,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (423)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -12752,6 +12812,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (72)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -12809,6 +12873,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (138)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -12873,6 +12941,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (306)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -12935,6 +13007,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (70)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -13142,7 +13218,7 @@ GameObject:
   - component: {fileID: 116514303}
   m_Layer: 0
   m_Name: v_coin (157)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13335,7 +13411,7 @@ GameObject:
   - component: {fileID: 129626665}
   m_Layer: 0
   m_Name: v_coin (235)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13496,6 +13572,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (66)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -13558,6 +13638,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (319)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -13622,6 +13706,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (415)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -13685,6 +13773,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (82)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -13742,6 +13834,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (79)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -96465,7 +96561,7 @@ GameObject:
   - component: {fileID: 155414782}
   m_Layer: 0
   m_Name: v_coin (165)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96631,6 +96727,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (420)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -96699,6 +96799,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (202)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -96720,7 +96824,7 @@ GameObject:
   - component: {fileID: 172976474}
   m_Layer: 0
   m_Name: v_coin (184)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96881,6 +96985,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (60)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -96938,6 +97046,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (413)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -97002,6 +97114,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (369)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -97065,6 +97181,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (111)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -97122,6 +97242,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (308)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -97191,6 +97315,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (58)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -97248,6 +97376,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (201)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -97339,7 +97471,7 @@ GameObject:
   - component: {fileID: 207859213}
   m_Layer: 0
   m_Name: v_coin (209)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97562,6 +97694,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (414)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -97588,7 +97724,7 @@ GameObject:
   - component: {fileID: 215940520}
   m_Layer: 0
   m_Name: v_coin (144)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97754,6 +97890,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (431)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -97876,6 +98016,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (340)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -97897,7 +98041,7 @@ GameObject:
   - component: {fileID: 235087909}
   m_Layer: 0
   m_Name: v_coin (205)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98026,7 +98170,7 @@ GameObject:
   - component: {fileID: 244533829}
   m_Layer: 0
   m_Name: v_coin (216)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98187,6 +98331,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (103)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -98295,6 +98443,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (390)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -98357,6 +98509,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (127)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -98485,6 +98641,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (433)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -98553,6 +98713,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (272)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -98615,6 +98779,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (421)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -98683,6 +98851,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (328)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -98947,6 +99119,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (148)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -99010,6 +99186,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (78)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -99067,6 +99247,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (68)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -99126,6 +99310,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (74)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -99183,6 +99371,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (346)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -99264,7 +99456,7 @@ GameObject:
   - component: {fileID: 312168679}
   m_Layer: 0
   m_Name: v_coin (223)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99388,7 +99580,7 @@ GameObject:
   - component: {fileID: 316019764}
   m_Layer: 0
   m_Name: v_coin (226)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99566,6 +99758,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (284)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -99634,6 +99830,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (362)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -99697,6 +99897,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (300)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -99759,6 +99963,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (335)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -100091,6 +100299,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (81)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -100181,7 +100393,7 @@ GameObject:
   - component: {fileID: 357468144}
   m_Layer: 0
   m_Name: v_coin (27)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100342,6 +100554,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (147)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -100405,6 +100621,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (313)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -100467,6 +100687,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (89)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -100545,7 +100769,7 @@ GameObject:
   - component: {fileID: 372834154}
   m_Layer: 0
   m_Name: v_coin (166)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100664,7 +100888,7 @@ GameObject:
   - component: {fileID: 375766070}
   m_Layer: 0
   m_Name: v_coin (172)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100825,6 +101049,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (429)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -100846,7 +101074,7 @@ GameObject:
   - component: {fileID: 386243443}
   m_Layer: 0
   m_Name: v_coin (23)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101007,6 +101235,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (90)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -101064,6 +101296,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (316)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -101127,6 +101363,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (397)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -101241,6 +101481,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (286)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -101303,6 +101547,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (281)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -101367,6 +101615,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (398)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -101429,6 +101681,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (304)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -101497,6 +101753,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (418)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -101571,6 +101831,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (116)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -101587,7 +101851,7 @@ GameObject:
   - component: {fileID: 417587747}
   m_Layer: 0
   m_Name: v_coin (232)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101748,6 +102012,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (348)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -101811,6 +102079,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (151)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -101832,7 +102104,7 @@ GameObject:
   - component: {fileID: 426008548}
   m_Layer: 0
   m_Name: v_coin (53)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101993,6 +102265,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (310)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -102014,7 +102290,7 @@ GameObject:
   - component: {fileID: 433671667}
   m_Layer: 0
   m_Name: v_coin (10)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102175,6 +102451,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (150)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -102238,6 +102518,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (320)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -102300,6 +102584,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (135)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -102374,6 +102662,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (117)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -102390,7 +102682,7 @@ GameObject:
   - component: {fileID: 448282758}
   m_Layer: 0
   m_Name: v_coin (26)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102551,6 +102843,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (115)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -102608,6 +102904,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (347)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -102672,6 +102972,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (334)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -102735,6 +103039,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (396)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -102756,7 +103064,7 @@ GameObject:
   - component: {fileID: 475504438}
   m_Layer: 0
   m_Name: v_coin (46)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102917,6 +103225,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (327)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -102980,6 +103292,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (255)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -103042,6 +103358,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (299)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -103160,6 +103480,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (96)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -103218,6 +103542,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (404)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -103239,7 +103567,7 @@ GameObject:
   - component: {fileID: 492780870}
   m_Layer: 0
   m_Name: v_coin (207)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103400,6 +103728,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (63)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -103416,7 +103748,7 @@ GameObject:
   - component: {fileID: 493786848}
   m_Layer: 0
   m_Name: v_coin (19)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103577,6 +103909,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (315)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -103598,7 +103934,7 @@ GameObject:
   - component: {fileID: 498182532}
   m_Layer: 0
   m_Name: v_coin (217)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103919,6 +104255,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (408)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -103982,6 +104322,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (263)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -104008,7 +104352,7 @@ GameObject:
   - component: {fileID: 518305080}
   m_Layer: 0
   m_Name: v_coin (185)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104169,6 +104513,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (254)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -104190,7 +104538,7 @@ GameObject:
   - component: {fileID: 528604720}
   m_Layer: 0
   m_Name: v_coin (206)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104356,6 +104704,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (137)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -104382,7 +104734,7 @@ GameObject:
   - component: {fileID: 553009447}
   m_Layer: 0
   m_Name: v_coin (180)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104543,6 +104895,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (190)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -104606,6 +104962,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (94)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -104663,6 +105023,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (86)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -104722,6 +105086,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (100)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -104738,7 +105106,7 @@ GameObject:
   - component: {fileID: 564351519}
   m_Layer: 0
   m_Name: v_coin (155)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104857,7 +105225,7 @@ GameObject:
   - component: {fileID: 566335590}
   m_Layer: 0
   m_Name: v_coin (161)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105176,6 +105544,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (350)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -105197,7 +105569,7 @@ GameObject:
   - component: {fileID: 578750173}
   m_Layer: 0
   m_Name: v_coin (48)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105358,6 +105730,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (293)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -105420,6 +105796,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (253)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -105484,6 +105864,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (132)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -105505,7 +105889,7 @@ GameObject:
   - component: {fileID: 606490313}
   m_Layer: 0
   m_Name: v_coin (37)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105629,7 +106013,7 @@ GameObject:
   - component: {fileID: 620075897}
   m_Layer: 0
   m_Name: v_coin (40)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105790,6 +106174,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (361)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -105853,6 +106241,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (121)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -105910,6 +106302,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (98)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -106019,6 +106415,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (76)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -106035,7 +106435,7 @@ GameObject:
   - component: {fileID: 633029833}
   m_Layer: 0
   m_Name: v_coin (245)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106196,6 +106596,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (120)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -106254,6 +106658,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (331)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -106275,7 +106683,7 @@ GameObject:
   - component: {fileID: 638279551}
   m_Layer: 0
   m_Name: v_coin (20)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106394,7 +106802,7 @@ GameObject:
   - component: {fileID: 639084778}
   m_Layer: 0
   m_Name: v_coin (159)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106719,6 +107127,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (56)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -106735,7 +107147,7 @@ GameObject:
   - component: {fileID: 647442647}
   m_Layer: 0
   m_Name: v_coin (171)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107000,6 +107412,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (373)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -107021,7 +107437,7 @@ GameObject:
   - component: {fileID: 659523400}
   m_Layer: 0
   m_Name: v_coin (7)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107182,6 +107598,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (83)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -107239,6 +107659,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (307)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -107376,7 +107800,7 @@ GameObject:
   - component: {fileID: 682834804}
   m_Layer: 0
   m_Name: v_coin (173)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107733,6 +108157,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (264)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -107795,6 +108223,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (277)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -107864,6 +108296,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (389)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -107885,7 +108321,7 @@ GameObject:
   - component: {fileID: 700413236}
   m_Layer: 0
   m_Name: v_coin (178)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108004,7 +108440,7 @@ GameObject:
   - component: {fileID: 701332366}
   m_Layer: 0
   m_Name: v_coin (15)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108165,6 +108601,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (422)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -108186,7 +108626,7 @@ GameObject:
   - component: {fileID: 715203019}
   m_Layer: 0
   m_Name: v_coin (251)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108351,7 +108791,7 @@ GameObject:
   - component: {fileID: 727609932}
   m_Layer: 0
   m_Name: v_coin (158)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108512,6 +108952,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (261)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -108575,6 +109019,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (69)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -108591,7 +109039,7 @@ GameObject:
   - component: {fileID: 743361433}
   m_Layer: 0
   m_Name: v_coin (11)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108752,6 +109200,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (283)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -108773,7 +109225,7 @@ GameObject:
   - component: {fileID: 746608409}
   m_Layer: 0
   m_Name: v_coin (36)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108995,6 +109447,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (430)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -109016,7 +109472,7 @@ GameObject:
   - component: {fileID: 755854632}
   m_Layer: 0
   m_Name: v_coin (4)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109177,6 +109633,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (417)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -109299,6 +109759,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (424)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -109418,6 +109882,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (258)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -109439,7 +109907,7 @@ GameObject:
   - component: {fileID: 779682886}
   m_Layer: 0
   m_Name: v_coin (230)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109600,6 +110068,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (434)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -109662,6 +110134,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (130)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -109780,6 +110256,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (324)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -109842,6 +110322,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (400)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -109906,6 +110390,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (64)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -109968,6 +110456,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (199)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -110032,6 +110524,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (280)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -110053,7 +110549,7 @@ GameObject:
   - component: {fileID: 818852098}
   m_Layer: 0
   m_Name: v_coin (222)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110214,6 +110710,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (323)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -110276,6 +110776,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (289)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -110340,6 +110844,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (134)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -110402,6 +110910,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (92)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -110521,6 +111033,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (336)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -110583,6 +111099,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (265)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -110726,6 +111246,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (290)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -110747,7 +111271,7 @@ GameObject:
   - component: {fileID: 865585788}
   m_Layer: 0
   m_Name: v_coin (162)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110892,6 +111416,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -110949,6 +111477,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (139)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -111013,6 +111545,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (114)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -111071,6 +111607,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (318)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -111097,7 +111637,7 @@ GameObject:
   - component: {fileID: 888935905}
   m_Layer: 0
   m_Name: v_coin (16)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111374,6 +111914,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (371)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -111449,7 +111993,7 @@ GameObject:
   - component: {fileID: 903846351}
   m_Layer: 0
   m_Name: v_coin (179)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111750,6 +112294,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (312)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -111874,6 +112422,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (113)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -111890,7 +112442,7 @@ GameObject:
   - component: {fileID: 922643024}
   m_Layer: 0
   m_Name: v_coin (186)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112063,7 +112615,7 @@ GameObject:
   - component: {fileID: 928413084}
   m_Layer: 0
   m_Name: v_coin (143)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112224,6 +112776,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (356)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -112287,6 +112843,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (435)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -112349,6 +112909,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (136)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -112463,6 +113027,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (401)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -112534,7 +113102,7 @@ GameObject:
   - component: {fileID: 943602811}
   m_Layer: 0
   m_Name: v_coin (31)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112695,6 +113263,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (271)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -112812,6 +113384,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (110)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -112884,7 +113460,7 @@ GameObject:
   - component: {fileID: 954731326}
   m_Layer: 0
   m_Name: v_coin (219)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113003,7 +113579,7 @@ GameObject:
   - component: {fileID: 955659065}
   m_Layer: 0
   m_Name: v_coin (1)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113164,6 +113740,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (381)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -113226,6 +113806,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (344)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -113295,6 +113879,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (425)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -113316,7 +113904,7 @@ GameObject:
   - component: {fileID: 967900820}
   m_Layer: 0
   m_Name: v_coin (242)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113489,7 +114077,7 @@ GameObject:
   - component: {fileID: 979955026}
   m_Layer: 0
   m_Name: v_coin (156)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113778,6 +114366,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (303)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -113799,7 +114391,7 @@ GameObject:
   - component: {fileID: 987841635}
   m_Layer: 0
   m_Name: v_coin (175)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114010,6 +114602,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (380)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -114073,6 +114669,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (198)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -114094,7 +114694,7 @@ GameObject:
   - component: {fileID: 1003185083}
   m_Layer: 0
   m_Name: v_coin (229)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114255,6 +114855,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (382)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -114317,6 +114921,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (107)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -114455,6 +115063,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (372)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -114481,7 +115093,7 @@ GameObject:
   - component: {fileID: 1019112461}
   m_Layer: 0
   m_Name: v_coin (228)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114642,6 +115254,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (330)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -114663,7 +115279,7 @@ GameObject:
   - component: {fileID: 1032352143}
   m_Layer: 0
   m_Name: v_coin (234)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114782,7 +115398,7 @@ GameObject:
   - component: {fileID: 1035903916}
   m_Layer: 0
   m_Name: v_coin (181)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114901,7 +115517,7 @@ GameObject:
   - component: {fileID: 1037857169}
   m_Layer: 0
   m_Name: v_coin (204)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115025,7 +115641,7 @@ GameObject:
   - component: {fileID: 1039245083}
   m_Layer: 0
   m_Name: v_coin (224)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115240,6 +115856,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (385)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -115261,7 +115881,7 @@ GameObject:
   - component: {fileID: 1047227364}
   m_Layer: 0
   m_Name: v_coin (29)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115422,6 +116042,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (192)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -115485,6 +116109,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (322)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -115506,7 +116134,7 @@ GameObject:
   - component: {fileID: 1051545924}
   m_Layer: 0
   m_Name: v_coin (49)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115887,6 +116515,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (262)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -116149,6 +116781,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (366)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -116226,7 +116862,7 @@ GameObject:
   - component: {fileID: 1099184074}
   m_Layer: 0
   m_Name: v_coin (221)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116387,6 +117023,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (406)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -116450,6 +117090,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (71)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -116466,7 +117110,7 @@ GameObject:
   - component: {fileID: 1109424710}
   m_Layer: 0
   m_Name: v_coin (44)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116673,6 +117317,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (85)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -116731,6 +117379,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (274)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -116752,7 +117404,7 @@ GameObject:
   - component: {fileID: 1131734696}
   m_Layer: 0
   m_Name: v_coin (13)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117067,6 +117719,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (326)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -117162,7 +117818,7 @@ GameObject:
   - component: {fileID: 1143086534}
   m_Layer: 0
   m_Name: v_coin (213)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117323,6 +117979,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (105)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -117385,6 +118045,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (141)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -117587,7 +118251,7 @@ GameObject:
   - component: {fileID: 1179785249}
   m_Layer: 0
   m_Name: v_coin (241)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117748,6 +118412,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (106)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -117805,6 +118473,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (409)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -117935,6 +118607,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (104)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -117951,7 +118627,7 @@ GameObject:
   - component: {fileID: 1215318813}
   m_Layer: 0
   m_Name: v_coin (17)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118112,6 +118788,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (193)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -118174,6 +118854,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (374)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -118238,6 +118922,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (353)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -118301,6 +118989,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (91)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -118317,7 +119009,7 @@ GameObject:
   - component: {fileID: 1223429070}
   m_Layer: 0
   m_Name: v_coin (189)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118478,6 +119170,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (383)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -118499,7 +119195,7 @@ GameObject:
   - component: {fileID: 1237672655}
   m_Layer: 0
   m_Name: v_coin (32)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118660,6 +119356,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (407)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -118723,6 +119423,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (88)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -118780,6 +119484,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (387)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -118844,6 +119552,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (309)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -118906,6 +119618,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (77)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -119433,6 +120149,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (363)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -119526,7 +120246,7 @@ GameObject:
   - component: {fileID: 1279919828}
   m_Layer: 0
   m_Name: v_coin (182)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119733,6 +120453,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (131)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -119795,6 +120519,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (126)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -119878,7 +120606,7 @@ GameObject:
   - component: {fileID: 1299736483}
   m_Layer: 0
   m_Name: v_coin (42)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120039,6 +120767,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (351)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -120102,6 +120834,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (278)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -120164,6 +120900,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (123)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -120233,6 +120973,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (395)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -120296,6 +121040,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (266)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -120358,6 +121106,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (378)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -120475,6 +121227,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (427)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -120715,6 +121471,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (329)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -120736,7 +121496,7 @@ GameObject:
   - component: {fileID: 1340167543}
   m_Layer: 0
   m_Name: v_coin (22)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120855,7 +121615,7 @@ GameObject:
   - component: {fileID: 1342378962}
   m_Layer: 0
   m_Name: v_coin (231)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121016,6 +121776,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (343)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -121135,6 +121899,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (196)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -121199,7 +121967,7 @@ GameObject:
   - component: {fileID: 1358399059}
   m_Layer: 0
   m_Name: v_coin (212)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121450,6 +122218,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (57)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -121471,7 +122243,7 @@ GameObject:
   - component: {fileID: 1372793362}
   m_Layer: 0
   m_Name: v_coin (164)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121590,7 +122362,7 @@ GameObject:
   - component: {fileID: 1378462124}
   m_Layer: 0
   m_Name: v_coin (169)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121820,7 +122592,7 @@ GameObject:
   - component: {fileID: 1379742184}
   m_Layer: 0
   m_Name: v_coin (252)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121986,6 +122758,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (87)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -122044,6 +122820,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (287)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -122065,7 +122845,7 @@ GameObject:
   - component: {fileID: 1386683469}
   m_Layer: 0
   m_Name: v_coin (236)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122189,7 +122969,7 @@ GameObject:
   - component: {fileID: 1393369303}
   m_Layer: 0
   m_Name: v_coin (238)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122313,7 +123093,7 @@ GameObject:
   - component: {fileID: 1394886083}
   m_Layer: 0
   m_Name: v_coin (35)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122479,6 +123259,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (112)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -122537,6 +123321,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (305)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -122558,7 +123346,7 @@ GameObject:
   - component: {fileID: 1418414704}
   m_Layer: 0
   m_Name: v_coin (250)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122673,11 +123461,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4579442258861340, guid: 34efdc0f5f04394439bdd8f6c274fdd3, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -29.34
+      value: -5.17
       objectReference: {fileID: 0}
     - target: {fileID: 4579442258861340, guid: 34efdc0f5f04394439bdd8f6c274fdd3, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -35.84
+      value: -2.45
       objectReference: {fileID: 0}
     - target: {fileID: 4579442258861340, guid: 34efdc0f5f04394439bdd8f6c274fdd3, type: 2}
       propertyPath: m_LocalPosition.z
@@ -122897,6 +123685,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (321)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -122918,7 +123710,7 @@ GameObject:
   - component: {fileID: 1422873448}
   m_Layer: 0
   m_Name: v_coin (214)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123042,7 +123834,7 @@ GameObject:
   - component: {fileID: 1429086723}
   m_Layer: 0
   m_Name: v_coin (2)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123296,6 +124088,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (259)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -123358,6 +124154,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (84)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -123515,6 +124315,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (317)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -123743,7 +124547,7 @@ GameObject:
   - component: {fileID: 1455757808}
   m_Layer: 0
   m_Name: v_coin (51)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124025,6 +124829,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (276)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -124087,6 +124895,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (349)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -124233,7 +125045,7 @@ GameObject:
   - component: {fileID: 1487800090}
   m_Layer: 0
   m_Name: v_coin (45)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124399,6 +125211,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (97)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -124415,7 +125231,7 @@ GameObject:
   - component: {fileID: 1491153661}
   m_Layer: 0
   m_Name: v_coin (18)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124534,7 +125350,7 @@ GameObject:
   - component: {fileID: 1492862191}
   m_Layer: 0
   m_Name: v_coin (210)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124695,6 +125511,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (128)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -124716,7 +125536,7 @@ GameObject:
   - component: {fileID: 1494081135}
   m_Layer: 0
   m_Name: v_coin (203)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124877,6 +125697,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (294)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -124996,6 +125820,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (95)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -125058,6 +125886,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (368)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -125137,6 +125969,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (325)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -125199,6 +126035,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (142)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -125263,6 +126103,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (412)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -125294,7 +126138,7 @@ GameObject:
   - component: {fileID: 1542441100}
   m_Layer: 0
   m_Name: v_coin (248)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125455,6 +126299,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (256)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -125518,6 +126366,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (297)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -125544,7 +126396,7 @@ GameObject:
   - component: {fileID: 1549448682}
   m_Layer: 0
   m_Name: v_coin (28)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125710,6 +126562,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (191)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -125772,6 +126628,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (267)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -125841,6 +126701,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (270)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -125903,6 +126767,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (393)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -126041,7 +126909,7 @@ GameObject:
   - component: {fileID: 1566196865}
   m_Layer: 0
   m_Name: v_coin (30)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126302,6 +127170,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (197)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -126440,6 +127312,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (365)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -126549,6 +127425,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (416)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -126570,7 +127450,7 @@ GameObject:
   - component: {fileID: 1605984452}
   m_Layer: 0
   m_Name: v_coin (188)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126689,7 +127569,7 @@ GameObject:
   - component: {fileID: 1612449680}
   m_Layer: 0
   m_Name: v_coin (243)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126808,7 +127688,7 @@ GameObject:
   - component: {fileID: 1615492314}
   m_Layer: 0
   m_Name: v_coin (208)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126927,7 +127807,7 @@ GameObject:
   - component: {fileID: 1617327971}
   m_Layer: 0
   m_Name: v_coin (249)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127046,7 +127926,7 @@ GameObject:
   - component: {fileID: 1625323074}
   m_Layer: 0
   m_Name: v_coin (33)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127165,7 +128045,7 @@ GameObject:
   - component: {fileID: 1632903262}
   m_Layer: 0
   m_Name: v_coin (177)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127326,6 +128206,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (384)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -127347,7 +128231,7 @@ GameObject:
   - component: {fileID: 1644542703}
   m_Layer: 0
   m_Name: v_coin (163)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127508,6 +128392,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (125)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -127570,6 +128458,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (379)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -127634,6 +128526,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (55)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -127691,6 +128587,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (403)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -127754,6 +128654,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (428)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -127822,6 +128726,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (140)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -127940,6 +128848,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (367)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -127961,7 +128873,7 @@ GameObject:
   - component: {fileID: 1676703247}
   m_Layer: 0
   m_Name: v_coin (170)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128126,6 +129038,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (405)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -128316,6 +129232,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (394)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -128337,7 +129257,7 @@ GameObject:
   - component: {fileID: 1707487187}
   m_Layer: 0
   m_Name: v_coin (41)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128497,6 +129417,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (80)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -128839,6 +129763,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (122)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -128976,7 +129904,7 @@ GameObject:
   - component: {fileID: 1747300588}
   m_Layer: 0
   m_Name: v_coin (174)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129142,6 +130070,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (200)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -129215,6 +130147,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (341)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -129278,6 +130214,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (99)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -129335,6 +130275,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (295)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -129398,6 +130342,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (118)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -129541,7 +130489,7 @@ GameObject:
   - component: {fileID: 1770694120}
   m_Layer: 0
   m_Name: v_coin (160)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129660,7 +130608,7 @@ GameObject:
   - component: {fileID: 1771453385}
   m_Layer: 0
   m_Name: v_coin (168)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129826,6 +130774,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (75)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -129939,6 +130891,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (386)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -130001,6 +130957,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (419)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -130070,6 +131030,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (339)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -130132,6 +131096,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (260)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -130206,6 +131174,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (257)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -130227,7 +131199,7 @@ GameObject:
   - component: {fileID: 1834438086}
   m_Layer: 0
   m_Name: v_coin (240)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130393,6 +131365,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (93)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -130409,7 +131385,7 @@ GameObject:
   - component: {fileID: 1844898582}
   m_Layer: 0
   m_Name: v_coin (43)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130528,7 +131504,7 @@ GameObject:
   - component: {fileID: 1844909977}
   m_Layer: 0
   m_Name: v_coin (239)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130647,7 +131623,7 @@ GameObject:
   - component: {fileID: 1847450821}
   m_Layer: 0
   m_Name: v_coin (12)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130808,6 +131784,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (119)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -130865,6 +131845,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (269)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -130929,6 +131913,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (73)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -130986,6 +131974,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (101)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -131049,6 +132041,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (338)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -131204,6 +132200,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (61)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -131341,6 +132341,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (273)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -131404,6 +132408,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (298)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -131425,7 +132433,7 @@ GameObject:
   - component: {fileID: 1870681775}
   m_Layer: 0
   m_Name: v_coin (5)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131586,6 +132594,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (268)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -131726,6 +132738,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (332)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -131747,7 +132763,7 @@ GameObject:
   - component: {fileID: 1883922362}
   m_Layer: 0
   m_Name: v_coin (38)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131876,7 +132892,7 @@ GameObject:
   - component: {fileID: 1891398072}
   m_Layer: 0
   m_Name: v_coin (220)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132037,6 +133053,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (333)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -132058,7 +133078,7 @@ GameObject:
   - component: {fileID: 1899136641}
   m_Layer: 0
   m_Name: v_coin (34)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132224,6 +133244,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (399)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -132287,6 +133311,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (376)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -132308,7 +133336,7 @@ GameObject:
   - component: {fileID: 1906416817}
   m_Layer: 0
   m_Name: v_coin (145)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132474,6 +133502,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (296)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -132536,6 +133568,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (195)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -132782,7 +133818,7 @@ GameObject:
   - component: {fileID: 1926036857}
   m_Layer: 0
   m_Name: v_coin (233)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132901,7 +133937,7 @@ GameObject:
   - component: {fileID: 1927314300}
   m_Layer: 0
   m_Name: v_coin (225)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133062,6 +134098,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (288)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -133088,7 +134128,7 @@ GameObject:
   - component: {fileID: 1933163068}
   m_Layer: 0
   m_Name: v_coin (176)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133248,6 +134288,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (375)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -133482,6 +134526,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (342)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -133503,7 +134551,7 @@ GameObject:
   - component: {fileID: 1948971165}
   m_Layer: 0
   m_Name: v_coin (6)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133664,6 +134712,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (152)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -133727,6 +134779,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (352)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -133748,7 +134804,7 @@ GameObject:
   - component: {fileID: 1953195489}
   m_Layer: 0
   m_Name: v_coin (227)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133909,6 +134965,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (133)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -134027,6 +135087,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (410)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -134090,7 +135154,7 @@ GameObject:
   - component: {fileID: 1981088684}
   m_Layer: 0
   m_Name: v_coin (24)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134209,7 +135273,7 @@ GameObject:
   - component: {fileID: 1981333434}
   m_Layer: 0
   m_Name: v_coin (167)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134328,7 +135392,7 @@ GameObject:
   - component: {fileID: 1982048888}
   m_Layer: 0
   m_Name: v_coin (3)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134447,7 +135511,7 @@ GameObject:
   - component: {fileID: 1983248417}
   m_Layer: 0
   m_Name: v_coin (246)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134566,7 +135630,7 @@ GameObject:
   - component: {fileID: 1988193594}
   m_Layer: 0
   m_Name: v_coin (211)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134727,6 +135791,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (153)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -134748,7 +135816,7 @@ GameObject:
   - component: {fileID: 1991554535}
   m_Layer: 0
   m_Name: v_coin (54)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134867,7 +135935,7 @@ GameObject:
   - component: {fileID: 1993998664}
   m_Layer: 0
   m_Name: v_coin (215)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135082,6 +136150,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (392)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -135145,6 +136217,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (388)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -135166,7 +136242,7 @@ GameObject:
   - component: {fileID: 1999126880}
   m_Layer: 0
   m_Name: v_coin (14)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135327,6 +136403,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (302)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -135436,6 +136516,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (62)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -135494,6 +136578,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (102)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -135510,7 +136598,7 @@ GameObject:
   - component: {fileID: 2008829976}
   m_Layer: 0
   m_Name: v_coin (183)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135703,7 +136791,7 @@ GameObject:
   - component: {fileID: 2019363729}
   m_Layer: 0
   m_Name: v_coin (21)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135864,6 +136952,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (359)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -135885,7 +136977,7 @@ GameObject:
   - component: {fileID: 2028143961}
   m_Layer: 0
   m_Name: v_coin (247)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136004,7 +137096,7 @@ GameObject:
   - component: {fileID: 2033690691}
   m_Layer: 0
   m_Name: v_coin (154)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136165,6 +137257,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (301)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -136227,6 +137323,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (275)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -136291,6 +137391,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (364)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -136354,6 +137458,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (432)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -136416,6 +137524,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (59)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -136570,6 +137682,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (391)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -136632,6 +137748,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (370)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -136696,6 +137816,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (291)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -136759,6 +137883,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (345)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -136780,7 +137908,7 @@ GameObject:
   - component: {fileID: 2092703300}
   m_Layer: 0
   m_Name: v_coin (52)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136941,6 +138069,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (67)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -136998,6 +138130,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (282)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -137157,6 +138293,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (357)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -137219,6 +138359,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (311)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -137283,6 +138427,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (377)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -137304,7 +138452,7 @@ GameObject:
   - component: {fileID: 2104224658}
   m_Layer: 0
   m_Name: v_coin (218)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137423,7 +138571,7 @@ GameObject:
   - component: {fileID: 2105167974}
   m_Layer: 0
   m_Name: v_coin (47)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137542,7 +138690,7 @@ GameObject:
   - component: {fileID: 2105334204}
   m_Layer: 0
   m_Name: v_coin (9)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137661,7 +138809,7 @@ GameObject:
   - component: {fileID: 2106063124}
   m_Layer: 0
   m_Name: v_coin (8)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137822,6 +138970,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (411)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -137843,7 +138995,7 @@ GameObject:
   - component: {fileID: 2114026168}
   m_Layer: 0
   m_Name: v_coin (39)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138004,6 +139156,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (109)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -138061,6 +139217,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (124)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -138199,6 +139359,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (426)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -138261,6 +139425,10 @@ Prefab:
     - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
       propertyPath: m_Name
       value: v_coin (108)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
@@ -138374,6 +139542,10 @@ Prefab:
       propertyPath: m_Name
       value: v_coin (292)
       objectReference: {fileID: 0}
+    - target: {fileID: 1241457132471058, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d75f2ef59846124e9d25a05e99bdfbf, type: 2}
   m_IsPrefabParent: 0
@@ -138395,7 +139567,7 @@ GameObject:
   - component: {fileID: 2145983564}
   m_Layer: 0
   m_Name: v_coin (25)
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
