@@ -16,7 +16,7 @@ public class Sensor : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Platform")
+        if (collision.gameObject.tag == "Platform" || collision.gameObject.tag == "Hazard")
         {            
             Activated = true;
             //Debug.Log(gameObject.name.ToUpper() + " Activated");
@@ -25,7 +25,7 @@ public class Sensor : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Platform")
+        if (collision.gameObject.tag == "Platform" || collision.gameObject.tag == "Hazard")
         {            
             Activated = false;
             //Debug.Log(gameObject.name.ToUpper() + " De-activated");
