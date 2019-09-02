@@ -3,6 +3,8 @@ using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SMovement : MonoBehaviour
 {  // http://info.sonicretro.org/SPG:Solid_Tiles Used for reference here.
@@ -33,7 +35,7 @@ public class SMovement : MonoBehaviour
     float angle; // Katt's angle on the ground.   
     float groundRayDistance, groundRayOffsetY;
     Vector2 groundRayDirection; // The direction the ground ray will point in.    
-    bool jumpCapable, airborne; // For keeping track of whether or not Katt is in mid-air.
+    bool jumpCapable, airborne, levelOver;
 
     // Constants
     const float acc = 0.046875f;
@@ -53,14 +55,28 @@ public class SMovement : MonoBehaviour
     Quaternion DefaultRotation; // Katt's default rotation, she will revert to this whenever she is airborne.
     CircleCollider2D testFeetCollider; // From the old script. I'll likely get rid of it soon and use the sensors instead.    
     Animator animator;
+    Transform respawnLocation;
 
     // Children    
     Sensor[] sensors = new Sensor[4]; // Increase to 6 when E and F are added.
+
+    // UI
+    GameObject hud, collectiblesContainer, endOverlay;
+    GameObject[] gameCoins;
+    int coinCount, maxCoins, lives;
+    Text coinText, livesText, endingText;
     #endregion
 
     // Methods
     void Start()
     {
+        levelOver = false;       
+        collectiblesContainer = GameObject.Find("collectibles").gameObject;
+        gameCoins = GameObject.FindGameObjectsWithTag("Coin");
+        foreach (var coin in gameCoins) maxCoins++;
+
+        //Debug.Log("Coins found: " + maxCoins);
+
         jumpEvnt = RuntimeManager.CreateInstance(jumpSfx);
         collectEvent = RuntimeManager.CreateInstance(collect);
         hurtEvent = RuntimeManager.CreateInstance(hurt);
@@ -73,19 +89,26 @@ public class SMovement : MonoBehaviour
         spriteCenter = sprite.bounds.center;                   
         
         DefaultRotation = transform.rotation;
+        //respawnLocation.position = new Vector3(transform.position.x, transform.position.y, transform.position.z); Not working.
 
+        HudInitialisation();
         GroundRayInitialisation();
         SensorInitialisation();
     }
 
     void Update() // Used to update game elements not related to physics.
-    {        
+    {
+        if (levelOver)
+        {
+            if (Input.GetButtonUp("BtnA")) SceneManager.LoadScene(0);
+        }
         UpdateSpriteOrientation();
         UpdateAnimation();
     }
 
     void FixedUpdate() // Used to update physics-related game elements.
     {
+        if (levelOver) return;
         HandleMovement();        
         GroundRayUpdate();
         SensorAirborneCheck();
@@ -107,6 +130,7 @@ public class SMovement : MonoBehaviour
         {
             if (jumpCapable && !airborne)
             {
+                //respawnLocation.position = new Vector3(transform.position.x, transform.position.y, transform.position.z); Not working.
                 RuntimeManager.PlayOneShot(jumpSfx);
                 body.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
                 jumpCapable = false;
@@ -195,15 +219,52 @@ public class SMovement : MonoBehaviour
 
     #region COLLISION METHODS
     private void OnCollisionEnter2D(Collision2D collision) // Might replace this using sensors.
-    {
-
-        //RuntimeManager.PlayOneShot(collect);
-
-        //if (collision.gameObject.tag == "Platform") jumpCapable = true;
+    {       
+        
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Coin" || collision.gameObject.tag == "1up")
+        {
+            RuntimeManager.PlayOneShot(collect);           
+            Destroy(collision.gameObject);
+            coinCount++;
+            coinText.text = string.Format("X" + coinCount);
+        }
+
+        //else if (collision.gameObject.tag == "Hazard")
+        //{
+        //    Debug.Log("Not working yet.");
+        //    transform.position = new Vector3(respawnLocation.position.x, respawnLocation.position.y, respawnLocation.position.z);
+        //}
+
+        else if(collision.gameObject.tag == "OutOfBounds")
+        {
+            transform.position = new Vector3(-5.17f, -2.45f, -1);
+        }
+
+        else if (collision.gameObject.tag == "Finish")
+        {
+            LevelClear();           
+        }
+    }    
     #endregion
 
     #region INITIALISATION METHODS
+    private void HudInitialisation()
+    {
+        hud = GameObject.Find("UI_HUD").gameObject;
+        endOverlay = hud.transform.Find("level_complete_overlay").gameObject;
+        endingText = endOverlay.GetComponentInChildren<Text>();
+        endOverlay.SetActive(false);
+
+        coinText = hud.transform.Find("txt_coin_counter").GetComponent<Text>();
+        livesText = hud.transform.Find("txt_lives").GetComponent<Text>();
+        lives = 4;
+        coinText.text = string.Format("X" + coinCount);
+        livesText.text = string.Format("X" + lives);
+    }
     private void SensorInitialisation()
     {   // Get access to Katt's sensors.     
         GameObject sensorParent = transform.Find("0_sensors").gameObject;
@@ -226,4 +287,13 @@ public class SMovement : MonoBehaviour
         groundRayDirection = new Vector2(0, 1); // The ray will fire downwards from Katt's center.       
     }    
     #endregion
+
+    void LevelClear()
+    {
+        levelOver = true;
+        endOverlay.SetActive(true);
+        //body.isKinematic = true;
+        body.velocity = Vector3.zero;
+        endingText.text = string.Format("Level Complete! " + coinCount + " V Coins collected!\nPress the Jump button to return to title.");
+    }
 }

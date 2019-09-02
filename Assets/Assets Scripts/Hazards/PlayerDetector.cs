@@ -7,8 +7,7 @@ public class PlayerDetector : MonoBehaviour {
     Rigidbody2D parentBody; // The body of this object's parent, which will be an icicle hazard.
 	
 	void Start () {
-        parentBody = GetComponentInParent<Rigidbody2D>();
-        Debug.Log(parentBody.name);
+        parentBody = GetComponentInParent<Rigidbody2D>();        
 	}
 		
 	void Update () {
