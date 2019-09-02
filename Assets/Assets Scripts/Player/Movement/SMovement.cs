@@ -17,6 +17,10 @@ public class SMovement : MonoBehaviour
     EventInstance collectEvent;
 
     [EventRef]
+    public string hurt = "event:/Master/SFX/Hurt/hit";
+    EventInstance hurtEvent;
+
+    [EventRef]
     public string jumpSfx = "event:/Master/SFX/jump/Sonic_Jump_Sound_Effect";
     EventInstance jumpEvnt;
 
@@ -59,7 +63,7 @@ public class SMovement : MonoBehaviour
     {
         jumpEvnt = RuntimeManager.CreateInstance(jumpSfx);
         collectEvent = RuntimeManager.CreateInstance(collect);
-        
+        hurtEvent = RuntimeManager.CreateInstance(hurt);
 
         FacingRight = true;
         body = GetComponent<Rigidbody2D>();

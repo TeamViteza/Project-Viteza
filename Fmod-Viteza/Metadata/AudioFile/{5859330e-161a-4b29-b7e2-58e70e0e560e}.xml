@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{5859330e-161a-4b29-b7e2-58e70e0e560e}">
+        <property name="assetPath">
+            <value>11_jab.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>1</value>
+        </property>
+        <property name="length">
+            <value>0.43945578231292515</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{7932ad0e-1089-47b5-b4c4-e9da497ccab9}</destination>
+        </relationship>
+    </object>
+</objects>
